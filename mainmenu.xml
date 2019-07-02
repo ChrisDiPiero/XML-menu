@@ -3,9 +3,58 @@
     <menu restaurant="">
         <breakfast>
             <item>
-                <name></name>
-                <price></price>
+                <name>The Standard</name>
+                <price>7.95</price>
                 <description>
+                    Two (2) eggs any-style, home fries, bacon or sausage
+                </description>
+            </item>
+
+            <item>
+                <name>Hash n’ Eggs</name>
+                <price>9.95</price>
+                <description>
+                    Our famous hash made with corned beef, pastrami, potatoes, peppers and onions. Topped with two (2) eggs your way
+                </description>
+            </item>
+
+            <item>
+                <name>Cheesy Omelet</name>
+                <price>8.95</price>
+                <description>
+                    Omelet filled with your choice of American, Swiss, Cheddar or Mozzarella cheese
+                </description>
+            </item>
+
+            <item>
+                <name>L.E.O. Scramble</name>
+                <price>13.95</price>
+                <description>
+                    Scramble of Nova Lox (smoked salmon), Eggs and Onions
+                </description>
+            </item>
+
+            <item>
+                <name>Salami and Eggs</name>
+                <price>11.95</price>
+                <description>
+                    Grilled Hebrew National salami scrambled with three (3) eggs
+                </description>
+            </item>
+
+            <item>
+                <name>Chili Cheese Omelet</name>
+                <price>11.95</price>
+                <description>
+                    Omelet filled with meat and bean chili, green onions and cheddar cheese
+                </description>
+            </item>
+
+            <item>
+                <name>Build Your Omelet</name>
+                <price>11.95</price>
+                <description>
+                    Choose any three (3) items: spinach, tomato, onions, green peppers, mushrooms, avocado, bacon, ham, sausage, feta, cheddar, American or Swiss
                 </description>
             </item>
         </breakfast>
@@ -15,3 +64,8 @@
         </dinner>
     </menu>
 </menulist>
+
+            <name></name>
+            <price></price>
+            <description>
+            </description>
