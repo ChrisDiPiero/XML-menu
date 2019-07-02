@@ -1,0 +1,17 @@
+<?xml version = "1.0" encoding = "UTF-8" standalone = "yes" ?>
+<menulist>
+    <menu restaurant="">
+        <breakfast>
+            <item>
+                <name></name>
+                <price></price>
+                <description>
+                </description>
+            </item>
+        </breakfast>
+        <lunch>
+        </lunch>
+        <dinner>
+        </dinner>
+    </menu>
+</menulist>
