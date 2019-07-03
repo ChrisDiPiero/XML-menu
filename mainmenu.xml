@@ -1,6 +1,6 @@
 <?xml version = "1.0" encoding = "UTF-8" standalone = "yes" ?>
 <menulist>
-    <menu restaurant="">
+    <menu restaurant="Max & Louie's New York Diner">
         <breakfast>
             <item>
                 <name>The Standard</name>
@@ -58,7 +58,61 @@
                 </description>
             </item>
         </breakfast>
+
         <lunch>
+            <item>
+                <name>Reuben</name>
+                <price>14.95</price>
+                <description>
+                    Hot pastrami, corned beef, or turkey w/sauerkraut, swiss cheese and thousand island on rye
+                </description>
+            </item>
+
+            <item>
+                <name>Rachel</name>
+                <price>14.95</price>
+                <description>
+                    Hot pastrami, corned beef, or turkey w/cole slaw, swiss cheese and thousand island on rye
+                </description>
+            </item>
+
+            <item>
+All Natural Turkey  10.95
+Turkey Breast with lettuce and
+tomato on delicious rye bread
+            </item>
+
+            <item>
+Roast Beef 10.95
+Freshly sliced roast beef with
+lettuce and tomato on
+delicious rye bread
+            </item>
+
+            <item>
+Turkey Club Sandwich 12.95
+Turkey breast, swiss cheese, bacon, lettuce,
+hellman’s and tomato on
+triple decker rye toast
+            </item>
+
+            <item>
+Triple Decker Roast Beef 12.95
+Roast Beef, swiss cheese, bacon, lettuce, hellmann’s
+and tomato on triple decker rye toast
+            </item>
+
+            <item>
+Chopped Liver Sandwich 11.95
+Housemade chopped liver served on rye
+with lettuce, tomato and red onion
+            </item>
+
+            <item>
+Kosher Salami 11.95
+Hebrew National kosher
+salami on rye bread
+            </item>
         </lunch>
         <dinner>
         </dinner>
