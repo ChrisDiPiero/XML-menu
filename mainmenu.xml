@@ -1,7 +1,7 @@
 <?xml version = "1.0" encoding = "UTF-8" standalone = "yes" ?>
 <menulist>
     <menu restaurant="Max & Louie's New York Diner">
-        <breakfast>
+        <breakfast hours="all day">
             <item>
                 <name>The Standard</name>
                 <price>7.95</price>
@@ -59,7 +59,7 @@
             </item>
         </breakfast>
 
-        <lunch>
+        <lunch hours="all day">
             <item>
                 <name>Reuben</name>
                 <price>14.95</price>
@@ -77,45 +77,58 @@
             </item>
 
             <item>
-All Natural Turkey  10.95
-Turkey Breast with lettuce and
-tomato on delicious rye bread
+                <name>All Natural Turkey</name>
+                <price>10.95</price>
+                <description>
+                    Turkey Breast with lettuce and tomato on delicious rye bread
+                </description>
             </item>
 
             <item>
-Roast Beef 10.95
-Freshly sliced roast beef with
-lettuce and tomato on
-delicious rye bread
+                <name>Roast Beef</name>
+                <price>10.95</price>
+                <description>
+                        Freshly sliced roast beef with lettuce and tomato on delicious rye bread
+                </description>
             </item>
 
             <item>
-Turkey Club Sandwich 12.95
-Turkey breast, swiss cheese, bacon, lettuce,
-hellman’s and tomato on
-triple decker rye toast
+                <name>Turkey Club Sandwich</name>
+                <price>12.95</price>
+                <description>
+                    Turkey breast, swiss cheese, bacon, lettuce, hellman’s and tomato on triple decker rye toast
+                </description>
             </item>
 
             <item>
-Triple Decker Roast Beef 12.95
-Roast Beef, swiss cheese, bacon, lettuce, hellmann’s
-and tomato on triple decker rye toast
+                <name>Triple Decker Roast Beef</name>
+                <price>12.95</price>
+                <description>
+                    Roast Beef, swiss cheese, bacon, lettuce, hellmann’s and tomato on triple decker rye toast
+                </description>
             </item>
 
             <item>
-Chopped Liver Sandwich 11.95
-Housemade chopped liver served on rye
-with lettuce, tomato and red onion
+                <name>Chopped Liver Sandwich</name>
+                <price>11.95</price>
+                <description>
+                    Housemade chopped liver served on rye with lettuce, tomato and red onion
+                </description>
             </item>
 
             <item>
-Kosher Salami 11.95
-Hebrew National kosher
-salami on rye bread
+                <name>Kosher Salami</name>
+                <price>11.95</price>
+                <description>
+                    Hebrew National kosher salami on rye bread
+                </description>
             </item>
         </lunch>
         <dinner>
         </dinner>
+    </menu>
+    <menu restaurant="">
+    
     </menu>
 </menulist>
 
