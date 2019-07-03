@@ -127,8 +127,128 @@
         <dinner>
         </dinner>
     </menu>
-    <menu restaurant="">
-    
+
+    <menu restaurant="Magnolia Pancake Haus">
+        <breakfast>
+            <item>
+                <name>Magnolia’s Old World Buttermilk Pancakes</name>
+                <price>6.99</price>
+                <description>
+                    Made with Fresh Buttermilk in Small Batches
+                </descriptio>
+            </item>
+
+            <item>
+                <name>Blueberry Pancakes</name>
+                <price>7.95</price>    
+                <description>
+                    Our World’s Best Buttermilk Pancakes with Wild Blueberries
+                </description>
+            </item>
+
+            <item>
+                <name>Chocolate Chip Pancakes</name>
+                <price>7.95</price>
+                <description>
+                    Semi-Sweet Chocolate Chips Stud Our World’s Best Pancakes
+                </description>
+            </item>
+
+           <item>
+                <name>Apple Cinnamon Pancakes</name>
+                <price>8.75</price>
+                <description>
+                    Granny Smith Apples Scented with Zesty Cinnamon and Cooked Into Our Famous Cakes
+                </description>
+           </item>
+
+            <item>
+                <name>Buckwheat Cakes</name>
+                <price>8.50</price>
+                <description>
+                    Hearty & Healthy Cakes Made with Organic Buckwheat Flour. Treat Yourself Right!
+                </description>
+            </item>
+
+            <item>
+                <name>Silver Dollar Cakes</name>
+                <price>6.95</price>
+                <description>
+                    $10 Worth of The Cutest Cakes You’ve Ever Tasted
+                </description>
+            </item>
+
+            <item>
+                <name>Pecan Pancakes</name>
+                <price>7.95</price>
+                <description>
+                Texas Pecans Fill Our World’s Best Pancakes
+                </description>
+            </item>
+        </breakfast>
+        <lunch>
+        
+
+    Fried Chicken Chop Salad
+
+    Wedge of Baby Iceberg, Bacon Lardons, Grape Tomatoes, Cucumbers, Fried Egg Ribbons, Crispy Fried Buttermilk Chicken Breast, Haus Smoked Jalapeno Ranch
+
+    $10.25
+
+    Magnolia Cobb
+
+    Organic Mixed Greens, Tomatoes, Gorgonzola Crumbles, Bacon, Hard Boiled Egg, Avocado, Tortilla Strips, Haus Cilantro Ranch Dressing
+
+    $8.49
+
+    Add Grilled Chicken $3.49
+
+    Strawberry Chicken
+
+    Organic Mixed Greens, Gorgonzola Crumbles, Fresh Strawberries, Walnuts, Roasted Chicken Breast, Raspberry Poppy Seed Dressing
+
+    $10.25
+
+    Haus Style Caesar
+
+    Romaine and Arugula, Red Onions, Parmesan Cheese, Haus Baked Croutons, Classic Caesar Dressing
+
+    $6.99
+
+    Add Grilled Chicken $3.49
+
+Haus Burgers
+1/3 Lb Brisket Blend Patty and Served with Haus Chips or Audrey's German Potato Salad
+Add Soup of The Day for Only $1.99 | Sub Haus Salad for Side $1.99
+
+    Classic Cheese
+
+    Your Choice of Cheese. Served on A Grilled Potato Bun with Lettuce, Tomato and Onion
+
+    $9.99
+
+    Magnolia Patty Melt
+
+    Mixed Grilled Onions & Peppers, Swiss Cheese. Served on Grilled Rye
+
+    $10.25
+
+    Bacon Avocado
+
+    Applewood Smoked Bacon Bits, Tillamook Cheddar, & Avocado. Served on A Grilled Potato Bun with Lettuce, Tomato and Onion
+
+    $11.25
+
+    Breakfast Meets Lunch
+
+    Tillamook Cheddar, Applewood Smoked Bacon, Arugula, Haus Sausage Gravy, Sunny Side up Egg. Served on A Grilled Potato Bun
+
+    $11.99
+
+
+        </lunch>
+        <dinner>
+        </dinner>
     </menu>
 </menulist>
 
