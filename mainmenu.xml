@@ -1,7 +1,7 @@
 <?xml version = "1.0" encoding = "UTF-8" standalone = "yes" ?>
 <menulist>
     <menu restaurant="Max & Louie's New York Diner">
-        <breakfast hours="all day">
+        <breakfast hours="7:30 am - 10:00 pm">
             <item>
                 <name>The Standard</name>
                 <price>7.95</price>
@@ -59,7 +59,7 @@
             </item>
         </breakfast>
 
-        <lunch hours="all day">
+        <lunch hours="7:30 am - 10:00 pm">
             <item>
                 <name>Reuben</name>
                 <price>14.95</price>
@@ -124,12 +124,13 @@
                 </description>
             </item>
         </lunch>
-        <dinner>
+        <dinner hours="7:30 am - 10:00 pm">
+            <other>see lunch</other>
         </dinner>
     </menu>
 
     <menu restaurant="Magnolia Pancake Haus">
-        <breakfast>
+        <breakfast hours="7:00 am - 2:00 pm">
             <item>
                 <name>Magnolia’s Old World Buttermilk Pancakes</name>
                 <price>6.99</price>
@@ -186,7 +187,7 @@
                 </description>
             </item>
         </breakfast>
-        <lunch>
+        <lunch hours="10:00 am - 2:00 pm">
             <item>
                 <name>Fried Chicken Chop Salad</name>
                 <price>10.25</price>
@@ -259,7 +260,65 @@
                 </description>
             </item>
         </lunch>
-        <dinner>
+        <dinner hours="0">
+        </dinner>
+    </menu>
+
+    <menu restaurant="Supper">
+        <breakfast hours="7:00 am - 11:00 am">
+            <item>
+                <!-- if no name, use js to bump description above price -->
+                <name></name>
+                <price>6</price>
+                <description>
+                    Steel Cut Oatmeal, Quinoa, Apple Cider, Apricot, Goji Berry, Raisins and Cherry
+                </description>
+            </item>
+            <name></name>
+            Buttermilk Pancakes with Blueberries, Ricotta Cheese, Lemon Curd and Pinenuts…10
+            <name></name>
+            Brioche French Toast with Summer Berries and Dapper Dairy Goat Cheese…11
+            <name></name>
+            Scrambled Eggs with Sliced Avocado, Arugula and Sauce Romesco…12
+            <name></name>
+            Ham and Fried Egg Sandwich with Gruyere, Arugula and Pickled Onions…12
+            <name></name>
+            Scotch Egg with Green Chili Chorizo, Cornbread, Salad and Crème Fraiche…12
+            <name></name>
+            Poached Egg on Avocado with Ciabatta Toast and Tomato Provencal…9
+            <name></name>
+            Simple French Omelet with Mature Cheddar Cheese and Fresh Herbs…12
+            <!-- Add: Avocado $3 -->
+
+        </breakfast>
+
+        <lunch hours="11:00 am - 3:00 pm">
+        
+            Vegetable Sandwich on Seeded Grain Bread with Hummus, Avocado, Sprouts and Salsa Verde…10
+            Roasted Chicken Salad on Croissant with Sage, Grapes and Walnuts…11
+            Peeler Farms Beef Burger with Sunny Side Egg, Caramel Onions, Lettuce and Tomato…11
+            Smoked Salmon Sandwich on Rye Toast with Havarti Dill Cheese, Pickle, Caper and Tomato…12
+            Smoked Beef and Gruyere Grilled Cheese on Jalapeno Sourdough with Pickled Onions and Arugula…13
+            <!--Add Fried Egg or Smashed Avocado to any sandwich…3
+            All sandwiches are served with Garden Salad and house made Chips -->
+            Simple French Omelet with Mature Cheddar and Herbs…12
+            Halibut with White Bean Puree, Pumpkin Seed, Sesame Seed add Morita Chili Relish ...15
+            Buttermilk Crusted Chicken with Cornbread and Green Chili Chorizo Gravy…15
+
+        </lunch>
+
+        <dinner hours="5:00 am - 10:00 pm">
+
+            Halibut with White Bean Puree, Pumpkin Seed, Morita and Sesame Seed Relish…26
+            Steelhead Ocean Trout with Green Skordalia, Nasturtium and Lentils…26
+            Whole Bronzino with Harissa, Freekeh, Green Beans and Herb Salad…26
+            Smoked Crispy Quail with Pickled Corn Relish, Gold Potatoes and Chili Garlic Honey…26
+            Fresh Pasta with Roasted Mushrooms, Cream, Kale and Sunflower Seed Pesto…17
+            Braised Beef Cheek with Cornbread, Pickled and Charred Okra…25
+            Salad of Watercress and Sprouts with Roasted Beets, Blueberry, Almonds and Rhubarb Vinaigrette…9
+            Cauliflower Roasted in Brown Butter with Hazelnuts and Salsa Vierge…9
+            Simple Garden Salad of Lettuces and Raw Vegetables with Meyer Lemon Dressing…7
+
         </dinner>
     </menu>
 </menulist>
