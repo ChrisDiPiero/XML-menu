@@ -274,20 +274,63 @@
                     Steel Cut Oatmeal, Quinoa, Apple Cider, Apricot, Goji Berry, Raisins and Cherry
                 </description>
             </item>
-            <name></name>
-            Buttermilk Pancakes with Blueberries, Ricotta Cheese, Lemon Curd and Pinenuts…10
-            <name></name>
-            Brioche French Toast with Summer Berries and Dapper Dairy Goat Cheese…11
-            <name></name>
-            Scrambled Eggs with Sliced Avocado, Arugula and Sauce Romesco…12
-            <name></name>
-            Ham and Fried Egg Sandwich with Gruyere, Arugula and Pickled Onions…12
-            <name></name>
-            Scotch Egg with Green Chili Chorizo, Cornbread, Salad and Crème Fraiche…12
-            <name></name>
-            Poached Egg on Avocado with Ciabatta Toast and Tomato Provencal…9
-            <name></name>
-            Simple French Omelet with Mature Cheddar Cheese and Fresh Herbs…12
+
+            <item>
+                <name></name>
+                <price>10</price>
+                <description>
+                    Buttermilk Pancakes with Blueberries, Ricotta Cheese, Lemon Curd and Pinenuts
+                </description>
+            </item>
+
+            <item>
+                <name></name>
+                <price>11</price>
+                <description>
+                    Brioche French Toast with Summer Berries and Dapper Dairy Goat Cheese
+                </description>
+            </item>
+
+            <item>
+                <name></name>
+                <price>12</price>
+                <description>
+                    Scrambled Eggs with Sliced Avocado, Arugula and Sauce Romesco
+                </description>
+            </item>
+
+            <item>
+                <name></name>
+                <price>12</price>
+                <description>
+                    Ham and Fried Egg Sandwich with Gruyere, Arugula and Pickled Onions
+                </description>
+            </item>
+
+            <item>
+                <name></name>
+                <price>12</price>
+                <description>
+                    Scotch Egg with Green Chili Chorizo, Cornbread, Salad and Crème Fraiche
+                </description>
+            </item>
+
+            <item>
+                <name></name>
+                <price>9</price>
+                <description>
+                    Poached Egg on Avocado with Ciabatta Toast and Tomato Provencal
+                </description>
+            </item>
+
+            <item>
+                <name></name>
+                <price>12</price>
+                <description>
+                    Simple French Omelet with Mature Cheddar Cheese and Fresh Herbs
+                </description>
+            </item>
+
             <!-- Add: Avocado $3 -->
 
         </breakfast>
