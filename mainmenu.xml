@@ -265,10 +265,10 @@
     </menu>
 
     <menu restaurant="Supper">
+                <!-- if no name, use js to bump description above price -->
         <breakfast hours="7:00 am - 11:00 am">
             <item>
-                <!-- if no name, use js to bump description above price -->
-                <name></name>
+                <name />
                 <price>6</price>
                 <description>
                     Steel Cut Oatmeal, Quinoa, Apple Cider, Apricot, Goji Berry, Raisins and Cherry
@@ -276,7 +276,11 @@
             </item>
 
             <item>
+<<<<<<< HEAD
                 <name></name>
+=======
+                <name />
+>>>>>>> 157ae85e441a5c97190f2e25e9873877a720faf1
                 <price>10</price>
                 <description>
                     Buttermilk Pancakes with Blueberries, Ricotta Cheese, Lemon Curd and Pinenuts
@@ -284,7 +288,11 @@
             </item>
 
             <item>
+<<<<<<< HEAD
                 <name></name>
+=======
+                <name />
+>>>>>>> 157ae85e441a5c97190f2e25e9873877a720faf1
                 <price>11</price>
                 <description>
                     Brioche French Toast with Summer Berries and Dapper Dairy Goat Cheese
@@ -292,38 +300,67 @@
             </item>
 
             <item>
+<<<<<<< HEAD
                 <name></name>
                 <price>12</price>
                 <description>
                     Scrambled Eggs with Sliced Avocado, Arugula and Sauce Romesco
+=======
+                <name />
+                <price>12</price>
+                <description>
+                   Scrambled Eggs with Sliced Avocado, Arugula and Sauce Romesco
+>>>>>>> 157ae85e441a5c97190f2e25e9873877a720faf1
                 </description>
             </item>
 
             <item>
+<<<<<<< HEAD
                 <name></name>
                 <price>12</price>
                 <description>
                     Ham and Fried Egg Sandwich with Gruyere, Arugula and Pickled Onions
+=======
+                <name />
+                <price>12</price>
+                <description>
+                   Ham and Fried Egg Sandwich with Gruyere, Arugula and Pickled Onions
+>>>>>>> 157ae85e441a5c97190f2e25e9873877a720faf1
                 </description>
             </item>
 
             <item>
+<<<<<<< HEAD
                 <name></name>
                 <price>12</price>
                 <description>
                     Scotch Egg with Green Chili Chorizo, Cornbread, Salad and Crème Fraiche
+=======
+                <name />
+                <price>12</price>
+                <description>
+                   Scotch Egg with Green Chili Chorizo, Cornbread, Salad and Crème Fraiche
+>>>>>>> 157ae85e441a5c97190f2e25e9873877a720faf1
                 </description>
             </item>
 
             <item>
+<<<<<<< HEAD
                 <name></name>
                 <price>9</price>
                 <description>
                     Poached Egg on Avocado with Ciabatta Toast and Tomato Provencal
+=======
+                <name />
+                <price>9</price>
+                <description>
+                   Poached Egg on Avocado with Ciabatta Toast and Tomato Provencal
+>>>>>>> 157ae85e441a5c97190f2e25e9873877a720faf1
                 </description>
             </item>
 
             <item>
+<<<<<<< HEAD
                 <name></name>
                 <price>12</price>
                 <description>
@@ -331,42 +368,161 @@
                 </description>
             </item>
 
+=======
+                <name />
+                <price>12</price>
+                <description>
+                   Simple French Omelet with Mature Cheddar Cheese and Fresh Herbs
+                </description>
+            </item>
+>>>>>>> 157ae85e441a5c97190f2e25e9873877a720faf1
             <!-- Add: Avocado $3 -->
 
         </breakfast>
 
         <lunch hours="11:00 am - 3:00 pm">
-        
-            Vegetable Sandwich on Seeded Grain Bread with Hummus, Avocado, Sprouts and Salsa Verde…10
-            Roasted Chicken Salad on Croissant with Sage, Grapes and Walnuts…11
-            Peeler Farms Beef Burger with Sunny Side Egg, Caramel Onions, Lettuce and Tomato…11
-            Smoked Salmon Sandwich on Rye Toast with Havarti Dill Cheese, Pickle, Caper and Tomato…12
-            Smoked Beef and Gruyere Grilled Cheese on Jalapeno Sourdough with Pickled Onions and Arugula…13
+            <item type="sandwich">
+                <name />
+                <price>10</price>
+                <description>
+                    Vegetable Sandwich on Seeded Grain Bread with Hummus, Avocado, Sprouts and Salsa Verd
+                </description>
+            </item>
+
+            <item type="sandwich">
+                <name />
+                <price>11</price>
+                <description>
+                    Roasted Chicken Salad on Croissant with Sage, Grapes and Walnut
+                </description>
+            </item>
+
+            <item type="sandwich">
+                <name />
+                <price>11</price>
+                <description>
+                    Peeler Farms Beef Burger with Sunny Side Egg, Caramel Onions, Lettuce and Tomat
+                </description>
+            </item>
+
+            <item type="sandwich">
+                <name />
+                <price>12</price>
+                <description>
+                    Smoked Salmon Sandwich on Rye Toast with Havarti Dill Cheese, Pickle, Caper and Tomat
+                </description>
+            </item>
+
+            <item type="sandwich">
+                <name />
+                <price>13</price>
+                <description>
+                    Smoked Beef and Gruyere Grilled Cheese on Jalapeno Sourdough with Pickled Onions and Arugul
+                </description>
+            </item>
+
+
             <!--Add Fried Egg or Smashed Avocado to any sandwich…3
             All sandwiches are served with Garden Salad and house made Chips -->
-            Simple French Omelet with Mature Cheddar and Herbs…12
-            Halibut with White Bean Puree, Pumpkin Seed, Sesame Seed add Morita Chili Relish ...15
-            Buttermilk Crusted Chicken with Cornbread and Green Chili Chorizo Gravy…15
+            <item>
+                <name />
+                <price>12</price>
+                <description>
+                    Simple French Omelet with Mature Cheddar and Herb
+                </description>
+            </item>
+
+            <item>
+                <name />
+                <price>15</price>
+                <description>
+                    Halibut with White Bean Puree, Pumpkin Seed, Sesame Seed add Morita Chili Relish
+                </description>
+            </item>
+
+            <item>
+                <name />
+                <price>15</price>
+                <description>
+                    Buttermilk Crusted Chicken with Cornbread and Green Chili Chorizo Grav
+                </description>
+            </item>
 
         </lunch>
 
         <dinner hours="5:00 am - 10:00 pm">
+            <item>
+                <name />
+                <price>26</price>
+                <description>
+                    Halibut with White Bean Puree, Pumpkin Seed, Morita and Sesame Seed Relish
+                </description>
+            </item>
 
-            Halibut with White Bean Puree, Pumpkin Seed, Morita and Sesame Seed Relish…26
-            Steelhead Ocean Trout with Green Skordalia, Nasturtium and Lentils…26
-            Whole Bronzino with Harissa, Freekeh, Green Beans and Herb Salad…26
-            Smoked Crispy Quail with Pickled Corn Relish, Gold Potatoes and Chili Garlic Honey…26
-            Fresh Pasta with Roasted Mushrooms, Cream, Kale and Sunflower Seed Pesto…17
-            Braised Beef Cheek with Cornbread, Pickled and Charred Okra…25
-            Salad of Watercress and Sprouts with Roasted Beets, Blueberry, Almonds and Rhubarb Vinaigrette…9
-            Cauliflower Roasted in Brown Butter with Hazelnuts and Salsa Vierge…9
-            Simple Garden Salad of Lettuces and Raw Vegetables with Meyer Lemon Dressing…7
+            <item>
+                <name />
+                <price>26</price>
+                <description>
+                    Steelhead Ocean Trout with Green Skordalia, Nasturtium and Lentils
+                </description>
+            </item>
+
+            <item>
+                <name />
+                <price>26</price>
+                <description>
+                    Whole Bronzino with Harissa, Freekeh, Green Beans and Herb Salad
+                </description>
+            </item>
+
+            <item>
+                <name />
+                <price>26</price>
+                <description>
+                    Smoked Crispy Quail with Pickled Corn Relish, Gold Potatoes and Chili Garlic Honey
+                </description>
+            </item>
+
+            <item>
+                <name />
+                <price>17</price>
+                <description>
+                    Fresh Pasta with Roasted Mushrooms, Cream, Kale and Sunflower Seed Pesto
+                </description>
+            </item>
+
+            <item>
+                <name />
+                <price>25</price>
+                <description>
+                    Braised Beef Cheek with Cornbread, Pickled and Charred Okra
+                </description>
+            </item>
+
+            <item>
+                <name />
+                <price>9</price>
+                <description>
+                    Salad of Watercress and Sprouts with Roasted Beets, Blueberry, Almonds and Rhubarb Vinaigrette
+                </description>
+            </item>
+
+            <item>
+                <name />
+                <price>9</price>
+                <description>
+                    Cauliflower Roasted in Brown Butter with Hazelnuts and Salsa Vierge
+                </description>
+            </item>
+
+            <item>
+                <name />
+                <price>7</price>
+                <description>
+                    Simple Garden Salad of Lettuces and Raw Vegetables with Meyer Lemon Dressing
+                </description>
+            </item>
 
         </dinner>
     </menu>
 </menulist>
-
-            <name></name>
-            <price></price>
-            <description>
-            </description>
