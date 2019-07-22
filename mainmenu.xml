@@ -268,7 +268,7 @@
                 <!-- if no name, use js to bump description above price -->
         <breakfast hours="7:00 am - 11:00 am">
             <item>
-                <name></name>
+                <name />
                 <price>6</price>
                 <description>
                     Steel Cut Oatmeal, Quinoa, Apple Cider, Apricot, Goji Berry, Raisins and Cherry
@@ -276,7 +276,7 @@
             </item>
 
             <item>
-                <name></name>
+                <name />
                 <price>10</price>
                 <description>
                     Buttermilk Pancakes with Blueberries, Ricotta Cheese, Lemon Curd and Pinenuts
@@ -284,7 +284,7 @@
             </item>
 
             <item>
-                <name></name>
+                <name />
                 <price>11</price>
                 <description>
                     Brioche French Toast with Summer Berries and Dapper Dairy Goat Cheese
@@ -292,7 +292,7 @@
             </item>
 
             <item>
-                <name></name>
+                <name />
                 <price>12</price>
                 <description>
                    Scrambled Eggs with Sliced Avocado, Arugula and Sauce Romesco
@@ -300,7 +300,7 @@
             </item>
 
             <item>
-                <name></name>
+                <name />
                 <price>12</price>
                 <description>
                    Ham and Fried Egg Sandwich with Gruyere, Arugula and Pickled Onions
@@ -308,7 +308,7 @@
             </item>
 
             <item>
-                <name></name>
+                <name />
                 <price>12</price>
                 <description>
                    Scotch Egg with Green Chili Chorizo, Cornbread, Salad and Crème Fraiche
@@ -316,7 +316,7 @@
             </item>
 
             <item>
-                <name></name>
+                <name />
                 <price>9</price>
                 <description>
                    Poached Egg on Avocado with Ciabatta Toast and Tomato Provencal
@@ -324,7 +324,7 @@
             </item>
 
             <item>
-                <name></name>
+                <name />
                 <price>12</price>
                 <description>
                    Simple French Omelet with Mature Cheddar Cheese and Fresh Herbs
@@ -336,7 +336,7 @@
 
         <lunch hours="11:00 am - 3:00 pm">
             <item type="sandwich">
-                <name></name>
+                <name />
                 <price>10</price>
                 <description>
                     Vegetable Sandwich on Seeded Grain Bread with Hummus, Avocado, Sprouts and Salsa Verd
@@ -344,7 +344,7 @@
             </item>
 
             <item type="sandwich">
-                <name></name>
+                <name />
                 <price>11</price>
                 <description>
                     Roasted Chicken Salad on Croissant with Sage, Grapes and Walnut
@@ -352,7 +352,7 @@
             </item>
 
             <item type="sandwich">
-                <name></name>
+                <name />
                 <price>11</price>
                 <description>
                     Peeler Farms Beef Burger with Sunny Side Egg, Caramel Onions, Lettuce and Tomat
@@ -360,7 +360,7 @@
             </item>
 
             <item type="sandwich">
-                <name></name>
+                <name />
                 <price>12</price>
                 <description>
                     Smoked Salmon Sandwich on Rye Toast with Havarti Dill Cheese, Pickle, Caper and Tomat
@@ -368,7 +368,7 @@
             </item>
 
             <item type="sandwich">
-                <name></name>
+                <name />
                 <price>13</price>
                 <description>
                     Smoked Beef and Gruyere Grilled Cheese on Jalapeno Sourdough with Pickled Onions and Arugul
@@ -379,7 +379,7 @@
             <!--Add Fried Egg or Smashed Avocado to any sandwich…3
             All sandwiches are served with Garden Salad and house made Chips -->
             <item>
-                <name></name>
+                <name />
                 <price>12</price>
                 <description>
                     Simple French Omelet with Mature Cheddar and Herb
@@ -387,7 +387,7 @@
             </item>
 
             <item>
-                <name></name>
+                <name />
                 <price>15</price>
                 <description>
                     Halibut with White Bean Puree, Pumpkin Seed, Sesame Seed add Morita Chili Relish
@@ -395,7 +395,7 @@
             </item>
 
             <item>
-                <name></name>
+                <name />
                 <price>15</price>
                 <description>
                     Buttermilk Crusted Chicken with Cornbread and Green Chili Chorizo Grav
@@ -406,7 +406,7 @@
 
         <dinner hours="5:00 am - 10:00 pm">
             <item>
-                <name></name>
+                <name />
                 <price>26</price>
                 <description>
                     Halibut with White Bean Puree, Pumpkin Seed, Morita and Sesame Seed Relish
@@ -414,7 +414,7 @@
             </item>
 
             <item>
-                <name></name>
+                <name />
                 <price>26</price>
                 <description>
                     Steelhead Ocean Trout with Green Skordalia, Nasturtium and Lentils
@@ -422,7 +422,7 @@
             </item>
 
             <item>
-                <name></name>
+                <name />
                 <price>26</price>
                 <description>
                     Whole Bronzino with Harissa, Freekeh, Green Beans and Herb Salad
@@ -430,7 +430,7 @@
             </item>
 
             <item>
-                <name></name>
+                <name />
                 <price>26</price>
                 <description>
                     Smoked Crispy Quail with Pickled Corn Relish, Gold Potatoes and Chili Garlic Honey
@@ -438,7 +438,7 @@
             </item>
 
             <item>
-                <name></name>
+                <name />
                 <price>17</price>
                 <description>
                     Fresh Pasta with Roasted Mushrooms, Cream, Kale and Sunflower Seed Pesto
@@ -446,7 +446,7 @@
             </item>
 
             <item>
-                <name></name>
+                <name />
                 <price>25</price>
                 <description>
                     Braised Beef Cheek with Cornbread, Pickled and Charred Okra
@@ -454,7 +454,7 @@
             </item>
 
             <item>
-                <name></name>
+                <name />
                 <price>9</price>
                 <description>
                     Salad of Watercress and Sprouts with Roasted Beets, Blueberry, Almonds and Rhubarb Vinaigrette
@@ -462,7 +462,7 @@
             </item>
 
             <item>
-                <name></name>
+                <name />
                 <price>9</price>
                 <description>
                     Cauliflower Roasted in Brown Butter with Hazelnuts and Salsa Vierge
@@ -470,7 +470,7 @@
             </item>
 
             <item>
-                <name></name>
+                <name />
                 <price>7</price>
                 <description>
                     Simple Garden Salad of Lettuces and Raw Vegetables with Meyer Lemon Dressing
