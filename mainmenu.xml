@@ -276,11 +276,7 @@
             </item>
 
             <item>
-<<<<<<< HEAD
-                <name></name>
-=======
                 <name />
->>>>>>> 157ae85e441a5c97190f2e25e9873877a720faf1
                 <price>10</price>
                 <description>
                     Buttermilk Pancakes with Blueberries, Ricotta Cheese, Lemon Curd and Pinenuts
@@ -288,11 +284,7 @@
             </item>
 
             <item>
-<<<<<<< HEAD
-                <name></name>
-=======
                 <name />
->>>>>>> 157ae85e441a5c97190f2e25e9873877a720faf1
                 <price>11</price>
                 <description>
                     Brioche French Toast with Summer Berries and Dapper Dairy Goat Cheese
@@ -300,82 +292,44 @@
             </item>
 
             <item>
-<<<<<<< HEAD
-                <name></name>
-                <price>12</price>
-                <description>
-                    Scrambled Eggs with Sliced Avocado, Arugula and Sauce Romesco
-=======
                 <name />
                 <price>12</price>
                 <description>
                    Scrambled Eggs with Sliced Avocado, Arugula and Sauce Romesco
->>>>>>> 157ae85e441a5c97190f2e25e9873877a720faf1
                 </description>
             </item>
 
             <item>
-<<<<<<< HEAD
-                <name></name>
-                <price>12</price>
-                <description>
-                    Ham and Fried Egg Sandwich with Gruyere, Arugula and Pickled Onions
-=======
                 <name />
                 <price>12</price>
                 <description>
                    Ham and Fried Egg Sandwich with Gruyere, Arugula and Pickled Onions
->>>>>>> 157ae85e441a5c97190f2e25e9873877a720faf1
                 </description>
             </item>
 
             <item>
-<<<<<<< HEAD
-                <name></name>
-                <price>12</price>
-                <description>
-                    Scotch Egg with Green Chili Chorizo, Cornbread, Salad and Crème Fraiche
-=======
                 <name />
                 <price>12</price>
                 <description>
                    Scotch Egg with Green Chili Chorizo, Cornbread, Salad and Crème Fraiche
->>>>>>> 157ae85e441a5c97190f2e25e9873877a720faf1
                 </description>
             </item>
 
             <item>
-<<<<<<< HEAD
-                <name></name>
-                <price>9</price>
-                <description>
-                    Poached Egg on Avocado with Ciabatta Toast and Tomato Provencal
-=======
                 <name />
                 <price>9</price>
                 <description>
                    Poached Egg on Avocado with Ciabatta Toast and Tomato Provencal
->>>>>>> 157ae85e441a5c97190f2e25e9873877a720faf1
                 </description>
             </item>
 
             <item>
-<<<<<<< HEAD
-                <name></name>
-                <price>12</price>
-                <description>
-                    Simple French Omelet with Mature Cheddar Cheese and Fresh Herbs
-                </description>
-            </item>
-
-=======
                 <name />
                 <price>12</price>
                 <description>
                    Simple French Omelet with Mature Cheddar Cheese and Fresh Herbs
                 </description>
             </item>
->>>>>>> 157ae85e441a5c97190f2e25e9873877a720faf1
             <!-- Add: Avocado $3 -->
 
         </breakfast>
