@@ -1,8 +1,17 @@
+const restaurants = document.querySelector("#menuData").children;
+
 const listRestauarants = function() {
-    
+    for (let x = 0; x < restaurants.length; x += 1) {
+        let eachRest = restaurants[x].getAttribute("restaurant");
+        console.log(eachRest)
+    }
 }
 
+listRestauarants();
+
 window.onload = function() {
+
+    
     /*
         10 populate list of restaurants
             11 read xml
