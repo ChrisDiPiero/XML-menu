@@ -1,3 +1,7 @@
+const listRestauarants = function() {
+    
+}
+
 window.onload = function() {
     /*
         10 populate list of restaurants
