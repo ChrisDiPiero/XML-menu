@@ -32,7 +32,7 @@ const restButt = function() {
     const restSubmit = document.createElement('button');
     
     restSubmit.type = 'submit';
-    restSubmit.name = 'submit';
+    restSubmit.name = 'restsubmit';
     restSubmit.value = 'submit';
 }
 
