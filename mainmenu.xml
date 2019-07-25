@@ -8,6 +8,7 @@
                 <description>
                     Two (2) eggs any-style, home fries, bacon or sausage
                 </description>
+                <dietary>Carbs Meat</dietary>
             </item>
 
             <item>
@@ -16,6 +17,7 @@
                 <description>
                     Our famous hash made with corned beef, pastrami, potatoes, peppers and onions. Topped with two (2) eggs your way
                 </description>
+                <dietary>Carbs Meat</dietary>
             </item>
 
             <item>
@@ -24,6 +26,7 @@
                 <description>
                     Omelet filled with your choice of American, Swiss, Cheddar or Mozzarella cheese
                 </description>
+                <dietary></dietary>
             </item>
 
             <item>
@@ -32,6 +35,7 @@
                 <description>
                     Scramble of Nova Lox (smoked salmon), Eggs and Onions
                 </description>
+                <dietary>Meat</dietary>
             </item>
 
             <item>
@@ -40,6 +44,7 @@
                 <description>
                     Grilled Hebrew National salami scrambled with three (3) eggs
                 </description>
+                <dietary>Meat</dietary>
             </item>
 
             <item>
@@ -48,6 +53,7 @@
                 <description>
                     Omelet filled with meat and bean chili, green onions and cheddar cheese
                 </description>
+                <dietary>Meat</dietary>
             </item>
 
             <item>
@@ -56,6 +62,7 @@
                 <description>
                     Choose any three (3) items: spinach, tomato, onions, green peppers, mushrooms, avocado, bacon, ham, sausage, feta, cheddar, American or Swiss
                 </description>
+                <dietary>Meat</dietary>
             </item>
         </breakfast>
 
@@ -66,6 +73,7 @@
                 <description>
                     Hot pastrami, corned beef, or turkey w/sauerkraut, swiss cheese and thousand island on rye
                 </description>
+                <dietary>Carbs Meat</dietary>
             </item>
 
             <item>
@@ -74,6 +82,7 @@
                 <description>
                     Hot pastrami, corned beef, or turkey w/cole slaw, swiss cheese and thousand island on rye
                 </description>
+                <dietary>Carbs Meat</dietary>
             </item>
 
             <item>
@@ -82,6 +91,7 @@
                 <description>
                     Turkey Breast with lettuce and tomato on delicious rye bread
                 </description>
+                <dietary>Carbs Meat</dietary>
             </item>
 
             <item>
@@ -90,6 +100,7 @@
                 <description>
                         Freshly sliced roast beef with lettuce and tomato on delicious rye bread
                 </description>
+                <dietary>Carbs Meat</dietary>
             </item>
 
             <item>
@@ -98,6 +109,7 @@
                 <description>
                     Turkey breast, swiss cheese, bacon, lettuce, hellman’s and tomato on triple decker rye toast
                 </description>
+                <dietary>Carbs Meat</dietary>
             </item>
 
             <item>
@@ -106,6 +118,7 @@
                 <description>
                     Roast Beef, swiss cheese, bacon, lettuce, hellmann’s and tomato on triple decker rye toast
                 </description>
+                <dietary>Carbs Meat</dietary>
             </item>
 
             <item>
@@ -114,6 +127,7 @@
                 <description>
                     Housemade chopped liver served on rye with lettuce, tomato and red onion
                 </description>
+                <dietary>Carbs Meat</dietary>
             </item>
 
             <item>
@@ -122,6 +136,7 @@
                 <description>
                     Hebrew National kosher salami on rye bread
                 </description>
+                <dietary>Carbs Meat</dietary>
             </item>
         </lunch>
         <dinner hours="7:30 am - 10:00 pm">
@@ -137,6 +152,7 @@
                 <description>
                     Made with Fresh Buttermilk in Small Batches
                 </description>
+                <dietary>Carbs</dietary>
             </item>
 
             <item>
@@ -145,6 +161,7 @@
                 <description>
                     Our World’s Best Buttermilk Pancakes with Wild Blueberries
                 </description>
+                <dietary>Carbs</dietary>
             </item>
 
             <item>
@@ -153,6 +170,7 @@
                 <description>
                     Semi-Sweet Chocolate Chips Stud Our World’s Best Pancakes
                 </description>
+                <dietary>Carbs</dietary>
             </item>
 
            <item>
@@ -161,6 +179,7 @@
                 <description>
                     Granny Smith Apples Scented with Zesty Cinnamon and Cooked Into Our Famous Cakes
                 </description>
+                <dietary>Carbs</dietary>
            </item>
 
             <item>
@@ -169,6 +188,7 @@
                 <description>
                     Hearty & Healthy Cakes Made with Organic Buckwheat Flour. Treat Yourself Right!
                 </description>
+                <dietary>Carbs</dietary>
             </item>
 
             <item>
@@ -177,6 +197,7 @@
                 <description>
                     $10 Worth of The Cutest Cakes You’ve Ever Tasted
                 </description>
+                <dietary>Carbs</dietary>
             </item>
 
             <item>
@@ -185,6 +206,7 @@
                 <description>
                     Texas Pecans Fill Our World’s Best Pancakes
                 </description>
+                <dietary>Carbs</dietary>
             </item>
         </breakfast>
         <lunch hours="10:00 am - 2:00 pm">
@@ -194,6 +216,7 @@
                 <description>
                     Wedge of Baby Iceberg, Bacon Lardons, Grape Tomatoes, Cucumbers, Fried Egg Ribbons, Crispy Fried Buttermilk Chicken Breast, Haus Smoked Jalapeno Ranch
                 </description>
+                <dietary>Carbs Meat</dietary>
             </item>   
 
             <item>
@@ -202,6 +225,7 @@
                 <description>
                     Organic Mixed Greens, Tomatoes, Gorgonzola Crumbles, Bacon, Hard Boiled Egg, Avocado, Tortilla Strips, Haus Cilantro Ranch Dressing
                 </description>
+                <dietary>Meat</dietary>
                 <add>
                     <name>Add Grilled Chicken</name>
                     <price>3.49</price>
@@ -214,6 +238,7 @@
                 <description>
                     Organic Mixed Greens, Gorgonzola Crumbles, Fresh Strawberries, Walnuts, Roasted Chicken Breast, Raspberry Poppy Seed Dressing
                 </description>
+                <dietary>Meat</dietary>
             </item>
 
             <item>
@@ -222,9 +247,11 @@
                 <description>
                     Romaine and Arugula, Red Onions, Parmesan Cheese, Haus Baked Croutons, Classic Caesar Dressing
                 </description>
+                <dietary></dietary>
                 <add>
                     <name>Add Grilled Chicken</name>
                     <price>3.49</price>
+                    <dietary>Meat</dietary>
                 </add>
             </item>
 
@@ -234,6 +261,7 @@
                 <description>
                     Your Choice of Cheese. Served on A Grilled Potato Bun with Lettuce, Tomato and Onion
                 </description>
+                <dietary>Carbs Meat</dietary>
             </item>
 
             <item>
@@ -242,6 +270,7 @@
                 <description>
                     Mixed Grilled Onions & Peppers, Swiss Cheese. Served on Grilled Rye
                 </description>
+                <dietary>Carbs Meat</dietary>
             </item>
 
             <item>
@@ -250,14 +279,16 @@
                 <description>
                     Applewood Smoked Bacon Bits, Tillamook Cheddar, & Avocado. Served on A Grilled Potato Bun with Lettuce, Tomato and Onion
                 </description>
+                <dietary>Carbs Meat</dietary>
             </item>
 
             <item>
-                <name>Breakfast Meets Lunch</>
+                <name>Breakfast Meets Lunch</name>
                 <price>11.99</price>
                 <description>
                     Tillamook Cheddar, Applewood Smoked Bacon, Arugula, Haus Sausage Gravy, Sunny Side up Egg. Served on A Grilled Potato Bun
                 </description>
+                <dietary>Carbs Meat</dietary>
             </item>
         </lunch>
         <dinner hours="0">
@@ -273,6 +304,7 @@
                 <description>
                     Steel Cut Oatmeal, Quinoa, Apple Cider, Apricot, Goji Berry, Raisins and Cherry
                 </description>
+                <dietary>Carbs Vegan</dietary>
             </item>
 
             <item>
@@ -281,6 +313,7 @@
                 <description>
                     Buttermilk Pancakes with Blueberries, Ricotta Cheese, Lemon Curd and Pinenuts
                 </description>
+                <dietary>Carbs Vegetarian</dietary>
             </item>
 
             <item>
@@ -289,6 +322,7 @@
                 <description>
                     Brioche French Toast with Summer Berries and Dapper Dairy Goat Cheese
                 </description>
+                <dietary>Carbs Vegetarian</dietary>
             </item>
 
             <item>
@@ -297,6 +331,7 @@
                 <description>
                    Scrambled Eggs with Sliced Avocado, Arugula and Sauce Romesco
                 </description>
+                <dietary></dietary>
             </item>
 
             <item>
@@ -305,6 +340,7 @@
                 <description>
                    Ham and Fried Egg Sandwich with Gruyere, Arugula and Pickled Onions
                 </description>
+                <dietary>Carbs Meat</dietary>
             </item>
 
             <item>
@@ -313,6 +349,7 @@
                 <description>
                    Scotch Egg with Green Chili Chorizo, Cornbread, Salad and Crème Fraiche
                 </description>
+                <dietary>Carbs Meat</dietary>
             </item>
 
             <item>
@@ -321,6 +358,7 @@
                 <description>
                    Poached Egg on Avocado with Ciabatta Toast and Tomato Provencal
                 </description>
+                <dietary>Carbs</dietary>
             </item>
 
             <item>
@@ -329,8 +367,12 @@
                 <description>
                    Simple French Omelet with Mature Cheddar Cheese and Fresh Herbs
                 </description>
+                <dietary></dietary>
             </item>
-            <!-- Add: Avocado $3 -->
+            <add>
+                <name>Avacado</name>
+                <price>3</price>
+            </add>
 
         </breakfast>
 
@@ -341,6 +383,7 @@
                 <description>
                     Vegetable Sandwich on Seeded Grain Bread with Hummus, Avocado, Sprouts and Salsa Verd
                 </description>
+                <dietary>Carbs Vegan</dietary>
             </item>
 
             <item type="sandwich">
@@ -349,6 +392,7 @@
                 <description>
                     Roasted Chicken Salad on Croissant with Sage, Grapes and Walnut
                 </description>
+                <dietary>Carbs Meat</dietary>
             </item>
 
             <item type="sandwich">
@@ -357,6 +401,7 @@
                 <description>
                     Peeler Farms Beef Burger with Sunny Side Egg, Caramel Onions, Lettuce and Tomat
                 </description>
+                <dietary>Carbs Meat</dietary>
             </item>
 
             <item type="sandwich">
@@ -365,6 +410,7 @@
                 <description>
                     Smoked Salmon Sandwich on Rye Toast with Havarti Dill Cheese, Pickle, Caper and Tomat
                 </description>
+                <dietary>Carbs Meat</dietary>
             </item>
 
             <item type="sandwich">
@@ -373,17 +419,16 @@
                 <description>
                     Smoked Beef and Gruyere Grilled Cheese on Jalapeno Sourdough with Pickled Onions and Arugul
                 </description>
+                <dietary>Carbs Meat</dietary>
             </item>
 
-
-            <!--Add Fried Egg or Smashed Avocado to any sandwich…3
-            All sandwiches are served with Garden Salad and house made Chips -->
             <item>
                 <name />
                 <price>12</price>
                 <description>
                     Simple French Omelet with Mature Cheddar and Herb
                 </description>
+                <dietary></dietary>
             </item>
 
             <item>
@@ -392,6 +437,7 @@
                 <description>
                     Halibut with White Bean Puree, Pumpkin Seed, Sesame Seed add Morita Chili Relish
                 </description>
+                <dietary>Meat</dietary>
             </item>
 
             <item>
@@ -400,7 +446,13 @@
                 <description>
                     Buttermilk Crusted Chicken with Cornbread and Green Chili Chorizo Grav
                 </description>
+                <dietary>Carbs Meat</dietary>
             </item>
+
+            <add type="sandwich">
+                <name>Fried Egg</name>
+                <price>3</price>
+            </add>
 
         </lunch>
 
@@ -411,6 +463,7 @@
                 <description>
                     Halibut with White Bean Puree, Pumpkin Seed, Morita and Sesame Seed Relish
                 </description>
+                <dietary>Meat</dietary>
             </item>
 
             <item>
@@ -419,14 +472,16 @@
                 <description>
                     Steelhead Ocean Trout with Green Skordalia, Nasturtium and Lentils
                 </description>
+                <dietary>Meat</dietary>
             </item>
 
             <item>
                 <name />
                 <price>26</price>
                 <description>
-                    Whole Bronzino with Harissa, Freekeh, Green Beans and Herb Salad
+                    Whole Bronzino (the fish, not the Italian Rea with Harissa, Freekeh, Green Beans and Herb Salad
                 </description>
+                <dietary>Meat</dietary>
             </item>
 
             <item>
@@ -435,6 +490,7 @@
                 <description>
                     Smoked Crispy Quail with Pickled Corn Relish, Gold Potatoes and Chili Garlic Honey
                 </description>
+                <dietary>Meat</dietary>
             </item>
 
             <item>
@@ -443,6 +499,7 @@
                 <description>
                     Fresh Pasta with Roasted Mushrooms, Cream, Kale and Sunflower Seed Pesto
                 </description>
+                <dietary>Carbs</dietary>
             </item>
 
             <item>
@@ -451,6 +508,7 @@
                 <description>
                     Braised Beef Cheek with Cornbread, Pickled and Charred Okra
                 </description>
+                <dietary>Meat</dietary>
             </item>
 
             <item>
@@ -459,6 +517,7 @@
                 <description>
                     Salad of Watercress and Sprouts with Roasted Beets, Blueberry, Almonds and Rhubarb Vinaigrette
                 </description>
+                <dietary>Vegan</dietary>
             </item>
 
             <item>
@@ -467,6 +526,7 @@
                 <description>
                     Cauliflower Roasted in Brown Butter with Hazelnuts and Salsa Vierge
                 </description>
+                <dietary>Vegetarian</dietary>
             </item>
 
             <item>
@@ -475,6 +535,7 @@
                 <description>
                     Simple Garden Salad of Lettuces and Raw Vegetables with Meyer Lemon Dressing
                 </description>
+                <dietary>Vegan</dietary>
             </item>
 
         </dinner>

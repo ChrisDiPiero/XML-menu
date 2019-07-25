@@ -1,15 +1,18 @@
 window.onload = function() {
 
-//selects the reataurant names from the menu list
+//selects the restaurant names from the menu list
 const allMenu = document.querySelector("#menuData");
 const restaurants = allMenu.querySelectorAll("menu");
+
+//restaurant name select button target. ned to declare here for scope
+let restButtClick = document.querySelector("#restSubmit");
 
 const listRestauarants = function() {
     for (let x = 0; x < restaurants.length; x += 1) {
         let eachRest = restaurants[x].getAttribute("restaurant");
         restSelector(eachRest);
-        restButt();
     }
+    restButt();
 }
 
 //create the menu list with checkboxes
@@ -27,16 +30,28 @@ const restSelector = function(attrb) {
 
     document.querySelector("#menuSelect").appendChild(newNodeLabel);
 }
-
+//create load meal options button
 const restButt = function() {
     const restSubmit = document.createElement('button');
     
     restSubmit.type = 'submit';
     restSubmit.name = 'restsubmit';
-    restSubmit.value = 'submit';
+    restSubmit.value = 'restsubmit';
+    restSubmit.id = 'restSubmit';
+
+    document.querySelector('#buttText').appendChild(restSubmit);
+    document.querySelector('#buttText').style.display = 'inline';
+    restButtClick = document.querySelector("#restSubmit");
+}
+
+//create mealtime list(s)
+const listMealtimes = function() {
+    alert("clicked");
 }
 
 listRestauarants();
+
+restButtClick.addEventListener('click', listMealtimes, false);
 
 /*
     10 populate list of restaurants
