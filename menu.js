@@ -1,19 +1,34 @@
 window.onload = function() {
 
 //selects the restaurant names from the menu list
-const allMenu = document.querySelector("#menuData");
-const restaurants = allMenu.querySelectorAll("menu");
+const allMenu = document.querySelector('#menuData');
+const restaurants = allMenu.querySelectorAll('menu');
 
-//restaurant name select button target. ned to declare here for scope
-let restButtClick = document.querySelector("#restSubmit");
-
+//button creation class
+class theButton {
+    constructor(bName, bTargetDiv) {
+        let localBtn = document.createElement('button');
+        localBtn.type = 'submit';
+        localBtn.name = bName;
+        localBtn.value = bName;
+        localBtn.id = bName;
+        document.querySelector(bTargetDiv).appendChild(localBtn);
+        document.querySelector(bTargetDiv).style.display = 'inline';
+    }
+}
+//create load meal times button (bfast, etc...)
+    //declare variable here for scope
+let restButtClick
 const listRestauarants = function() {
     for (let x = 0; x < restaurants.length; x += 1) {
-        let eachRest = restaurants[x].getAttribute("restaurant");
+        let eachRest = restaurants[x].getAttribute('restaurant');
         restSelector(eachRest);
     }
-    restButt();
+    new theButton('restSubmit', '#buttText');
+        //assign value to variable here  - cannot select until it's created (see restButtClick.addEventListener('click', listMealTimes, false);)
+    restButtClick = document.querySelector('#restSubmit');
 }
+
 
 //create the menu list with checkboxes
 const restSelector = function(attrb) { 
@@ -30,28 +45,32 @@ const restSelector = function(attrb) {
 
     document.querySelector("#menuSelect").appendChild(newNodeLabel);
 }
-//create load meal options button
-const restButt = function() {
-    const restSubmit = document.createElement('button');
-    
-    restSubmit.type = 'submit';
-    restSubmit.name = 'restsubmit';
-    restSubmit.value = 'restsubmit';
-    restSubmit.id = 'restSubmit';
 
-    document.querySelector('#buttText').appendChild(restSubmit);
-    document.querySelector('#buttText').style.display = 'inline';
-    restButtClick = document.querySelector("#restSubmit");
-}
+//create load meal times button (bfast, etc...)
+// const restButt = function() {
+//     const restSubmit = document.createElement('button');
+    
+//     restSubmit.type = 'submit';
+//     restSubmit.name = 'restsubmit';
+//     restSubmit.value = 'restsubmit';
+//     restSubmit.id = 'restSubmit';
+
+//     document.querySelector('#buttText').appendChild(restSubmit);
+//     document.querySelector('#buttText').style.display = 'inline';
+//     restButtClick = document.querySelector("#restSubmit");
+// }
 
 //create mealtime list(s)
-const listMealtimes = function() {
-    alert("clicked");
+const listMealTimes = function() {
+    alert("button pushed, and I GOT CLASS!");
+    //find meal and time data
+    // populate meal and time data
+    // add click button 
 }
 
 listRestauarants();
 
-restButtClick.addEventListener('click', listMealtimes, false);
+restButtClick.addEventListener('click', listMealTimes, false);
 
 /*
     10 populate list of restaurants
