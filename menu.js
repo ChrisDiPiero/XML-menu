@@ -46,20 +46,6 @@ const restSelector = function(attrb) {
     document.querySelector("#menuSelect").appendChild(newNodeLabel);
 }
 
-//create load meal times button (bfast, etc...)
-// const restButt = function() {
-//     const restSubmit = document.createElement('button');
-    
-//     restSubmit.type = 'submit';
-//     restSubmit.name = 'restsubmit';
-//     restSubmit.value = 'restsubmit';
-//     restSubmit.id = 'restSubmit';
-
-//     document.querySelector('#buttText').appendChild(restSubmit);
-//     document.querySelector('#buttText').style.display = 'inline';
-//     restButtClick = document.querySelector("#restSubmit");
-// }
-
 //create mealtime list(s)
 const listMealTimes = function() {
     alert("button pushed, and I GOT CLASS!");
