@@ -38,7 +38,7 @@ const restSelector = function(attrb) {
 
     newNode.type = 'checkbox';
     newNode.value = attrb;
-    <div>newNodeLabel.for = attrb;</div>
+    newNodeLabel.for = attrb;
 
     newNodeLabel.appendChild(newNode);
     newNodeLabel.appendChild(nodeDescription);
