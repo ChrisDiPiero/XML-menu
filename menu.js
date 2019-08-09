@@ -1,5 +1,9 @@
 window.onload = function() {
 
+    /*************************************************************************************************************
+     * scrap almost all of it. put functions into objects. each rest is an object (just selectors, not menu items)
+     ************************************************************************************************************/
+
 //selects the restaurant names from the menu list
 const allMenu = document.querySelector('#menuData');
 const restaurants = allMenu.querySelectorAll('menu');
@@ -16,37 +20,69 @@ class theButton {
         document.querySelector(bTargetDiv).style.display = 'inline';
     }
 }
+
+//checkbox creation class
+class theSelector {
+    constructor(attrb, selector) { 
+        let newNode = document.createElement('input');
+        let newNodeLabel = document.createElement('label');
+        let nodeDescription = document.createTextNode(attrb);
+
+        newNode.type = 'checkbox';
+        newNode.value = attrb;
+        newNodeLabel.for = attrb;
+
+        newNodeLabel.appendChild(newNode);
+        newNodeLabel.appendChild(nodeDescription);
+
+        document.querySelector(selector).appendChild(newNodeLabel);
+    }
+}
+
 //create load meal times button (bfast, etc...)
     //declare variable here for scope
-let restButtClick
+let restBtnClick;
+let restList = [];
 const listRestauarants = function() {
     for (let x = 0; x < restaurants.length; x += 1) {
         let eachRest = restaurants[x].getAttribute('restaurant');
-        restSelector(eachRest);
+        new theSelector(eachRest, '#menuSelect');
+        restList += `#${eachrest}`;
     }
-    new theButton('restSubmit', '#buttText');
-        //assign value to variable here  - cannot select until it's created (see restButtClick.addEventListener('click', listMealTimes, false);)
-    restButtClick = document.querySelector('#restSubmit');
+    new theButton('restSubmit', '#btnText');
+        //assign value to variable here  - cannot select until it's created (see restBtnClick.addEventListener('click', listMealTimes, false);)
+    restBtnClick = document.querySelector('#restSubmit');
 }
 
 
-//create the menu list with checkboxes
-const restSelector = function(attrb) { 
-    let newNode = document.createElement('input');
-    let newNodeLabel = document.createElement('label');
-    let nodeDescription = document.createTextNode(attrb);
+//create the menu list with checkboxes - moved to constructor - keeping JIC
+// const restSelector = function(attrb) { 
+//     let newNode = document.createElement('input');
+//     let newNodeLabel = document.createElement('label');
+//     let nodeDescription = document.createTextNode(attrb);
 
-    newNode.type = 'checkbox';
-    newNode.value = attrb;
-    <div>newNodeLabel.for = attrb;</div>
+//     newNode.type = 'checkbox';
+//     newNode.value = attrb;
+//     newNodeLabel.for = attrb;
 
-    newNodeLabel.appendChild(newNode);
-    newNodeLabel.appendChild(nodeDescription);
+//     newNodeLabel.appendChild(newNode);
+//     newNodeLabel.appendChild(nodeDescription);
 
-    document.querySelector("#menuSelect").appendChild(newNodeLabel);
-}
+//     document.querySelector("#menuSelect").appendChild(newNodeLabel);
+// }
 
 //create mealtime list(s)
+
+const selectedRest = function() {
+    for(let x = 0; x < restList.length; x += 1) {
+        let localRest = document.querySelector(restList[x]);
+        if (localRest.checked) {
+
+            new theSelector
+        }
+    }
+}
+
 const listMealTimes = function() {
     alert("button pushed, and I GOT CLASS!");
     //find meal and time data
@@ -56,7 +92,7 @@ const listMealTimes = function() {
 
 listRestauarants();
 
-restButtClick.addEventListener('click', listMealTimes, false);
+restBtnClick.addEventListener('click', listMealTimes, false);
 
 /*
     10 populate list of restaurants
