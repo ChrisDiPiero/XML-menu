@@ -5,32 +5,32 @@ window.onload = function() {
      ************************************************************************************************************/
 class theRestaurants {
     constructor(restaurant) {
-        this.restaurant = restaurant.getAttribute('restaurant');
-        this.mealTimes = [];
-        this.menuOptions = [];
+        this.restaurant = restaurant; // do i need to pass as a string?
+        // this.mealTimes = [];
+        // this.menuOptions = [];
 
-        this.mealTimeAdd = function() {
-            let timeList = restaurant.querySelectorAll('menu');
-            timeList.foreach(function(time){
-                mealTimes += time;
-            });
-        };
+        // this.mealTimeAdd = function() {
+        //     let timeList = restaurant.querySelectorAll('menu');
+        //     timeList.foreach(function(time){
+        //         mealTimes += time;
+        //     });
+        // };
 
-        this.menuOptionsAdd = function() {
-            let optionList = restaurant.querySelectorAll('dietary');
-            let tempArr1 = [];
+        // this.menuOptionsAdd = function() {
+        //     let optionList = restaurant.querySelectorAll('dietary');
+        //     let tempArr1 = [];
 
-            let tempArr1Add = function(eaNode) {
-                tempArr1 += tempArr2Add(eaNode);
-                return tempArr1;
-            }
+        //     let tempArr1Add = function(eaNode) {
+        //         tempArr1 += tempArr2Add(eaNode);
+        //         return tempArr1;
+        //     }
 
-            let tempArr2Add = function() {
-                return eaNode.split(" ");
-            };
+        //     let tempArr2Add = function() {
+        //         return eaNode.split(" ");
+        //     };
 
-            menuOptions = new Set(optionList.forEach(tempArr1Add(eaNode)).flat())
-        }
+        //     menuOptions = new Set(optionList.forEach(tempArr1Add(eaNode)).flat())
+        // }
     }
 }
 //selects the restaurant names and data and stores in array of objects
@@ -39,11 +39,18 @@ let restArrayTarg = allMenu.querySelectorAll('menu');
 let restaurants = [];
 let makeRestaurants = function(menus) {
     for(x = 0; x < menus.length; x += 1) {
-        restaurants += new theRestaurants(menus[x]);
+        let thisRest = toString(menus[x].getAttribute('restaurant'));//this is broken somehow - returns undefined see https://stackoverflow.com/questions/22312984/javascript-returning-null-undefined-when-trying-to-get-a-data-attribute
+        console.log(allMenu);
+        console.log(restArrayTarg[x].getAttribute('restaurant'));
+        console.log(thisRest);
+        restaurants += new theRestaurants(thisRest);
+        console.log(restaurants);
     }
 }
+
 makeRestaurants(restArrayTarg);
-console.log(restaurants);
+
+console.log(restaurants[0].restaurant);
 
 //button creation class
 class theButton {
