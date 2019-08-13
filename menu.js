@@ -5,52 +5,40 @@ window.onload = function() {
      ************************************************************************************************************/
 class theRestaurants {
     constructor(restaurant) {
-        this.restaurant = restaurant; // do i need to pass as a string?
-        // this.mealTimes = [];
-        // this.menuOptions = [];
+        this.restaurant = restaurant.getAttribute('restaurant');
+        this.mealTimes = restaurant.querySelectorAll('*[hours]');
+        this.menuOptions = [];
+        this.tempArr1 = restaurant.querySelectorAll('dietary')
+        this.tempArr2 = this.tempArr1[1].split(" ");
 
-        // this.mealTimeAdd = function() {
-        //     let timeList = restaurant.querySelectorAll('menu');
-        //     timeList.foreach(function(time){
-        //         mealTimes += time;
-        //     });
-        // };
-
-        // this.menuOptionsAdd = function() {
-        //     let optionList = restaurant.querySelectorAll('dietary');
-        //     let tempArr1 = [];
-
-        //     let tempArr1Add = function(eaNode) {
-        //         tempArr1 += tempArr2Add(eaNode);
-        //         return tempArr1;
+        // this.makeMenuOptions = function() {
+        //     this.tempArr1 = restaurant.querySelectorAll('dietary');
+        //     this.tempArr2 = [];
+        //     this.AddArr2 = function() {
+        //         for(x = 0; x < this.tempArr1.length; x += 1) {
+        //             this.tempArr2.push(this.tempArr1[x].split(" "));
+        //         }
         //     }
-
-        //     let tempArr2Add = function() {
-        //         return eaNode.split(" ");
-        //     };
-
-        //     menuOptions = new Set(optionList.forEach(tempArr1Add(eaNode)).flat())
+        //     this.AddArr2();
+        //     this.menuOptions = new Set(tempArr2.flat());
         // }
+        // this.makeMenuOptions();
     }
 }
+
 //selects the restaurant names and data and stores in array of objects
 const allMenu = document.querySelector('#menuData'); //end user to change to point to other data
 let restArrayTarg = allMenu.querySelectorAll('menu');
 let restaurants = [];
 let makeRestaurants = function(menus) {
     for(x = 0; x < menus.length; x += 1) {
-        let thisRest = toString(menus[x].getAttribute('restaurant'));//this is broken somehow - returns undefined see https://stackoverflow.com/questions/22312984/javascript-returning-null-undefined-when-trying-to-get-a-data-attribute
-        console.log(allMenu);
-        console.log(restArrayTarg[x].getAttribute('restaurant'));
-        console.log(thisRest);
-        restaurants += new theRestaurants(thisRest);
-        console.log(restaurants);
+        restaurants.push(new theRestaurants(menus[x]));
     }
 }
 
 makeRestaurants(restArrayTarg);
 
-console.log(restaurants[0].restaurant);
+console.log(restaurants);
 
 //button creation class
 class theButton {
