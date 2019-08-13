@@ -9,7 +9,7 @@ class theRestaurants {
         this.mealTimes = restaurant.querySelectorAll('*[hours]');
         this.menuOptions = [];
         this.tempArr1 = restaurant.querySelectorAll('dietary')
-        this.tempArr2 = this.tempArr1[1].split(" ");
+        this.tempArr2 = this.tempArr1[1].split(" ");//this is not working - fix xml so that dietary is item attribute maybe
 
         // this.makeMenuOptions = function() {
         //     this.tempArr1 = restaurant.querySelectorAll('dietary');
