@@ -7,34 +7,34 @@ class theRestaurants {
     constructor(restaurant) {
         this.restaurant = restaurant.getAttribute('restaurant');
         this.mealTimes = restaurant.querySelectorAll('*[hours]');
-        this.menuOptions = [];
-        this.tempArr1 = restaurant.querySelectorAll('dietary')
-        this.tempArr2 = this.tempArr1[1].split(" ");//this is not working - fix xml so that dietary is item attribute maybe
-
-        // this.makeMenuOptions = function() {
-        //     this.tempArr1 = restaurant.querySelectorAll('dietary');
-        //     this.tempArr2 = [];
-        //     this.AddArr2 = function() {
-        //         for(x = 0; x < this.tempArr1.length; x += 1) {
-        //             this.tempArr2.push(this.tempArr1[x].split(" "));
-        //         }
-        //     }
-        //     this.AddArr2();
-        //     this.menuOptions = new Set(tempArr2.flat());
-        // }
-        // this.makeMenuOptions();
+        this.menuOptions = (function() {
+                let tempArr1 = restaurant.querySelectorAll('dietary');
+                let tempArr2 = [];
+                let AddArr2 = function() {
+                    for(let x = 0; x < tempArr1.length; x += 1) {
+                        tempArr2.push(tempArr1[x].innerHTML.split(" "));
+                    }
+                }
+                AddArr2();
+                tempArr2 = tempArr2.flat().filter(word => word.length > 0);
+                return [...new Set(tempArr2)];
+        })();
     }
 }
 
 //selects the restaurant names and data and stores in array of objects
 const allMenu = document.querySelector('#menuData'); //end user to change to point to other data
 let restArrayTarg = allMenu.querySelectorAll('menu');
+console.log(restArrayTarg);
 let restaurants = [];
 let makeRestaurants = function(menus) {
-    for(x = 0; x < menus.length; x += 1) {
+    for(let x = 0; x < menus.length; x += 1) {
         restaurants.push(new theRestaurants(menus[x]));
     }
 }
+console.log(new theRestaurants(restArrayTarg[0]));
+console.log(new theRestaurants(restArrayTarg[1]));
+console.log(new theRestaurants(restArrayTarg[2]));
 
 makeRestaurants(restArrayTarg);
 
