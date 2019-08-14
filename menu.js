@@ -1,8 +1,6 @@
 window.onload = function() {
 
-    /*************************************************************************************************************
-     * scrap almost all of it. put functions into objects. each rest is an object (just selectors, not menu items)
-     ************************************************************************************************************/
+//makes object of restaurant - contains restaurant name, array of dietary need options, node list of menu meal-times
 class theRestaurants {
     constructor(restaurant) {
         this.restaurant = restaurant.getAttribute('restaurant');
@@ -32,13 +30,8 @@ let makeRestaurants = function(menus) {
         restaurants.push(new theRestaurants(menus[x]));
     }
 }
-console.log(new theRestaurants(restArrayTarg[0]));
-console.log(new theRestaurants(restArrayTarg[1]));
-console.log(new theRestaurants(restArrayTarg[2]));
 
 makeRestaurants(restArrayTarg);
-
-console.log(restaurants);
 
 //button creation class
 class theButton {
