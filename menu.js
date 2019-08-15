@@ -80,17 +80,11 @@ class theSelector {
 // }
 
 
-<<<<<<< HEAD
-    newNode.type = 'checkbox';
-    newNode.value = attrb;
-    newNodeLabel.for = attrb;
-=======
 // //create the menu list with checkboxes - moved to constructor - keeping JIC
 // // const restSelector = function(attrb) { 
 // //     let newNode = document.createElement('input');
 // //     let newNodeLabel = document.createElement('label');
 // //     let nodeDescription = document.createTextNode(attrb);
->>>>>>> 2ad3a97f9bfe84f9b77be961cd29d4ecaa2f8f84
 
 // //     newNode.type = 'checkbox';
 // //     newNode.value = attrb;
