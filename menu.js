@@ -1,8 +1,37 @@
 window.onload = function() {
 
-//selects the restaurant names from the menu list
-const allMenu = document.querySelector('#menuData');
-const restaurants = allMenu.querySelectorAll('menu');
+//makes object of restaurant - contains restaurant name, array of dietary need options, node list of menu meal-times
+class theRestaurants {
+    constructor(restaurant) {
+        this.restaurant = restaurant.getAttribute('restaurant');
+        this.mealTimes = restaurant.querySelectorAll('*[hours]');
+        this.menuOptions = (function() {
+                let tempArr1 = restaurant.querySelectorAll('dietary');
+                let tempArr2 = [];
+                let AddArr2 = function() {
+                    for(let x = 0; x < tempArr1.length; x += 1) {
+                        tempArr2.push(tempArr1[x].innerHTML.split(" "));
+                    }
+                }
+                AddArr2();
+                tempArr2 = tempArr2.flat().filter(word => word.length > 0);
+                return [...new Set(tempArr2)];
+        })();
+    }
+}
+
+//selects the restaurant names and data and stores in array of objects
+const allMenu = document.querySelector('#menuData'); //end user to change to point to other data
+let restArrayTarg = allMenu.querySelectorAll('menu');
+console.log(restArrayTarg);
+let restaurants = [];
+let makeRestaurants = function(menus) {
+    for(let x = 0; x < menus.length; x += 1) {
+        restaurants.push(new theRestaurants(menus[x]));
+    }
+}
+
+makeRestaurants(restArrayTarg);
 
 //button creation class
 class theButton {
@@ -16,47 +45,85 @@ class theButton {
         document.querySelector(bTargetDiv).style.display = 'inline';
     }
 }
-//create load meal times button (bfast, etc...)
-    //declare variable here for scope
-let restButtClick
-const listRestauarants = function() {
-    for (let x = 0; x < restaurants.length; x += 1) {
-        let eachRest = restaurants[x].getAttribute('restaurant');
-        restSelector(eachRest);
+
+//checkbox creation class
+class theSelector {
+    constructor(attrb, selector) { 
+        let newNode = document.createElement('input');
+        let newNodeLabel = document.createElement('label');
+        let nodeDescription = document.createTextNode(attrb);
+
+        newNode.type = 'checkbox';
+        newNode.value = attrb;
+        newNodeLabel.for = attrb;
+
+        newNodeLabel.appendChild(newNode);
+        newNodeLabel.appendChild(nodeDescription);
+
+        document.querySelector(selector).appendChild(newNodeLabel);
     }
-    new theButton('restSubmit', '#buttText');
-        //assign value to variable here  - cannot select until it's created (see restButtClick.addEventListener('click', listMealTimes, false);)
-    restButtClick = document.querySelector('#restSubmit');
 }
 
+// //create load meal times button (bfast, etc...)
+//     //declare variable here for scope
+// let restBtnClick;
+// let restList = [];
+// const listRestauarants = function() {
+//     for (let x = 0; x < restaurants.length; x += 1) {
+//         let eachRest = restaurants[x].getAttribute('restaurant');
+//         new theSelector(eachRest, '#menuSelect');
+//         restList += `#${eachrest}`;
+//     }
+//     new theButton('restSubmit', '#btnText');
+//         //assign value to variable here  - cannot select until it's created (see restBtnClick.addEventListener('click', listMealTimes, false);)
+//     restBtnClick = document.querySelector('#restSubmit');
+// }
 
-//create the menu list with checkboxes
-const restSelector = function(attrb) { 
-    let newNode = document.createElement('input');
-    let newNodeLabel = document.createElement('label');
-    let nodeDescription = document.createTextNode(attrb);
 
+<<<<<<< HEAD
     newNode.type = 'checkbox';
     newNode.value = attrb;
     newNodeLabel.for = attrb;
+=======
+// //create the menu list with checkboxes - moved to constructor - keeping JIC
+// // const restSelector = function(attrb) { 
+// //     let newNode = document.createElement('input');
+// //     let newNodeLabel = document.createElement('label');
+// //     let nodeDescription = document.createTextNode(attrb);
+>>>>>>> 2ad3a97f9bfe84f9b77be961cd29d4ecaa2f8f84
 
-    newNodeLabel.appendChild(newNode);
-    newNodeLabel.appendChild(nodeDescription);
+// //     newNode.type = 'checkbox';
+// //     newNode.value = attrb;
+// //     newNodeLabel.for = attrb;
 
-    document.querySelector("#menuSelect").appendChild(newNodeLabel);
-}
+// //     newNodeLabel.appendChild(newNode);
+// //     newNodeLabel.appendChild(nodeDescription);
 
-//create mealtime list(s)
-const listMealTimes = function() {
-    alert("button pushed, and I GOT CLASS!");
-    //find meal and time data
-    // populate meal and time data
-    // add click button 
-}
+// //     document.querySelector("#menuSelect").appendChild(newNodeLabel);
+// // }
 
-listRestauarants();
+// //create mealtime list(s)
 
-restButtClick.addEventListener('click', listMealTimes, false);
+// const selectedRest = function() {
+//     for(let x = 0; x < restList.length; x += 1) {
+//         let localRest = document.querySelector(restList[x]);
+//         if (localRest.checked) {
+
+//             new theSelector
+//         }
+//     }
+// }
+
+// const listMealTimes = function() {
+//     alert("button pushed, and I GOT CLASS!");
+//     //find meal and time data
+//     // populate meal and time data
+//     // add click button 
+// }
+
+// listRestauarants();
+
+// restBtnClick.addEventListener('click', listMealTimes, false);
 
 /*
     10 populate list of restaurants
