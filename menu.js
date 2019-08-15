@@ -23,7 +23,6 @@ class theRestaurants {
 //selects the restaurant names and data and stores in array of objects
 const allMenu = document.querySelector('#menuData'); //end user to change to point to other data
 let restArrayTarg = allMenu.querySelectorAll('menu');
-console.log(restArrayTarg);
 let restaurants = [];
 let makeRestaurants = function(menus) {
     for(let x = 0; x < menus.length; x += 1) {
@@ -32,12 +31,13 @@ let makeRestaurants = function(menus) {
 }
 
 makeRestaurants(restArrayTarg);
+console.log(restaurants); //kill after done. just her for testing
 
 //button creation class
 class theButton {
     constructor(bName, bTargetDiv) {
         let localBtn = document.createElement('button');
-        localBtn.type = 'submit';
+        localBtn.type = 'button';
         localBtn.name = bName;
         localBtn.value = bName;
         localBtn.id = bName;
@@ -64,20 +64,29 @@ class theSelector {
     }
 }
 
-// //create load meal times button (bfast, etc...)
-//     //declare variable here for scope
-// let restBtnClick;
-// let restList = [];
-// const listRestauarants = function() {
-//     for (let x = 0; x < restaurants.length; x += 1) {
-//         let eachRest = restaurants[x].getAttribute('restaurant');
-//         new theSelector(eachRest, '#menuSelect');
-//         restList += `#${eachrest}`;
-//     }
-//     new theButton('restSubmit', '#btnText');
-//         //assign value to variable here  - cannot select until it's created (see restBtnClick.addEventListener('click', listMealTimes, false);)
-//     restBtnClick = document.querySelector('#restSubmit');
-// }
+//pull restaurant names from array.object - make checklist and add button
+    //restaurant array
+let restCheck = [];
+const makeRestCheck = function(array) {
+    for(let x = 0; x < array.length; x += 1) {
+        restCheck.push(array[x].restaurant);
+    }
+}
+makeRestCheck(restaurants);
+
+    //checkboxes, button and append DOM
+let restBtnClick;
+let restList = [];
+const listRestauarants = function() {
+    for (let x = 0; x < restCheck.length; x += 1) {
+        new theSelector(restCheck[x], '#menuSelect');
+    }
+    new theButton('restSubmit', '#btnText');
+        //assign value to variable here  - cannot select until it's created (see restBtnClick.addEventListener('click', listMealTimes, false);)
+    restBtnClick = document.querySelector('#restSubmit');
+}
+
+listRestauarants();
 
 
 // //create the menu list with checkboxes - moved to constructor - keeping JIC
