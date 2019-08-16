@@ -1,10 +1,17 @@
 window.onload = function() {
 
-//makes object of restaurant - contains restaurant name, array of dietary need options, node list of menu meal-times
+//makes object of restaurant - contains restaurant name, array of dietary need options, node list of menu meal-times, and inner object 
+// class theFood {
+//     constructor(times) {
+//         this.mealtimes
+//     }
+// }
+
 class theRestaurants {
     constructor(restaurant) {
-        this.restaurant = restaurant.getAttribute('restaurant');
+        this.name = restaurant.getAttribute('restaurant');
         this.mealTimes = restaurant.querySelectorAll('*[hours]');
+        //this.meals = mealTimes.querySelectorAll('items');
         this.menuOptions = (function() {
                 let tempArr1 = restaurant.querySelectorAll('dietary');
                 let tempArr2 = [];
@@ -31,7 +38,7 @@ let makeRestaurants = function(menus) {
 }
 
 makeRestaurants(restArrayTarg);
-console.log(restaurants); //kill after done. just her for testing
+console.log(restaurants); //kill after done. just here for testing
 
 //button creation class
 class theButton {
