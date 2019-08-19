@@ -7,11 +7,42 @@ window.onload = function() {
 //     }
 // }
 
+class theItems {
+    constructor(eachItem) {
+        console.log(eachItem);
+        // this.name = eachItem.querySelector('item').innerText;
+        // this.price = eachItem.querySelector('price').innerText;
+        // this.description = eachItem.querySelector('description').innerText;
+    }
+}
+
+class theMeals {
+    constructor(mealTime) {
+        this.mealTime = mealTime;
+        this.item = (function() {
+            let nodeArr = mealTime.children;
+            let tempArr = [];
+            for(let x = 0; x < nodeArr.length; x += 1) {
+                tempArr.push(new theItems(nodeArr[x]));
+            }
+            return tempArr;
+        })();
+    }
+}
+
 class theRestaurants {
     constructor(restaurant) {
         this.name = restaurant.getAttribute('restaurant');
-        this.mealTimes = restaurant.querySelectorAll('*[hours]');
-        //this.meals = mealTimes.querySelectorAll('items');
+
+        this.meals = (function() {
+            let nodeArr = restaurant.children;
+            let tempArr = [];
+            for(let x = 0; x < nodeArr.length; x += 1) {
+                tempArr.push(new theMeals(nodeArr[x]));
+            }
+            return tempArr;
+        })();
+
         this.menuOptions = (function() {
                 let tempArr1 = restaurant.querySelectorAll('dietary');
                 let tempArr2 = [];
@@ -76,7 +107,7 @@ class theSelector {
 let restCheck = [];
 const makeRestCheck = function(array) {
     for(let x = 0; x < array.length; x += 1) {
-        restCheck.push(array[x].restaurant);
+        restCheck.push(array[x].name);
     }
 }
 makeRestCheck(restaurants);
