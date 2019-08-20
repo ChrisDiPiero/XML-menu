@@ -97,13 +97,14 @@ class theButton {
 
 //checkbox creation class
 class theSelector {
-    constructor(attrb, selector) { 
+    constructor(attrb, addClass, selector) { 
         let newNode = document.createElement('input');
         let newNodeLabel = document.createElement('label');
         let nodeDescription = document.createTextNode(attrb);
 
         newNode.type = 'checkbox';
         newNode.value = attrb;
+        newNode.classList += addClass;
         newNodeLabel.for = attrb;
 
         newNodeLabel.appendChild(newNode);
@@ -124,18 +125,21 @@ const makeRestCheck = function(array) {
 
     //restaurant list of checkboxes, button and append to DOM
 let restBtnClick;
+let restSelect;
 const listRestauarants = function() {
     for (let x = 0; x < restCheck.length; x += 1) {
-        new theSelector(restCheck[x], '#menuSelect');
+        new theSelector(restCheck[x], 'restaurants', '#menuSelect');
     }
     new theButton('restSubmit', '#btnText');
     //assign value to variable here  - cannot select until it's created (see restBtnClick.addEventListener('click', listMealTimes, false);)
     restBtnClick = document.querySelector('#restSubmit');
+    restSelect = document.querySelectorAll('.restaurants');
 }
 
 //pull mealtimes from checked DOM elements, create list of meal options
     // selected restaurant array
-let restSelect = document.querySelectorAll('#menuSelect checkbox');
+console.log(restSelect);
+let restCheckedArr = [];
 const getRestCheck = function() {
     for(let x = 0; x < restSelect.length; x += 1) {
         restCheckedArr.push(restSelect.checked);
@@ -144,12 +148,11 @@ const getRestCheck = function() {
 
     // populate the meal times - this is not working
 const listMealTimes = function() {
-    let restCheckedArr = [];
-    console.log(getRestCheck);
+    //console.log(getRestCheck());
     for(let x = 0; x < restSelect.length; x += 1) {
-        if(restCheckedArr) {
+        if(restSelect[x]) {
             let thisRest = restaurants[x];
-            for(let x = 0; x < thisRest.meal.length; x += 1) {
+            for(let x = 0; x < thisRest.meal[x].item.length; x += 1) {
                 new theSelector(thisRest.meal, '#mealTimes');
             }
         }
