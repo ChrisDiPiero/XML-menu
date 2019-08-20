@@ -145,16 +145,28 @@ const listMealTimes = function() {
         restCheckArr.push(restCheckTarg[x].checked);
         createMealList(restCheckTarg[x].checked, x);
     }
+    mealButtonClick.addEventListener('click', listOptions, false);
 }
 
     //create meal list and append to DOM
+let mealButtonClick;
 const createMealList = function(arrIt, iter) {
     if (arrIt) {
         let localRestName = restaurants[iter].name;
-        console.log(localRestName);
+        let localMealArr = restaurants[iter].meals;
+        for(let x = 0; x < localMealArr.length; x += 1) {
+            let localMealText = localMealArr[x].mealTime //convert to string
+            console.log(localMealArr[x].mealTime);
+            new theSelector(localMealText, 'mealBoxes', '#mealTimes')
+        }
+        new theButton('mealSubmit', '#mealBtnText');
     }
 }
 
+// pull dietary options from checked meal times - append to DOM
+const listOPtions = function() {
+    console.log("woot")
+}
 /*****************************
  ***** execution block ******
  ****************************/
