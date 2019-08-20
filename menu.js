@@ -125,7 +125,6 @@ const makeRestCheck = function(array) {
 
     //restaurant list of checkboxes, button and append to DOM
 let restBtnClick;
-let restSelect;
 const listRestauarants = function() {
     for (let x = 0; x < restCheck.length; x += 1) {
         new theSelector(restCheck[x], 'restaurants', '#menuSelect');
@@ -133,35 +132,36 @@ const listRestauarants = function() {
     new theButton('restSubmit', '#btnText');
     //assign value to variable here  - cannot select until it's created (see restBtnClick.addEventListener('click', listMealTimes, false);)
     restBtnClick = document.querySelector('#restSubmit');
-    restSelect = document.querySelectorAll('.restaurants');
 }
 
 //pull mealtimes from checked DOM elements, create list of meal options
-    // selected restaurant array
-console.log(restSelect);
-let restCheckedArr = [];
-const getRestCheck = function() {
-    for(let x = 0; x < restSelect.length; x += 1) {
-        restCheckedArr.push(restSelect.checked);
+    // selected restaurant array and collect Boolean
+let restCheckTarg; //array of rewtaurant check boxes - declared here for scope
+let restCheckArr = []; //array of bool value of restCheckTarg -  declared here for scope
+const listMealTimes = function() {
+    restCheckTarg = document.querySelectorAll('.restaurants');
+    for (let x = 0; x < restCheckTarg.length; x +=1)
+    {
+        restCheckArr.push(restCheckTarg[x].checked);
+        createMealList(restCheckTarg[x].checked, x);
     }
 }
 
-    // populate the meal times - this is not working
-const listMealTimes = function() {
-    //console.log(getRestCheck());
-    for(let x = 0; x < restSelect.length; x += 1) {
-        if(restSelect[x]) {
-            let thisRest = restaurants[x];
-            for(let x = 0; x < thisRest.meal[x].item.length; x += 1) {
-                new theSelector(thisRest.meal, '#mealTimes');
-            }
-        }
+    //create meal list and append to DOM
+const createMealList = function(arrIt, iter) {
+    if (arrIt) {
+        let localRestName = restaurants[iter].name;
+        console.log(localRestName);
     }
 }
+
+/*****************************
+ ***** execution block ******
+ ****************************/
 
 makeRestCheck(restaurants);
 listRestauarants();
-restBtnClick.addEventListener('click', listMealTimes, false); // button click works, but returns 
+restBtnClick.addEventListener('click', listMealTimes, false);
 
 /*
     10 populate list of restaurants
