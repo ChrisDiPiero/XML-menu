@@ -6,6 +6,8 @@ window.onload = function() {
 //         this.mealtimes
 //     }
 // }
+let trackArray = 'temp';
+console.log(trackArray);
 
 class theItems {
     constructor(eachItem) {
@@ -136,27 +138,28 @@ const listRestauarants = function() {
 
 //pull mealtimes from checked DOM elements, create list of meal options
     // selected restaurant array and collect Boolean
-let restCheckTarg; //array of rewtaurant check boxes - declared here for scope
+let restCheckTarg; //array of restaurant check boxes - declared here for scope
 let restCheckArr = []; //array of bool value of restCheckTarg -  declared here for scope
+let mealButtonClick;
 const listMealTimes = function() {
     restCheckTarg = document.querySelectorAll('.restaurants');
     for (let x = 0; x < restCheckTarg.length; x +=1)
     {
         restCheckArr.push(restCheckTarg[x].checked);
         createMealList(restCheckTarg[x].checked, x);
+        
     }
+    mealButtonClick = document.querySelector('#mealBtnText')
     mealButtonClick.addEventListener('click', listOptions, false);
 }
 
     //create meal list and append to DOM
-let mealButtonClick;
 const createMealList = function(arrIt, iter) {
     if (arrIt) {
         let localRestName = restaurants[iter].name;
         let localMealArr = restaurants[iter].meals;
         for(let x = 0; x < localMealArr.length; x += 1) {
-            let localMealText = localMealArr[x].mealTime //convert to string
-            console.log(localMealArr[x].mealTime);
+            let localMealText = localMealArr[x].mealTime.getAttribute('time');
             new theSelector(localMealText, 'mealBoxes', '#mealTimes')
         }
         new theButton('mealSubmit', '#mealBtnText');
@@ -164,8 +167,14 @@ const createMealList = function(arrIt, iter) {
 }
 
 // pull dietary options from checked meal times - append to DOM
-const listOPtions = function() {
-    console.log("woot")
+    // selected meal-time array and collect checked boolean
+let mealCheckTarg; //array of meal check boxes - declared here for scope
+let mealCheckArr = []; //array of bool value of mealCheckTarg -  declared here for scope
+const listOptions = function() {
+    mealCheckTarg = document.querySelectorAll('.mealBoxes');
+    for (let x = 0; x < mealCheckTarg.length; x += 1) {
+        mealCheckArr.push(mealCheckTarg)
+    }
 }
 /*****************************
  ***** execution block ******
