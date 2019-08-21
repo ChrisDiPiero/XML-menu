@@ -1,5 +1,10 @@
 window.onload = function() {
 
+/********************************************************************
+MEGA restructure - create simple object based on restaurants selected
+add to object after boxes checked
+********************************************************************/
+
 //makes object of restaurant - contains restaurant name, array of dietary need options, node list of menu meal-times, and inner object 
 // class theFood {
 //     constructor(times) {
