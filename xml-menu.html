@@ -22,30 +22,14 @@
             at which you can eat!
         </p>
         <form id="selections">
-            <fieldset id="menuSelect">
-                <!--js that will read xml data and populate list of restaurants-->
-            </fieldset>
             <div id="btnHolder">
-                <div id="mealBtn">
-                    Click <span></span> to see what meal times are available.
+                <div id="menuText">
+                    Select one or more restaurants snd click <button id="menuBtn">here</button> to see what meal times are available.
                 </div>
             </div>
 
-    
-            <table id="menuTable">
-                <!--Insert full menu data in table format-->
-            </table>
-
-            <fieldset id="mealTimes">
-                <!--js that populates checkboxes for all options-->
-            </fieldset>
-
-            <div id="mealBtnText" style="display:none">
-                Choose your meal time and select what menu options you want.
-            </div>
-            
-            <fieldset id="mealOptions">
-                <!--js that populates checkboxes for all options-->
+            <fieldset id="menuSelect">
+                <!--js that will read xml data and populate list of restaurants-->
             </fieldset>
         </form>
         
@@ -62,7 +46,7 @@
         <xml id="menuData" style="display:none">
             <menulist>
                 <menu restaurant="Max & Louie's New York Diner">
-                    <meal time="breakfast - hours: 7:30 am - 10:00 pm">
+                    <meal time="breakfast - 7:30 am - 10:00 pm">
                         <item>
                             <name>The Standard</name>
                             <price>7.95</price>
@@ -127,7 +111,7 @@
                         </item>
                     </meal>
             
-                    <meal time="lunch/dinner - hours: 7:30 am - 10:00 pm">
+                    <meal time="lunch/dinner - 7:30 am - 10:00 pm">
                         <item>
                             <name>Reuben</name>
                             <price>14.95</price>
@@ -203,7 +187,7 @@
                 </menu>
             
                 <menu restaurant="Magnolia Pancake Haus">
-                    <meal time="breakfast - hours: 7:00 am - 2:00 pm">
+                    <meal time="breakfast - 7:00 am - 2:00 pm">
                         <item>
                             <name>Magnolia’s Old World Buttermilk Pancakes</name>
                             <price>6.99</price>
@@ -267,7 +251,7 @@
                             <dietary>Carbs</dietary>
                         </item>
                     </meal>
-                    <meal time="lunch - hours: 10:00 am - 2:00 pm">
+                    <meal time="lunch - 10:00 am - 2:00 pm">
                         <item>
                             <name>Fried Chicken Chop Salad</name>
                             <price>10.25</price>
@@ -344,7 +328,7 @@
             
                 <menu restaurant="Supper">
                             <!-- if no name, use js to bump description above price -->
-                    <meal time="breakfast - hours: 7:00 am - 11:00 am">
+                    <meal time="breakfast - 7:00 am - 11:00 am">
                         <item>
                             <name />
                             <price>6</price>
@@ -419,7 +403,7 @@
             
                     </meal>
             
-                    <meal time="lunch - hours: 11:00 am - 3:00 pm">
+                    <meal time="lunch - 11:00 am - 3:00 pm">
                         <item >
                             <name />
                             <price>10</price>
@@ -494,7 +478,7 @@
             
                     </meal>
             
-                    <meal time="dinner - hours: 5:00 am - 10:00 pm">
+                    <meal time="dinner - 5:00 am - 10:00 pm">
                         <item>
                             <name />
                             <price>26</price>

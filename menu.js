@@ -1,80 +1,79 @@
 window.onload = function() {
 
-    /********************************************************************
-    MEGA restructure - create simple object based on restaurants selected
-    add to object after boxes checked
-    ********************************************************************/
+    /************************************************************************************************
+    not so mega restructure - was a bad idea (maybe). I do need to start building out the table though
+    *************************************************************************************************/
     
-    //makes object of restaurant - contains restaurant name, array of dietary need options, node list of menu meal-times, and inner object 
-    // class theFood {
-    //     constructor(times) {
-    //         this.mealtimes
-    //     }
-    // }
-    let trackArray = [];
-    console.log(trackArray);
-    
-    class theItems {
+    //Classes to make the array of restaurants - pulls the xml data and builds out objects
+        // TheItems creates an array of each menu item, stored in parent meal object
+    class TheItems {
         constructor(eachItem) {
-            this.name = "";
-            this.description = ""; // test for null/empty before appending dom
-            this.nameTest(eachItem);
+            this.name = ""; // if menu item has no name, instert description
+            this.description = ""; // test for null/empty before appending dom - do not apend if empty
+            this.nameTest(eachItem); // runs method to check for empty name
             this.price = eachItem.querySelector('price').innerText;
-            this.optons = eachItem.querySelector('dietary').innerText.split(' ');
+            this.optons = eachItem.querySelector('dietary').innerText.split(' '); //array of meal types
         }
-    
+        
+        // empty name method I told you about - test name for innerText
         nameTest(eachItem) {
             if (eachItem.querySelector('name').innerText) {
-                this.name = eachItem.querySelector('name').innerText;
+                this.name = eachItem.querySelector('name').innerText; //true: name = name, desc = desc
                 this.description = eachItem.querySelector('description').innerText;
             }
             else {
-                this.name = eachItem.querySelector('description').innerText;
+                this.name = eachItem.querySelector('description').innerText; // false: name = desc
             }
         }
     }
     
-    class theMeals {
+        //TheMeals creates array of the meal times (bfast, lunch etc) avail at parent rest. stored in parent rest object
+    class TheMeals {
         constructor(mealTime) {
             this.mealTime = mealTime;
-            this.item = (function() {
-                let nodeArr = mealTime.children;
-                let tempArr = [];
-                for(let x = 0; x < nodeArr.length; x += 1) {
-                    tempArr.push(new theItems(nodeArr[x]));
+            this.item = (function() { // adds array of meal items
+                let nodeArr = mealTime.children; // array of items as child nodes - unformatted
+                let tempArr = []; // holds array as it's being built in loop
+                for(let x = 0; x < nodeArr.length; x += 1) { 
+                    tempArr.push(new TheItems(nodeArr[x])); // creates new item object on each loop and stores in array
                 }
                 return tempArr;
             })();
         }
     }
     
-    class theRestaurants {
+        // TheRestaurants creates array of all data from XML
+    class TheRestaurants {
         constructor(restaurant) {
-            this.name = restaurant.getAttribute('restaurant');
-    
-            this.meals = (function() {
-                let nodeArr = restaurant.children;
-                let tempArr = [];
-                for(let x = 0; x < nodeArr.length; x += 1) {
-                    tempArr.push(new theMeals(nodeArr[x]));
-                }
-                return tempArr;
-            })();
-    
-            this.menuOptions = (function() {
-                    let tempArr1 = restaurant.querySelectorAll('dietary');
-                    let tempArr2 = [];
-                    let AddArr2 = function() {
-                        for(let x = 0; x < tempArr1.length; x += 1) {
-                            tempArr2.push(tempArr1[x].innerHTML.split(" "));
-                        }
-                    }
-                    AddArr2();
-                    tempArr2 = tempArr2.flat().filter(word => word.length > 0);
-                    return [...new Set(tempArr2)];
-            })();
+            this.name = restaurant.getAttribute('restaurant'); // pulls name of restaurant
+            this.meals = this.makeMealsArray(restaurant); // executes method that makes the meal array
+            this.menuOptions = this.makeOptionsArray(restaurant); // executes method that populates menu options - probably move to TheItems
         }
-    }
+
+        makeMealsArray(restaurant) { // method to call TheMeals class and make meal array
+            let nodeArr = restaurant.children; // array of items as child nodes - unformatted
+            let tempArr = []; // holds array as it's being built in loop
+            for(let x = 0; x < nodeArr.length; x += 1) {
+                tempArr.push(new TheMeals(nodeArr[x])); // creates new meal object on each loop and stores in array
+            }
+            return tempArr;
+        }
+
+        makeOptionsArray(restaurant) { // creates meal options/types array  - probably move this to TheItems object
+            let tempArr1 = restaurant.querySelectorAll('dietary'); // array of items as child nodes - unformatted
+            let tempArr2 = []; // holds array as it's being built in loop
+            let AddArr2 = function() { // function to store array of nodes as array of arrays
+                for(let x = 0; x < tempArr1.length; x += 1) {
+                        tempArr2.push(tempArr1[x].innerHTML.split(" ")); // array of child nodes, split and stored as arrays 
+                    }
+                }
+                AddArr2();
+                ///////////////////////////////////////////
+                tempArr2 = tempArr2.flat().filter(word => word.length > 0); // what does this do?????
+                //////////////////////////////////////////
+                return [...new Set(tempArr2)];
+                }
+}
     
     //selects the restaurant names and data and stores in array of objects
     const allMenu = document.querySelector('#menuData'); //end user to change to point to other data
@@ -82,25 +81,27 @@ window.onload = function() {
     let restaurants = [];
     let makeRestaurants = function(menus) {
         for(let x = 0; x < menus.length; x += 1) {
-            restaurants.push(new theRestaurants(menus[x]));
+            restaurants.push(new TheRestaurants(menus[x]));
         }
     }
     
     makeRestaurants(restArrayTarg);
     console.log(restaurants); //kill after done. just here for testing
     
-    //button creation class
-    class theButton {
-        constructor(bName, bTargetDiv) {
-            let localBtn = document.createElement('button');
-            localBtn.type = 'button';
-            localBtn.name = bName;
-            localBtn.value = bName;
-            localBtn.id = bName;
-            document.querySelector(bTargetDiv).appendChild(localBtn);
-            document.querySelector(bTargetDiv).style.display = 'inline';
-        }
-    }
+    //button target function
+
+
+    // class theButton {
+    //     constructor(bName, bTargetDiv) {
+    //         let localBtn = document.createElement('button');
+    //         localBtn.type = 'button';
+    //         localBtn.name = bName;
+    //         localBtn.value = bName;
+    //         localBtn.id = bName;
+    //         document.querySelector(bTargetDiv).appendChild(localBtn);
+    //         document.querySelector(bTargetDiv).style.display = 'inline';
+    //     }
+    // }
     
     //checkbox creation class
     class theSelector {
@@ -144,25 +145,28 @@ window.onload = function() {
     //pull mealtimes from checked DOM elements, create list of meal options
         // selected restaurant array and collect Boolean
     let restCheckTarg; //array of restaurant check boxes - declared here for scope
-    let restCheckArr = []; //array of bool value of restCheckTarg -  declared here for scope
+    // let restCheckArr = []; //array of bool value of restCheckTarg -  declared here for scope - kill during refactor?
     let mealButtonClick;
     const listMealTimes = function() {
         restCheckTarg = document.querySelectorAll('.restaurants');
         for (let x = 0; x < restCheckTarg.length; x +=1)
         {
-            restCheckArr.push(restCheckTarg[x].checked);
-            createMealList(restCheckTarg[x].checked, x);
-            
+            if (!restCheckTarg[x].checked) { // sets unchecked boxes to null
+                restaurants[x] = null;
+            };
         }
-        mealButtonClick = document.querySelector('#mealBtnText')
+        restaurants = restaurants.filter((obj) => obj); // filters out null values
+        createMealList(restaurants); 
+
+        mealButtonClick = document.querySelector('#mealBtnText');
         mealButtonClick.addEventListener('click', listOptions, false);
     }
     
         //create meal list and append to DOM
-    const createMealList = function(arrIt, iter) {
-        if (arrIt) {
-            let localRestName = restaurants[iter].name;
-            let localMealArr = restaurants[iter].meals;
+    const createMealList = function(arrIt) {
+        for (let x = 0; x < arrIt.length; x += 1) {
+            console.log(restaurants[x]);
+            let localMealArr = restaurants[x].meals;
             for(let x = 0; x < localMealArr.length; x += 1) {
                 let localMealText = localMealArr[x].mealTime.getAttribute('time');
                 new theSelector(localMealText, 'mealBoxes', '#mealTimes')
