@@ -1,0 +1,15 @@
+body {
+    background-color: rgb(86, 98, 207);
+    text-align: center;
+}
+
+#mainContent {
+    background-color: rgb(185, 192, 255);
+    width: 80%;
+    text-align: center;
+    display: inline-block;
+}
+
+h1 {
+
+}

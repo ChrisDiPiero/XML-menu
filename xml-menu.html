@@ -3,24 +3,38 @@
 <html>
     <head>
         <title>Meal Comparison Chart</title>
+        <link rel="stylesheet" href="style/style.css">
     </head>
     <body>
+    <div id="mainContent">
         <h1>
             Interactive XML Meal Comparison Table
         </h1>
 
         <h2>
-            Choose a restaurant... or more than one if you want to compare.
+            Planning a trip to San Antonio?
         </h2>
-    
+        <p>
+            Here's a random list of restaurants,
+            <br />
+            in no particular order,
+            <br />
+            at which you can eat!
+        </p>
         <form id="selections">
             <fieldset id="menuSelect">
                 <!--js that will read xml data and populate list of restaurants-->
             </fieldset>
-
-            <div id="btnText" style="display:none">
-                See what meal times are available.
+            <div id="btnHolder">
+                <div id="mealBtn">
+                    Click <span></span> to see what meal times are available.
+                </div>
             </div>
+
+    
+            <table id="menuTable">
+                <!--Insert full menu data in table format-->
+            </table>
 
             <fieldset id="mealTimes">
                 <!--js that populates checkboxes for all options-->
@@ -34,10 +48,8 @@
                 <!--js that populates checkboxes for all options-->
             </fieldset>
         </form>
-    
-        <table id="menuTable">
-            <!--Insert full menu data in table format-->
-        </table>
+        
+    </div>
 
 
 

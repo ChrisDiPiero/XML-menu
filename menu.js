@@ -11,13 +11,13 @@ window.onload = function() {
     //         this.mealtimes
     //     }
     // }
-    let trackArray = 'temp';
+    let trackArray = [];
     console.log(trackArray);
     
     class theItems {
         constructor(eachItem) {
             this.name = "";
-            this.description = "";
+            this.description = ""; // test for null/empty before appending dom
             this.nameTest(eachItem);
             this.price = eachItem.querySelector('price').innerText;
             this.optons = eachItem.querySelector('dietary').innerText.split(' ');
@@ -136,7 +136,7 @@ window.onload = function() {
         for (let x = 0; x < restCheck.length; x += 1) {
             new theSelector(restCheck[x], 'restaurants', '#menuSelect');
         }
-        new theButton('restSubmit', '#btnText');
+        new theButton('restSubmit', '#mealBtn');
         //assign value to variable here  - cannot select until it's created (see restBtnClick.addEventListener('click', listMealTimes, false);)
         restBtnClick = document.querySelector('#restSubmit');
     }
