@@ -25,6 +25,10 @@
             <fieldset id="mealTimes">
                 <!--js that populates checkboxes for all options-->
             </fieldset>
+
+            <div id="mealBtnText" style="display:none">
+                Choose your meal time and select what menu options you want.
+            </div>
             
             <fieldset id="mealOptions">
                 <!--js that populates checkboxes for all options-->
@@ -32,9 +36,7 @@
         </form>
     
         <table id="menuTable">
-            <th>
-                <!-- need to add TDs as created-->
-            </th>
+            <!--Insert full menu data in table format-->
         </table>
 
 
@@ -48,7 +50,7 @@
         <xml id="menuData" style="display:none">
             <menulist>
                 <menu restaurant="Max & Louie's New York Diner">
-                    <breakfast hours="7:30 am - 10:00 pm">
+                    <meal time="breakfast - hours: 7:30 am - 10:00 pm">
                         <item>
                             <name>The Standard</name>
                             <price>7.95</price>
@@ -111,9 +113,9 @@
                             </description>
                             <dietary>Meat</dietary>
                         </item>
-                    </breakfast>
+                    </meal>
             
-                    <lunch-dinner hours="7:30 am - 10:00 pm">
+                    <meal time="lunch/dinner - hours: 7:30 am - 10:00 pm">
                         <item>
                             <name>Reuben</name>
                             <price>14.95</price>
@@ -185,11 +187,11 @@
                             </description>
                             <dietary>Carbs Meat</dietary>
                         </item>
-                    </lunch>
+                    </meal>
                 </menu>
             
                 <menu restaurant="Magnolia Pancake Haus">
-                    <breakfast hours="7:00 am - 2:00 pm">
+                    <meal time="breakfast - hours: 7:00 am - 2:00 pm">
                         <item>
                             <name>Magnolia’s Old World Buttermilk Pancakes</name>
                             <price>6.99</price>
@@ -252,8 +254,8 @@
                             </description>
                             <dietary>Carbs</dietary>
                         </item>
-                    </breakfast>
-                    <lunch hours="10:00 am - 2:00 pm">
+                    </meal>
+                    <meal time="lunch - hours: 10:00 am - 2:00 pm">
                         <item>
                             <name>Fried Chicken Chop Salad</name>
                             <price>10.25</price>
@@ -325,14 +327,12 @@
                             </description>
                             <dietary>Carbs Meat</dietary>
                         </item>
-                    </lunch>
-                    <dinner hours="0">
-                    </dinner>
+                    </meal>
                 </menu>
             
                 <menu restaurant="Supper">
                             <!-- if no name, use js to bump description above price -->
-                    <breakfast hours="7:00 am - 11:00 am">
+                    <meal time="breakfast - hours: 7:00 am - 11:00 am">
                         <item>
                             <name />
                             <price>6</price>
@@ -405,9 +405,9 @@
                             <dietary></dietary>
                         </item>
             
-                    </breakfast>
+                    </meal>
             
-                    <lunch hours="11:00 am - 3:00 pm">
+                    <meal time="lunch - hours: 11:00 am - 3:00 pm">
                         <item >
                             <name />
                             <price>10</price>
@@ -480,9 +480,9 @@
                             <dietary>Carbs Meat</dietary>
                         </item>
             
-                    </lunch>
+                    </meal>
             
-                    <dinner hours="5:00 am - 10:00 pm">
+                    <meal time="dinner - hours: 5:00 am - 10:00 pm">
                         <item>
                             <name />
                             <price>26</price>
@@ -564,7 +564,7 @@
                             <dietary>Vegan</dietary>
                         </item>
             
-                    </dinner>
+                    </meal>
                 </menu>
             </menulist>
         </xml>
