@@ -1,16 +1,15 @@
 window.onload = function() {
 
-//makes object of restaurant - contains restaurant name, array of dietary need options, node list of menu meal-times, and inner object 
-// class theFood {
-//     constructor(times) {
-//         this.mealtimes
-//     }
-// }
+/******************
+ * create and add to objects on the fly
+ * each button click will create animation. button frame will slide
+ * and then new button, with data populating the table will slide down
+ * */
 
 class theItems {
     constructor(eachItem) {
         this.name = "";
-        this.description = "";
+        this.description = ""; //add if statement 
         this.nameTest(eachItem);
         this.price = eachItem.querySelector('price').innerText;
         this.optons = eachItem.querySelector('dietary').innerText.split(' ');
