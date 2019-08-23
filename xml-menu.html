@@ -23,13 +23,23 @@
         </p>
         <form id="selections">
             <div id="btnHolder">
-                <div id="menuText">
-                    Select one or more restaurants snd click <button id="menuBtn">here</button> to see what meal times are available.
+
+                <div id="selectRestText">
+                    Select one or more restaurants and click <input type="button" name="selectRestBtn" id="selectRestBtn" value="here"/> to see what meal times are available.
                 </div>
+                <div id="selectMealText">
+                    Select one or more meal-times and click <input type="button" name="selectMealBtn" id="selectMealBtn" value="here"/> to see what dietary options are available.
+                </div>
+                <div id="SelectOptionsText">
+                    Select one or more dietary options and click <input type="button" name="selectOptionBtn" id="selectOptionBtn" value="here"/> to see what dishes are available.
+                </div>
+
             </div>
 
             <fieldset id="menuSelect">
-                <!--js that will read xml data and populate list of restaurants-->
+                <table>
+                    <!--js that will read xml data and populate list of restaurants-->
+                </table>
             </fieldset>
         </form>
         
