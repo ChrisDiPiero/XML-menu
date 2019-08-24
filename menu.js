@@ -106,39 +106,44 @@ window.onload = function() {
 
     
     //checkbox creation class
-    class TheSelector { //creates array of checkboxes - class to make code reuseable 
-        constructor(attrb, addClass, selector) {
-            // create code to add <td> node, append newNode to td, then append td to selector
-            let newNode = document.createElement('input'); //create checkbox
-            let newNodeLabel = document.createElement('label'); // create EMPTY label
-            let nodeDescription = document.createTextNode(attrb); // create text to add to label
-    
-            newNode.type = 'checkbox';
-            newNode.value = attrb;
-            newNode.classList += addClass;
-            newNodeLabel.for = attrb;
-    
-            newNodeLabel.appendChild(newNode);
-            newNodeLabel.appendChild(nodeDescription);
-    
-            document.querySelector(selector).appendChild(newNodeLabel);
-        }
+    const  makeSelector  = function(attrb, addClass) { //creates array of checkboxes
+        let newTd = document.createElement('td');// create <td> node
+
+        let newNode = document.createElement('input'); //create checkbox
+        let newNodeLabel = document.createElement('label'); // create EMPTY label
+        let nodeDescription = document.createTextNode(attrb); // create text to add to label
+
+        newNode.type = 'checkbox';
+        newNode.value = attrb;
+        newNode.classList += addClass;
+        newNodeLabel.for = attrb;
+
+        newNodeLabel.appendChild(newNode);
+        newNodeLabel.appendChild(nodeDescription);
+
+        document.querySelector(newTd).appendChild(newNodeLabel);
     }
 
     //function to create tr node that appends to table in html, TheSelector appends to this
-    const makeTableRow = function(addClass) {
-            let newNode = document.createElement('tr');
+    const makeTableRow = function(rowClass, attrb, addClass, iter) {
+        let newNode = document.createElement('tr');
+        newNode.classList += rowClass;
 
-            newNode.classList += addClass;
-            document.querySelector('table').appendChild(newNode);
+        for(let x = 0; x < iter; x += 1) {
+            let localTd = makeSelector(attrb, addClass);
+            newNode.appendChild(localTd);
         }
+        
+        document.querySelector('table').appendChild(newNode);
     }
+
+
     //pull restaurant names from array.object - make checklist and add button
         //restaurant array
-    let restCheck = [];
+    let restCheckArr = [];
     const makeRestCheck = function(array) {
         for(let x = 0; x < array.length; x += 1) {
-            restCheck.push(array[x].name);
+            restCheckArr.push(array[x].name);
         }
     }
     // button vars declared for scope
@@ -147,11 +152,11 @@ window.onload = function() {
     let optionBtnClick = document.querySelector('#selectRestBtn');
     
 
-        //restaurant list of checkboxes, button and append to DOM
+        //restaurant list of checkboxes and append to DOM
     const listRestauarants = function() {
 
-        for (let x = 0; x < restCheck.length; x += 1) {
-            new TheSelector(restCheck[x], 'restaurants', '#menuSelect');
+        for (let x = 0; x < restCheckArr.length; x += 1) {
+            new TheSelector(restCheckArr[x], 'restaurants', '#menuSelect');
         }
         // new theButton('restSubmit', '#mealBtn');
         // assign value to variable here  - cannot select until it's created (see restBtnClick.addEventListener('click', listMealTimes, false);)
