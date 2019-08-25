@@ -12,7 +12,7 @@ window.onload = function() {
             this.description = ""; // test for null/empty before appending dom - do not apend if empty
             this.nameTest(eachItem); // runs method to check for empty name
             this.price = eachItem.querySelector('price').innerText;
-            this.optons = eachItem.querySelector('dietary').innerText.split(' '); //array of meal types
+            this.optons = eachItem.querySelector('dietary').innerText.split(' '); //array of meal dietary options
         }
         
         // empty name method I told you about - test name for innerText
@@ -30,7 +30,7 @@ window.onload = function() {
         //TheMeals creates array of the meal times (bfast, lunch etc) avail at parent rest. stored in parent rest object
     class TheMeals {
         constructor(mealTime) {
-            this.mealTime = mealTime;
+            this.mealTime = mealTime.getAttribute('time');
             this.item = (function() { // adds array of meal items
                 let nodeArr = mealTime.children; // array of items as child nodes - unformatted
                 let tempArr = []; // holds array as it's being built in loop
@@ -72,6 +72,9 @@ window.onload = function() {
                 return [...new Set(tempArr2)];
                 }
 }
+/************************************************************
+ ***executes code to pull xml data and convert to Object array
+ **************************************************************/
     
     //selects the restaurant names and data and stores in array of objects
     const allMenu = document.querySelector('#menuData'); //change to point to other data
@@ -105,9 +108,9 @@ window.onload = function() {
      *******************************************************************************/ 
 
     
-    //checkbox creation class
-    const  makeSelector  = function(attrb, addClass) { //creates array of checkboxes
-        let newTd = document.createElement('td');// create <td> node
+    //checkbox creation function
+    const  makeSelector  = function(attrb, addClass, cellType) { //creates array of checkboxes
+        let newCell = document.createElement(cellType);// create <td> node
 
         let newNode = document.createElement('input'); //create checkbox
         let newNodeLabel = document.createElement('label'); // create EMPTY label
@@ -121,20 +124,20 @@ window.onload = function() {
         newNodeLabel.appendChild(newNode);
         newNodeLabel.appendChild(nodeDescription);
 
-        document.querySelector(newTd).appendChild(newNodeLabel);
+        newCell.appendChild(newNodeLabel);
+        return newCell;
     }
 
     //function to create tr node that appends to table in html, TheSelector appends to this
-    const makeTableRow = function(rowClass, attrb, addClass, iter) {
-        let newNode = document.createElement('tr');
-        newNode.classList += rowClass;
+    const makeTableRow = function(rowClass, attrb, addClass, cellType) {
+        let newRowNode = document.createElement('tr');
+        newRowNode.classList += rowClass;
 
-        for(let x = 0; x < iter; x += 1) {
-            let localTd = makeSelector(attrb, addClass);
-            newNode.appendChild(localTd);
+        for(let x = 0; x < attrb.length; x += 1) {
+            newRowNode.appendChild(makeSelector(attrb[x], addClass, cellType));
         }
         
-        document.querySelector('table').appendChild(newNode);
+        document.querySelector('table').appendChild(newRowNode);
     }
 
 
@@ -150,44 +153,34 @@ window.onload = function() {
     let restBtnClick = document.querySelector('#selectRestBtn');
     let mealBtnClick = document.querySelector('#selectMealBtn');
     let optionBtnClick = document.querySelector('#selectRestBtn');
-    
 
-        //restaurant list of checkboxes and append to DOM
-    const listRestauarants = function() {
-
-        for (let x = 0; x < restCheckArr.length; x += 1) {
-            new TheSelector(restCheckArr[x], 'restaurants', '#menuSelect');
-        }
-        // new theButton('restSubmit', '#mealBtn');
-        // assign value to variable here  - cannot select until it's created (see restBtnClick.addEventListener('click', listMealTimes, false);)
-        // restBtnClick = document.querySelector('#restSubmit');
-    }
-    
     //pull mealtimes from checked DOM elements, create list of meal options
         // selected restaurant array and collect Boolean
     const listMealTimes = function() {
-        let restCheckTarg = document.querySelectorAll('.restaurants');
-        for (let x = 0; x < restCheckTarg.length; x +=1)
+        let restCheckTarg = document.querySelectorAll('.restaurants'); // targets the restaurant checkboxes
+        for (let x = 0; x < restCheckTarg.length; x +=1) // loops over each checkbox
         {
-            if (!restCheckTarg[x].checked) { // sets unchecked boxes to null
-                restaurants[x] = null;
+            if (!restCheckTarg[x].checked) { //tests for unchecked (false) checkboxes 
+                restaurants[x] = null; // gets index of unchecked boxes, sets corresponding object value in array to null
             };
         }
         restaurants = restaurants.filter((obj) => obj); // filters out null values
-        createMealList(restaurants); 
+        createMealList(restaurants); //executes meal checkbox list creation remaining restaurant object array
 
         mealBtnClick.addEventListener('click', listOptions, false);
     }
     
-        //create meal list and append to DOM
-    const createMealList = function(arrIt) {
-        for (let x = 0; x < arrIt.length; x += 1) {
-            console.log(restaurants[x]);
-            let localMealArr = restaurants[x].meals;
-            for(let x = 0; x < localMealArr.length; x += 1) {
-                let localMealText = localMealArr[x].mealTime.getAttribute('time');
-                new TheSelector(localMealText, 'mealBoxes', '#menuSelect' /*need to target table*/)
+        //create meal list and append to DOM - after first button click
+    const createMealList = function(arr) {
+        for (let x = 0; x < arr.length; x += 1) {
+            let localMeal = arr[x].meals;
+            console.log(localMeal);
+            let localMealArr = []
+            for(let x = 0; x < localMeal.length; x += 1) {
+                localMealArr.push(localMeal[x].mealTime);
             }
+            console.log(localMealArr);
+            makeTableRow('tableRow', localMealArr, 'mealBoxes');
         }
     }
     
@@ -205,8 +198,18 @@ window.onload = function() {
      ***** execution block ******
      ****************************/
     
-    makeRestCheck(restaurants);
-    listRestauarants();
+    //Restaurant Selection Section
+    makeRestCheck(restaurants); //make the array of restaurant names pulled from object array
+
+    /*
+    need to create functions that delete not just array, 
+    but that test and delete from objects themselves.
+    refresh button to reset
+    */
+
+
+
+    makeTableRow('tableRow', restCheckArr, 'restaurants', 'th'); // restaurant checkbox node creation and append to DOM
     restBtnClick.addEventListener('click', listMealTimes, false);
     
     /*
