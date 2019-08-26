@@ -1,8 +1,8 @@
 window.onload = function() {
 
-    /************************************************************************************************
-    not so mega restructure - was a bad idea (maybe). I do need to start building out the table though
-    *************************************************************************************************/
+    /*******************************************
+    Classes that convert the XML data to objects
+    ********************************************/
     
     //Classes to make the array of restaurants - pulls the xml data and builds out objects
         // TheItems creates an array of each menu item, stored in parent meal object
@@ -73,7 +73,7 @@ window.onload = function() {
                 }
 }
 /************************************************************
- ***executes code to pull xml data and convert to Object array
+ ***functions  that pull xml data and convert to Object array
  **************************************************************/
     
     //selects the restaurant names and data and stores in array of objects
@@ -86,76 +86,74 @@ window.onload = function() {
         }
     }
     
+    // executes above function imediately after page load
     makeRestaurants(restArrayTarg); //calls function that makes restaurant object array
     console.log(restaurants); //kill after done. just here for testing
-    
-    //button target function
 
-    /******************************************************************************
-     * keeping JIK, but I hard-coded the buttons and will build logic to fade in/out 
-    each button on top of the page 
-    class TheButton { 
-        constructor(bName, bTargetDiv) {
-            let localBtn = document.createElement('button');
-            localBtn.type = 'button';
-            localBtn.name = bName;
-            localBtn.value = bName;
-            localBtn.id = bName;
-            document.querySelector(bTargetDiv).appendChild(localBtn);
-            document.querySelector(bTargetDiv).style.display = 'inline';
-        }
-    }
-     *******************************************************************************/ 
-
-    
-    //checkbox creation function
-    const  makeSelector  = function(attrb, addClass, cellType) { //creates array of checkboxes
-        let newCell = document.createElement(cellType);// create <td> node
-
+/*********************************************************************************
+reusable functions that create the DOM elements (checkboxes and their containers)
+**********************************************************************************/
+    const  makeSelector  = function(attrb, checkClass) { //creates array of checkboxes - called by loop in makeAndAppendData()
         let newNode = document.createElement('input'); //create checkbox
         let newNodeLabel = document.createElement('label'); // create EMPTY label
         let nodeDescription = document.createTextNode(attrb); // create text to add to label
 
-        newNode.type = 'checkbox';
-        newNode.value = attrb;
-        newNode.classList += addClass;
-        newNodeLabel.for = attrb;
+        newNode.type = 'checkbox'; //creates checkbos
+        newNode.value = attrb; //sets value equal to label text
+        newNode.classList += checkClass; //adds class - may remove - was based on previous factor - may style all classes the same
+        newNodeLabel.for = attrb; //sets for equal to label text
 
-        newNodeLabel.appendChild(newNode);
-        newNodeLabel.appendChild(nodeDescription);
+        newNodeLabel.appendChild(newNode); //appends checkbox to label
+        newNodeLabel.appendChild(nodeDescription); //appends to created text node label
 
-        newCell.appendChild(newNodeLabel);
-        return newCell;
+        return newNodeLabel; //passes constructed node back to loop within makeAndAppendData()
     }
 
-    //function to create tr node that appends to table in html, TheSelector appends to this
-    const makeTableRow = function(rowClass, attrb, addClass, cellType) {
-        let newRowNode = document.createElement('tr');
-        newRowNode.classList += rowClass;
+    //function to create container and append to DOM, makeSelector function creates nodes to appends to this container
+    const makeAndAppendData = function(containerClass, containerType, attrb, checkClass, appendToId) {
+        let newDataNode = document.createElement(containerType);
+        newDataNode.classList += containerClass;
 
         for(let x = 0; x < attrb.length; x += 1) {
-            newRowNode.appendChild(makeSelector(attrb[x], addClass, cellType));
+            newDataNode.appendChild(makeSelector(attrb[x], checkClass));
         }
         
-        document.querySelector('table').appendChild(newRowNode);
+        document.querySelector(appendToId).appendChild(newDataNode);
+    }
+    
+    //create data specific divs
+    const makeTheDivs = function(newId, newClass, text, appendTo) {
+        let newNode = document.createElement('div');
+        let nodeDescription = document.createTextNode(text);
+    
+        newNode.setAttribute('id', newId);
+        newNode.classList += newClass;
+        newNode.appendChild(nodeDescription);
+    
+        document.querySelector(appendTo).appendChild(newNode);
     }
 
-
+/******************************************************************************************
+functions that create the specific checklists and alter data - listed in order of execution
+******************************************************************************************/
     //pull restaurant names from array.object - make checklist and add button
-        //restaurant array
+        //restaurant checkbox array - declared here for scope
     let restCheckArr = [];
-    const makeRestCheck = function(array) {
-        for(let x = 0; x < array.length; x += 1) {
-            restCheckArr.push(array[x].name);
+
+        //creates list of restaurant names for checkboxes - gets passed to makeAndAppendData- executes on page load (see execution block below)
+    const makeRestCheck = function(array) {//pass in object array
+        for(let x = 0; x < array.length; x += 1) {//loops over object array 
+            restCheckArr.push(array[x].name);//pushs 'name' of each object (restaurant)
         }
     }
-    // button vars declared for scope
+    // button vars declared for scope - maybe move up?????
     let restBtnClick = document.querySelector('#selectRestBtn');
     let mealBtnClick = document.querySelector('#selectMealBtn');
     let optionBtnClick = document.querySelector('#selectRestBtn');
 
+
     //pull mealtimes from checked DOM elements, create list of meal options
-        // selected restaurant array and collect Boolean
+        // target restaurant name checkboxes, collect boolean, remove uncheck restaurant objects from array
     const listMealTimes = function() {
         let restCheckTarg = document.querySelectorAll('.restaurants'); // targets the restaurant checkboxes
         for (let x = 0; x < restCheckTarg.length; x +=1) // loops over each checkbox
@@ -165,30 +163,38 @@ window.onload = function() {
             };
         }
         restaurants = restaurants.filter((obj) => obj); // filters out null values
-        createMealList(restaurants); //executes meal checkbox list creation remaining restaurant object array
+        createMealList(restaurants); //executes meal checkbox list creation on remaining restaurant object array
 
-        mealBtnClick.addEventListener('click', listOptions, false);
+        mealBtnClick.addEventListener('click', listOptions, false); //add event listener - don't know why it's here...
     }
     
         //create meal list and append to DOM - after first button click
-    const createMealList = function(arr) {
-        for (let x = 0; x < arr.length; x += 1) {
-            let localMeal = arr[x].meals;
-            console.log(localMeal);
-            let localMealArr = []
-            for(let x = 0; x < localMeal.length; x += 1) {
-                localMealArr.push(localMeal[x].mealTime);
+    const createMealList = function(arr) { //pass in altered object array
+        for (let x = 0; x < arr.length; x += 1) { //loop over altered meal array
+            let divId = "restaurant" + x; //create unique ID to be used in makeTheDivs
+            makeTheDivs(divId, 'tempRestClass', arr[x].name, '#menuLists'); //create div to append meal data to
+            let localMeal = arr[x].meals; //pull meals{} object nested in current (x reference) restaurant
+            let localMealArr = []; // declared for scope
+            for(let x = 0; x < localMeal.length; x += 1) { // loops over array of 'meal-times'
+                localMealArr.push(localMeal[x].mealTime); // pushes each meal-time to array
             }
-            console.log(localMealArr);
-            makeTableRow('tableRow', localMealArr, 'mealBoxes');
+            console.log(localMealArr); //here for testing - remove later
+            divId = '#' + divId; //added hash to make query selector work
+            makeAndAppendData('mealDiv', 'div', localMealArr, 'mealBoxes', divId); //creates checkboxes
         }
     }
     
     // pull dietary options from checked meal times - append to DOM
-        // selected meal-time array and collect checked boolean
+        // select meal-time checkboxes and collect checked boolean
     let mealCheckTarg; //array of meal check boxes - declared here for scope
-    let mealCheckArr = []; //array of bool value of mealCheckTarg -  declared here for scope
+    let mealCheckArr = []; //array of bool value of mealCheckTarg - declared here for scope
     const listOptions = function() {
+        let restDivAr = document.querySelectorAll('.tempRestClass'); // select restaurant containers
+        for(let x = 0; x < restaurants.length; x += 1) { // iterate over divs to get selected checkboxes
+            let localRest =  restaurants[x]; // assign local rest to var
+
+        }
+
         mealCheckTarg = document.querySelectorAll('.mealBoxes');
         for (let x = 0; x < mealCheckTarg.length; x += 1) {
             mealCheckArr.push(mealCheckTarg)
@@ -200,17 +206,13 @@ window.onload = function() {
     
     //Restaurant Selection Section
     makeRestCheck(restaurants); //make the array of restaurant names pulled from object array
-
+    makeAndAppendData('restaurantTitle', 'span', restCheckArr, 'restaurants', '#restSelect'); // restaurant checkbox node creation and append to DOM
+    restBtnClick.addEventListener('click', listMealTimes, false);
     /*
     need to create functions that delete not just array, 
     but that test and delete from objects themselves.
     refresh button to reset
     */
-
-
-
-    makeTableRow('tableRow', restCheckArr, 'restaurants', 'th'); // restaurant checkbox node creation and append to DOM
-    restBtnClick.addEventListener('click', listMealTimes, false);
     
     /*
         10 populate list of restaurants
