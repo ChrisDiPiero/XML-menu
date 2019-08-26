@@ -146,14 +146,10 @@ functions that create the specific checklists and alter data - listed in order o
             restCheckArr.push(array[x].name);//pushs 'name' of each object (restaurant)
         }
     }
-    // button vars declared for scope - maybe move up?????
-    let restBtnClick = document.querySelector('#selectRestBtn');
-    let mealBtnClick = document.querySelector('#selectMealBtn');
-    let optionBtnClick = document.querySelector('#selectRestBtn');
-
-
+    
+    
     //pull mealtimes from checked DOM elements, create list of meal options
-        // target restaurant name checkboxes, collect boolean, remove uncheck restaurant objects from array
+    // target restaurant name checkboxes, collect boolean, remove uncheck restaurant objects from array
     const listMealTimes = function() {
         let restCheckTarg = document.querySelectorAll('.restaurants'); // targets the restaurant checkboxes
         for (let x = 0; x < restCheckTarg.length; x +=1) // loops over each checkbox
@@ -165,11 +161,11 @@ functions that create the specific checklists and alter data - listed in order o
         restaurants = restaurants.filter((obj) => obj); // filters out null values
         createMealList(restaurants); //executes meal checkbox list creation on remaining restaurant object array
 
-        mealBtnClick.addEventListener('click', listOptions, false); //add event listener - don't know why it's here...
+        //mealBtnClick.addEventListener('click', listOptions, false); moved - delete if it works
     }
     
         //create meal list and append to DOM - after first button click
-    const createMealList = function(arr) { //pass in altered object array
+        const createMealList = function(arr) { //pass in altered object array
         for (let x = 0; x < arr.length; x += 1) { //loop over altered meal array
             let divId = "restaurant" + x; //create unique ID to be used in makeTheDivs
             makeTheDivs(divId, 'tempRestClass', arr[x].name, '#menuLists'); //create div to append meal data to
@@ -186,18 +182,20 @@ functions that create the specific checklists and alter data - listed in order o
     
     // pull dietary options from checked meal times - append to DOM
         // select meal-time checkboxes and collect checked boolean
-    let mealCheckTarg; //array of meal check boxes - declared here for scope
     let mealCheckArr = []; //array of bool value of mealCheckTarg - declared here for scope
-    const listOptions = function() {
+    const listOptions = function() { // this function is broken somehow
         let restDivAr = document.querySelectorAll('.tempRestClass'); // select restaurant containers
-        for(let x = 0; x < restaurants.length; x += 1) { // iterate over divs to get selected checkboxes
-            let localRest =  restaurants[x]; // assign local rest to var
-
-        }
-
-        mealCheckTarg = document.querySelectorAll('.mealBoxes');
-        for (let x = 0; x < mealCheckTarg.length; x += 1) {
-            mealCheckArr.push(mealCheckTarg)
+        for(let x = 0; x < restDivAr.length; x += 1) { // iterate over divs to get selected checkboxes
+            let localDiv =  restDivAr[x]; // assign local rest to var
+            let mealCheckTarg = localDiv.querySelectorAll('.mealBoxes'); //array of meal check boxes
+            for (let x = 0; x < localDiv.length; x +=1) // loops over each checkbox
+            {
+                if (!mealCheckTarg[x].checked) { //tests for unchecked (false) checkboxes 
+                    // write code to delete meals from corresponding object, maybe?
+                    console.log("nerp!");
+                    mealCheckArr.push("derp");
+                };
+            }
         }
     }
     /*****************************
@@ -205,17 +203,22 @@ functions that create the specific checklists and alter data - listed in order o
      ****************************/
     
     //Restaurant Selection Section
+    // button vars declared for scope - maybe move up?????
+    let restBtnClick = document.querySelector('#selectRestBtn');
+    let mealBtnClick = document.querySelector('#selectMealBtn');
+    let optionBtnClick = document.querySelector('#selectRestBtn');
     makeRestCheck(restaurants); //make the array of restaurant names pulled from object array
     makeAndAppendData('restaurantTitle', 'span', restCheckArr, 'restaurants', '#restSelect'); // restaurant checkbox node creation and append to DOM
     restBtnClick.addEventListener('click', listMealTimes, false);
+    mealBtnClick.addEventListener('click', listOptions, false);
     /*
     need to create functions that delete not just array, 
     but that test and delete from objects themselves.
     refresh button to reset
     */
-    
+   
     /*
-        10 populate list of restaurants
+    10 populate list of restaurants
             11 read xml
             12 store array of ALL restaurants in variable
             13 template literal - create inputs
