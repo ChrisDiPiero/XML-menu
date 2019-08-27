@@ -183,17 +183,16 @@ functions that create the specific checklists and alter data - listed in order o
     // pull dietary options from checked meal times - append to DOM
         // select meal-time checkboxes and collect checked boolean
     let mealCheckArr = []; //array of bool value of mealCheckTarg - declared here for scope
-    const listOptions = function() { // this function is broken somehow
+    const listOptions = function() {
         let restDivAr = document.querySelectorAll('.tempRestClass'); // select restaurant containers
         for(let x = 0; x < restDivAr.length; x += 1) { // iterate over divs to get selected checkboxes
             let localDiv =  restDivAr[x]; // assign local rest to var
             let mealCheckTarg = localDiv.querySelectorAll('.mealBoxes'); //array of meal check boxes
-            for (let x = 0; x < localDiv.length; x +=1) // loops over each checkbox
+            for (let x = 0; x < mealCheckTarg.length; x +=1) // loops over each checkbox
             {
                 if (!mealCheckTarg[x].checked) { //tests for unchecked (false) checkboxes 
                     // write code to delete meals from corresponding object, maybe?
-                    console.log("nerp!");
-                    mealCheckArr.push("derp");
+
                 };
             }
         }

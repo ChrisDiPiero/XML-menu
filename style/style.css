@@ -10,14 +10,3 @@ body {
     display: inline-block;
 }
 
-table{
-    width: 100%;
-}
-
-table, td, th {
-    border: solid black 1px;
-}
-
-.tableRow {
-    color: navy;
-}
