@@ -143,7 +143,7 @@ functions that create the specific checklists and alter data - listed in order o
         //creates list of restaurant names for checkboxes - gets passed to makeAndAppendData- executes on page load (see execution block below)
     const makeRestCheck = function(array) {//pass in object array
         for(let x = 0; x < array.length; x += 1) {//loops over object array 
-            restCheckArr.push(array[x].name);//pushs 'name' of each object (restaurant)
+            restCheckArr.push(array[x].name);//push 'name' of each object (restaurant)
         }
     }
     
@@ -152,14 +152,12 @@ functions that create the specific checklists and alter data - listed in order o
     // target restaurant name checkboxes, collect boolean, remove uncheck restaurant objects from array
     const listMealTimes = function() {
         let restCheckTarg = document.querySelectorAll('.restaurants'); // targets the restaurant checkboxes
-        /************************fix this with filter maybe? */
-        // for (let x = 0; x < restCheckTarg.length; x +=1) // loops over each checkbox
-        // {
-        //     if (!restCheckTarg[x].checked) { //tests for unchecked (false) checkboxes 
-        //         restaurants.splice(x, 1); // gets index of unchecked boxes, removes corresponding object value in array - not working - array shortens screwing up index on each pass, filter instead.
-        //     };
-        // }
-        console.log(restaurants);
+        for (let x = restCheckTarg.length - 1; x >= 0; x -=1) // loops over each checkbox backwards so as not to screw up indexes
+        {
+            if (!restCheckTarg[x].checked) { //tests for unchecked (false) checkboxes 
+                restaurants.splice(x, 1); // gets index of unchecked boxes, removes corresponding object value in array
+            };
+        }
         createMealList(restaurants); //executes meal checkbox list creation on remaining restaurant object array
     }
     
@@ -183,10 +181,10 @@ functions that create the specific checklists and alter data - listed in order o
     const listOptions = function() {
         let restDivAr = document.querySelectorAll('.tempRestClass'); // select restaurant containers
 
-        for(let x = 0; x < restDivAr.length; x += 1) { // iterate over divs to get selected checkboxes
+        for (let x = 0; x < restDivAr.length; x += 1) { // iterate over divs to get selected checkboxes
             let localDiv =  restDivAr[x]; // assign local rest to var
             let mealCheckTarg = localDiv.querySelectorAll('.mealBoxes'); //array of meal check boxes
-            for (let y = 0; y < mealCheckTarg.length; y +=1) { // loops over each checkbox
+            for (let y = mealCheckTarg.length - 1; y >= 0; y -=1) { // loops over each checkbox
                 if (!mealCheckTarg[y].checked) { //tests for unchecked (false) checkboxes 
                     restaurants[x].meals.splice(y, 1); //gets index of unchecked boxes, removes from object value from array
                 }
@@ -195,9 +193,45 @@ functions that create the specific checklists and alter data - listed in order o
         createOptionsList(restaurants);
     }
 
-    const createOptionsList = function() {
+        //pull dietary options then append to DOM
+    const createOptionsList = function(arr) {
+        localOptionArray = []; // temp arr to insert option values - here for scope
+        for (let x = 0; x < arr.length; x += 1) { //loops over restaurant array to pull meal data
+            for (let y = 0; y < arr[x].meals.length; y += 1) {
+                localOptionArray.push(arr[x].meals[y].menuOptions)
+            }
+        }
+        localOptionArray = localOptionArray.flat().filter(word => word.length > 0); // flatten nested array and remove empty strings
+        localOptionArray = [...new Set(localOptionArray)]; // filter to unique values
+        localOptionArray.push("All Menu Items"); // gives user option to select whole menu
+        if (localOptionArray.indexOf("Vegetarian") !== -1) { // tests for Vegetarian selection = true
+            localOptionArray.push("Vegan"); // adds Vegan if true (since that is encaplsulated in vegetarian)
+        }
+
+        makeAndAppendData('dietDiv', 'div', localOptionArray, 'optionBoxes', '#selectOptionsText');
+    }
+
+    // create and append the meal lists to the DOM
+        // select option checkboxes and return selected values
+    let selectedOptions = []; // array of selcted options - declared here for scope
+    const listItems = function() {
+        let optionArr = document.querySelectorAll('.optionBoxes'); //select option check boxes
+        
+        for (let x = 0; x < optionArr.length; x += 1) {
+            if (optionArr[x].checked) {
+                selectedOptions.push
+            }
+        }
+        makeTheMenus(restaurants);
+    }
+
+        // create the menus and append the DOM
+    const makeTheMenus = function(array) {
+        let itemListTarg = document.querySelectorAll("#theFinalList");
+
 
     }
+
     /*****************************
      ***** execution block ******
      ****************************/
@@ -205,11 +239,11 @@ functions that create the specific checklists and alter data - listed in order o
         //Variables for button targets/selectors
     let restBtnClick = document.querySelector('#selectRestBtn');
     let mealBtnClick = document.querySelector('#selectMealBtn');
-    let optionBtnClick = document.querySelector('#selectRestBtn');
+    let optionBtnClick = document.querySelector('#selectOptionBtn');
         //button event listeners
     restBtnClick.addEventListener('click', listMealTimes, false);
     mealBtnClick.addEventListener('click', listOptions, false);
-    //optionBtnClick.addEventListener('click', listItems, false);
+    optionBtnClick.addEventListener('click', listItems, false);
     
     //lists restaurants
     makeRestCheck(restaurants);//make the array of restaurant names pulled from object array
