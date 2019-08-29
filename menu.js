@@ -216,13 +216,17 @@ functions that create the specific checklists and alter data - listed in order o
     let selectedOptions = []; // array of selcted options - declared here for scope
     const listItems = function() {
         let optionArr = document.querySelectorAll('.optionBoxes'); //select option check boxes
-        
-        for (let x = 0; x < optionArr.length; x += 1) {
-            if (optionArr[x].checked) {
-                selectedOptions.push
-            }
+        if (optionArr[optionArr.length - 1].checked) {
+            selectedOptions = "all";
+        } else {
+            for (let x = 0; x < optionArr.length; x += 1) {
+                if (optionArr[x].checked) {
+                    selectedOptions.push(optionArr[x].value);
+                }
+            }    
         }
-        makeTheMenus(restaurants);
+        console.log(selectedOptions);
+        //makeTheMenus(restaurants);
     }
 
         // create the menus and append the DOM
