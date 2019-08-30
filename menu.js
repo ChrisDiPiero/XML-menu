@@ -217,7 +217,7 @@ functions that create the specific checklists and alter data - listed in order o
     const listItems = function() {
         let optionArr = document.querySelectorAll('.optionBoxes'); //select option check boxes
         if (optionArr[optionArr.length - 1].checked) {
-            selectedOptions = "all";
+            selectedOptions = [];
         } else {
             for (let x = 0; x < optionArr.length; x += 1) {
                 if (optionArr[x].checked) {
