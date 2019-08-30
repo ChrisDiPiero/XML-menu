@@ -8,8 +8,8 @@ window.onload = function() {
         // TheItems creates an array of each menu item, stored in parent meal object
     class TheItems {
         constructor(eachItem) {
-            this.name = ""; // if menu item has no name, instert description
-            this.description = ""; // test for null/empty before appending dom - do not apend if empty
+            this.name = ""; // if menu item has no name, leave blank - test when appending, use description if emoty
+            this.description = eachItem.querySelector('description').innerText; // insert in place of name 
             this.nameTest(eachItem); // runs method to check for empty name
             this.price = eachItem.querySelector('price').innerText;
             this.optons = eachItem.querySelector('dietary').innerText.split(' '); //array of meal dietary options
@@ -17,12 +17,8 @@ window.onload = function() {
         
         // empty name method I told you about - test name for innerText
         nameTest(eachItem) {
-            if (eachItem.querySelector('name').innerText) {
-                this.name = eachItem.querySelector('name').innerText; //true: name = name from XML, desc = desc
-                this.description = eachItem.querySelector('description').innerText;
-            }
-            else {
-                this.name = eachItem.querySelector('description').innerText; // false: name = description from XML and description left empty
+            if (!eachItem.querySelector('name').innerText) {
+                this.name = eachItem.querySelector('name').innerText; //true: name = name from XML, else leave blank
             }
         }
     }
@@ -225,15 +221,33 @@ functions that create the specific checklists and alter data - listed in order o
                 }
             }    
         }
-        console.log(selectedOptions);
-        //makeTheMenus(restaurants);
+        console.log(selectedOptions); // here for testing - remove
+        makeTheMenus(restaurants);
     }
 
         // create the menus and append the DOM
     const makeTheMenus = function(array) {
         let itemListTarg = document.querySelectorAll("#theFinalList");
+        for (let x = 0; x < array.length; x += 1) {
+            let localRest = array[x];
+            makeTheDivs(localRest.name, 'restDiv', localRest.name, itemListTarg);
+            for (let x = 0; x < localRest.menus.length; x += 1) {
+                let localMeal = localRest.meals[x];
+                makeTheDivs(('meal' + [x]), 'mealDiv', localMeal.mealTime);
+                for (let x = 0; x < localMeal.item.length; x += 1) {
+                    let localItem = localMeal.item[x];
+                    insertItems();
+                }
+            }
+        }
+    }
 
-
+        // create item list and append to DOM
+    const insertItems = function() {
+        let newNode = document.createElement('div');
+        let nameNode = document.createElement('span');
+        let priceNode = document.createElement('span');
+        let description = document.createElement('p');
     }
 
     /*****************************
