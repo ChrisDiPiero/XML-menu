@@ -90,7 +90,7 @@ window.onload = function() {
     console.log(restaurants); //kill after done. just here for testing ***review
 
 /*********************************************************************************
-reusable functions that create the DOM elements (checkboxes and their containers)
+reusable functions that create the DOM elements (checkboxes and their containers) ***review - see StkOvr on fragments for refactor - https://stackoverflow.com/questions/36798005/append-multiple-items-in-javascript
 **********************************************************************************/
     const  makeSelector  = function(attrb, checkClass) { //creates array of checkboxes - called by loop in makeAndAppendData()
         let newNode = document.createElement('input'); //create checkbox
@@ -163,7 +163,7 @@ functions that create the specific checklists and alter data - listed in order o
         //create meal list and append to DOM - after first button click
     const createMealList = function(arr) { //pass in altered object array
         for (let x = 0; x < arr.length; x += 1) { //loop over altered meal array
-            let divId = "restaurant" + x; //create unique ID to be used in makeTheDivs
+            let divId = 'restaurant' + x; //create unique ID to be used in makeTheDivs
             makeTheDivs(divId, 'tempRestClass', arr[x].name, '#menuLists'); //create div to append meal data to
             let localMeal = arr[x].meals; //pull meals{} object nested in current (x reference) restaurant
             let localMealArr = []; // declared for scope
@@ -230,57 +230,51 @@ functions that create the specific checklists and alter data - listed in order o
 
         // create the menus and append the DOM
     const makeTheMenus = function(array) {
-        let itemListTarg = document.querySelectorAll("#theFinalList");
+        // let itemListTarg = document.querySelector("#theFinalList");
         for (let x = 0; x < array.length; x += 1) {
             let localRest = array[x];
-            makeTheDivs(localRest.name, 'restDiv', localRest.name, itemListTarg);
-            for (let x = 0; x < localRest.menus.length; x += 1) {
-                let localMeal = localRest.meals[x];
-                makeTheDivs(('meal' + [x]), 'mealDiv', localMeal.mealTime);
-                for (let y = 0; y < localMeal.item.length; y += 1) { // declaring y iterator as parent x will be used to reference the div for appending
-                    let localItem = localMeal.item[x];
-                    insertItems(localItem);
+            let restId = 'rest' + x;
+            makeTheDivs(restId, 'restDiv', localRest.name, '#theFinalList');
+            console.log(restaurants); // ***review - remove
+            console.log(localRest.meals); // remove
+            for (let y = 0; y < localRest.meals.length; y += 1) {
+                let localMeal = localRest.meals[y];
+                let restDiv = '#rest' + y;
+                let mealId = 'meal' + y;
+                makeTheDivs(mealId, 'mealDiv', localMeal.mealTime, restDiv);
+                for (let z = 0; z < localMeal.item.length; z += 1) { // declaring y iterator as parent x will be used to reference the div for appending
+                    let localItem = localMeal.item[z];
+                    let mealDiv = '#meal' + y;
+                    insertItems(localItem, mealDiv);
                 }
             }
         }
     }
 
         // create item list and append to DOM
-    const insertItems = function(itemObject, ) {
+    const insertItems = function(itemObject, theParent) {
         let newNode = document.createElement('div'); // create container that holde meal items
         let nameNode = document.createElement('span');
-        let priceNode = document.createElement('span');
         let description = document.createElement('p');
+        let priceNode = document.createElement('span');
 
-        nameNode.innerHTML(itemObject.name);
-        nameNode.classList += 'itemName';
-
-        priceNode.innerHTML(itemObject.price);
-        priceNode.classList += 'itemPrice';
-
-        description.innerHTML(itemObject.description);
+        description.innerHTML(itemObject.description);// ***review - WRONG -append text node, you FOOL
         description.classList += 'itemDescription';
         
-        /* ***review
-        10 build out name node
-            11 create node
-            12 append text
-            13 assign class
-        20 build out price node
-            21 create node
-            22 append text
-            23 assign class
-        30 build out description
-            31 create node
-            32 append text
-            33 assign class
-        40 append nodes
-            41 test for name
-            42 ***if*** name append name ****else*** append description
-            43 append price
-            44 ***if*** name append description
-        50 append div to parent
-        */
+        priceNode.innerHTML(itemObject.price);// ***review - WRONG -append text node, you FOOL
+        priceNode.classList += 'itemPrice';
+
+        if(itemObject.name) {
+            nameNode.innerHTML(itemObject.name);// ***review - WRONG -append text node, you FOOL
+            nameNode.classList += 'itemName';
+
+            newNode.appendChild(nameNode);
+        }
+
+        newNode.appendChild(description);
+        newNode.appendChild(priceNode)
+
+        document.querySelector(theParent).appendChild(newNode);
     }
 
     /*****************************
