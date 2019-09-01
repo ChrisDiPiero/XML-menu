@@ -17,7 +17,7 @@ window.onload = function() {
         /***do I need this? ***review  */
         // empty name method I told you about - test name for innerText
         nameTest(eachItem) {
-            if (!eachItem.querySelector('name').innerText) {
+            if (eachItem.querySelector('name').innerText) {
                 this.name = eachItem.querySelector('name').innerText; //true: name = name from XML, else leave blank
             }
         }
@@ -87,7 +87,6 @@ window.onload = function() {
     
     // executes above function imediately after page load
     makeRestaurants(restArrayTarg); //calls function that makes restaurant object array
-    console.log(restaurants); //kill after done. just here for testing ***review
 
 /*********************************************************************************
 reusable functions that create the DOM elements (checkboxes and their containers) ***review - see StkOvr on fragments for refactor - https://stackoverflow.com/questions/36798005/append-multiple-items-in-javascript
@@ -189,6 +188,12 @@ functions that create the specific checklists and alter data - listed in order o
                 }
             }
         }
+        // removes restaurants that no meal has been selected for from array
+        for (let x = restaurants.length - 1; x >= 0; x -= 1) { // loop over each restaurant
+            if (!restaurants[x].meals.length) { // if meals array empty, returns true
+                restaurants.splice(x, 1); // deletes index from restaurants array
+            }
+        }
         createOptionsList(restaurants);
     }
 
@@ -224,27 +229,25 @@ functions that create the specific checklists and alter data - listed in order o
                 }
             }    
         }
-        console.log(selectedOptions); // here for testing - remove ***review
         makeTheMenus(restaurants);
     }
 
         // create the menus and append the DOM
     const makeTheMenus = function(array) {
-        // let itemListTarg = document.querySelector("#theFinalList");
         for (let x = 0; x < array.length; x += 1) {
             let localRest = array[x];
             let restId = 'rest' + x;
             makeTheDivs(restId, 'restDiv', localRest.name, '#theFinalList');
-            console.log(restaurants); // ***review - remove
-            console.log(localRest.meals); // remove
             for (let y = 0; y < localRest.meals.length; y += 1) {
                 let localMeal = localRest.meals[y];
-                let restDiv = '#rest' + y;
+                let restDiv = '#rest' + x;
                 let mealId = 'meal' + y;
                 makeTheDivs(mealId, 'mealDiv', localMeal.mealTime, restDiv);
                 for (let z = 0; z < localMeal.item.length; z += 1) { // declaring y iterator as parent x will be used to reference the div for appending
+                    console.log(restaurants);
                     let localItem = localMeal.item[z];
                     let mealDiv = '#meal' + y;
+                    console.log(mealDiv);
                     insertItems(localItem, mealDiv);
                 }
             }
@@ -253,26 +256,29 @@ functions that create the specific checklists and alter data - listed in order o
 
         // create item list and append to DOM
     const insertItems = function(itemObject, theParent) {
-        let newNode = document.createElement('div'); // create container that holde meal items
+        let newNode = document.createElement('div'); // create container that holds meal items
         let nameNode = document.createElement('span');
         let description = document.createElement('p');
         let priceNode = document.createElement('span');
 
-        description.innerHTML(itemObject.description);// ***review - WRONG -append text node, you FOOL
+        let descText = document.createTextNode(itemObject.description);
+        description.appendChild(descText);
         description.classList += 'itemDescription';
         
-        priceNode.innerHTML(itemObject.price);// ***review - WRONG -append text node, you FOOL
+        let priceText = document.createTextNode(itemObject.price);
+        priceNode.appendChild(priceText);
         priceNode.classList += 'itemPrice';
 
         if(itemObject.name) {
-            nameNode.innerHTML(itemObject.name);// ***review - WRONG -append text node, you FOOL
+            let nameText = document.createTextNode(itemObject.name);
+            nameNode.appendChild(nameText);
             nameNode.classList += 'itemName';
 
             newNode.appendChild(nameNode);
         }
 
         newNode.appendChild(description);
-        newNode.appendChild(priceNode)
+        newNode.appendChild(priceNode);
 
         document.querySelector(theParent).appendChild(newNode);
     }
