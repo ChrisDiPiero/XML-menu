@@ -229,6 +229,7 @@ functions that create the specific checklists and alter data - listed in order o
                 }
             }    
         }
+        console.log(restaurants);
         makeTheMenus(restaurants);
     }
 
@@ -241,13 +242,12 @@ functions that create the specific checklists and alter data - listed in order o
             for (let y = 0; y < localRest.meals.length; y += 1) {
                 let localMeal = localRest.meals[y];
                 let restDiv = '#rest' + x;
-                let mealId = 'meal' + y;
+                let mealId = 'meal' + x + y;
                 makeTheDivs(mealId, 'mealDiv', localMeal.mealTime, restDiv);
                 for (let z = 0; z < localMeal.item.length; z += 1) { // declaring y iterator as parent x will be used to reference the div for appending
                     console.log(restaurants);
                     let localItem = localMeal.item[z];
-                    let mealDiv = '#meal' + y;
-                    console.log(mealDiv);
+                    let mealDiv = '#meal' + x + y;
                     insertItems(localItem, mealDiv);
                 }
             }
