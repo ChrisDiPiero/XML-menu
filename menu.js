@@ -12,7 +12,7 @@ window.onload = function() {
             this.description = eachItem.querySelector('description').innerText; // insert in place of name 
             this.nameTest(eachItem); // runs method to check for empty name
             this.price = eachItem.querySelector('price').innerText;
-            this.optons = eachItem.querySelector('dietary').innerText.split(' '); //array of meal dietary options
+            this.options = eachItem.querySelector('dietary').innerText.split(' '); //array of meal dietary options
         }
         /***do I need this? ***review  */
         // empty name method I told you about - test name for innerText
@@ -206,12 +206,11 @@ functions that create the specific checklists and alter data - listed in order o
             }
         }
         localOptionArray = localOptionArray.flat().filter(word => word.length > 0); // flatten nested array and remove empty strings
-        localOptionArray = [...new Set(localOptionArray)]; // filter to unique values
         localOptionArray.push("All Menu Items"); // gives user option to select whole menu
         if (localOptionArray.indexOf("Vegetarian") !== -1) { // tests for Vegetarian selection = true
             localOptionArray.push("Vegan"); // adds Vegan if true (since that is encaplsulated in vegetarian)
         }
-
+        localOptionArray = [...new Set(localOptionArray)]; // filter to unique values
         makeAndAppendData('dietDiv', 'div', localOptionArray, 'optionBoxes', '#selectOptionsText');
     }
 
@@ -235,6 +234,7 @@ functions that create the specific checklists and alter data - listed in order o
 
         // create the menus and append the DOM
     const makeTheMenus = function(array) {
+        console.log(selectedOptions);
         for (let x = 0; x < array.length; x += 1) {
             let localRest = array[x];
             let restId = 'rest' + x;
@@ -245,9 +245,18 @@ functions that create the specific checklists and alter data - listed in order o
                 let mealId = 'meal' + x + y;
                 makeTheDivs(mealId, 'mealDiv', localMeal.mealTime, restDiv);
                 for (let z = 0; z < localMeal.item.length; z += 1) { // declaring y iterator as parent x will be used to reference the div for appending
-                    console.log(restaurants);
                     let localItem = localMeal.item[z];
+                    console.log(localItem);
                     let mealDiv = '#meal' + x + y;
+                    let localBool = true;
+                    (function(){
+                        if (selectedOptions.length) {
+                            for (let x = 0; x < selectedOptions.length; x += 1) {
+                                localBool = (localItem.options.includes(selectedOptions[x]))
+                            }
+                        }
+                    })();
+                    if (localBool || selectedOptions.includes('All Menu Items'))
                     insertItems(localItem, mealDiv);
                 }
             }
