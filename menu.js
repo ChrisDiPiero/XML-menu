@@ -5,25 +5,25 @@ window.onload = function() {
     ********************************************/
     
     //Classes to make the array of restaurants - pulls the xml data and builds out objects
-        // TheItems creates an array of each menu item, stored in parent meal object
+        // TheItems creates an array of each menu item, stored in parent 'TheMeals' object
     class TheItems {
         constructor(eachItem) {
-            this.name = ""; // if menu item has no name, leave blank - test when appending, use description if emoty
+            this.name = ""; // if menu item has no name, leave blank - test when appending, use description if empty
             this.description = eachItem.querySelector('description').innerText; // insert in place of name 
             this.nameTest(eachItem); // runs method to check for empty name
             this.price = eachItem.querySelector('price').innerText;
-            this.optons = eachItem.querySelector('dietary').innerText.split(' '); //array of meal dietary options
+            this.options = eachItem.querySelector('dietary').innerText.split(' '); //array of meal dietary options
         }
-        
+        /***do I need this? ***review  */
         // empty name method I told you about - test name for innerText
         nameTest(eachItem) {
-            if (!eachItem.querySelector('name').innerText) {
+            if (eachItem.querySelector('name').innerText) {
                 this.name = eachItem.querySelector('name').innerText; //true: name = name from XML, else leave blank
             }
         }
     }
     
-        //TheMeals creates array of the meal times (bfast, lunch etc) avail at parent rest. stored in parent rest object
+        //TheMeals creates array of the meal times (bfast, lunch etc) avail at parent rest. stored in parent 'TheRestaurants' object - stores 'TheItems'
     class TheMeals {
         constructor(mealTime) {
             this.mealTime = mealTime.getAttribute('time');
@@ -37,6 +37,8 @@ window.onload = function() {
                 return tempArr;
             })();
         }
+
+        // methods for 'TheMeals'
         makeOptionsArray(mealTime) { // creates meal options/types array  - probably move this to TheItems object
             let tempArr1 = mealTime.querySelectorAll('dietary'); // array of items as child nodes - unformatted
             let tempArr2 = []; // holds array as it's being built in loop
@@ -51,13 +53,14 @@ window.onload = function() {
         }
     }
     
-        // TheRestaurants creates array of all data from XML
+        // TheRestaurants creates object of restaurant from XML data - stored in 'restaurants' array - contains array of 'TheMeals' objects
     class TheRestaurants {
         constructor(restaurant) {
             this.name = restaurant.getAttribute('restaurant'); // pulls name of restaurant
             this.meals = this.makeMealsArray(restaurant); // executes method that makes the meal array
         }
 
+        //methods for 'TheRestaurants'
         makeMealsArray(restaurant) { // method to call TheMeals class and make meal array
             let nodeArr = restaurant.children; // array of items as child nodes - unformatted
             let tempArr = []; // holds array as it's being built in loop
@@ -84,10 +87,9 @@ window.onload = function() {
     
     // executes above function imediately after page load
     makeRestaurants(restArrayTarg); //calls function that makes restaurant object array
-    console.log(restaurants); //kill after done. just here for testing
 
 /*********************************************************************************
-reusable functions that create the DOM elements (checkboxes and their containers)
+reusable functions that create the DOM elements (checkboxes and their containers) ***review - see StkOvr on fragments for refactor - https://stackoverflow.com/questions/36798005/append-multiple-items-in-javascript
 **********************************************************************************/
     const  makeSelector  = function(attrb, checkClass) { //creates array of checkboxes - called by loop in makeAndAppendData()
         let newNode = document.createElement('input'); //create checkbox
@@ -160,7 +162,7 @@ functions that create the specific checklists and alter data - listed in order o
         //create meal list and append to DOM - after first button click
     const createMealList = function(arr) { //pass in altered object array
         for (let x = 0; x < arr.length; x += 1) { //loop over altered meal array
-            let divId = "restaurant" + x; //create unique ID to be used in makeTheDivs
+            let divId = 'restaurant' + x; //create unique ID to be used in makeTheDivs
             makeTheDivs(divId, 'tempRestClass', arr[x].name, '#menuLists'); //create div to append meal data to
             let localMeal = arr[x].meals; //pull meals{} object nested in current (x reference) restaurant
             let localMealArr = []; // declared for scope
@@ -186,6 +188,12 @@ functions that create the specific checklists and alter data - listed in order o
                 }
             }
         }
+        // removes restaurants that no meal has been selected for from array
+        for (let x = restaurants.length - 1; x >= 0; x -= 1) { // loop over each restaurant
+            if (!restaurants[x].meals.length) { // if meals array empty, returns true
+                restaurants.splice(x, 1); // deletes index from restaurants array
+            }
+        }
         createOptionsList(restaurants);
     }
 
@@ -198,12 +206,11 @@ functions that create the specific checklists and alter data - listed in order o
             }
         }
         localOptionArray = localOptionArray.flat().filter(word => word.length > 0); // flatten nested array and remove empty strings
-        localOptionArray = [...new Set(localOptionArray)]; // filter to unique values
         localOptionArray.push("All Menu Items"); // gives user option to select whole menu
         if (localOptionArray.indexOf("Vegetarian") !== -1) { // tests for Vegetarian selection = true
             localOptionArray.push("Vegan"); // adds Vegan if true (since that is encaplsulated in vegetarian)
         }
-
+        localOptionArray = [...new Set(localOptionArray)]; // filter to unique values
         makeAndAppendData('dietDiv', 'div', localOptionArray, 'optionBoxes', '#selectOptionsText');
     }
 
@@ -221,33 +228,68 @@ functions that create the specific checklists and alter data - listed in order o
                 }
             }    
         }
-        console.log(selectedOptions); // here for testing - remove
+        console.log(restaurants);
         makeTheMenus(restaurants);
     }
 
         // create the menus and append the DOM
     const makeTheMenus = function(array) {
-        let itemListTarg = document.querySelectorAll("#theFinalList");
+        console.log(selectedOptions);
         for (let x = 0; x < array.length; x += 1) {
             let localRest = array[x];
-            makeTheDivs(localRest.name, 'restDiv', localRest.name, itemListTarg);
-            for (let x = 0; x < localRest.menus.length; x += 1) {
-                let localMeal = localRest.meals[x];
-                makeTheDivs(('meal' + [x]), 'mealDiv', localMeal.mealTime);
-                for (let x = 0; x < localMeal.item.length; x += 1) {
-                    let localItem = localMeal.item[x];
-                    insertItems();
+            let restId = 'rest' + x;
+            makeTheDivs(restId, 'restDiv', localRest.name, '#theFinalList');
+            for (let y = 0; y < localRest.meals.length; y += 1) {
+                let localMeal = localRest.meals[y];
+                let restDiv = '#rest' + x;
+                let mealId = 'meal' + x + y;
+                makeTheDivs(mealId, 'mealDiv', localMeal.mealTime, restDiv);
+                for (let z = 0; z < localMeal.item.length; z += 1) { // declaring y iterator as parent x will be used to reference the div for appending
+                    let localItem = localMeal.item[z];
+                    console.log(localItem);
+                    let mealDiv = '#meal' + x + y;
+                    let localBool = true;
+                    (function(){
+                        if (selectedOptions.length) {
+                            for (let x = 0; x < selectedOptions.length; x += 1) {
+                                localBool = (localItem.options.includes(selectedOptions[x]))
+                            }
+                        }
+                    })();
+                    if (localBool || selectedOptions.includes('All Menu Items'))
+                    insertItems(localItem, mealDiv);
                 }
             }
         }
     }
 
         // create item list and append to DOM
-    const insertItems = function() {
-        let newNode = document.createElement('div');
+    const insertItems = function(itemObject, theParent) {
+        let newNode = document.createElement('div'); // create container that holds meal items
         let nameNode = document.createElement('span');
-        let priceNode = document.createElement('span');
         let description = document.createElement('p');
+        let priceNode = document.createElement('span');
+
+        let descText = document.createTextNode(itemObject.description);
+        description.appendChild(descText);
+        description.classList += 'itemDescription';
+        
+        let priceText = document.createTextNode(itemObject.price);
+        priceNode.appendChild(priceText);
+        priceNode.classList += 'itemPrice';
+
+        if(itemObject.name) {
+            let nameText = document.createTextNode(itemObject.name);
+            nameNode.appendChild(nameText);
+            nameNode.classList += 'itemName';
+
+            newNode.appendChild(nameNode);
+        }
+
+        newNode.appendChild(description);
+        newNode.appendChild(priceNode);
+
+        document.querySelector(theParent).appendChild(newNode);
     }
 
     /*****************************
