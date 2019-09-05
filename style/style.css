@@ -27,16 +27,25 @@ body {
 }
 
 
-/* classes for final item list
-.itemName {
-
+/* classes for final item list */
+.restDiv {
+    font-size: 23px;
 }
 
-.priceNode {
+.mealDiv {
+    font-size: 19px;
+}
 
+.itemName {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.itemPrice {
+    font-size: 15px;
+    font-weight: bolder;
 }
 
 .itemDescription {
-
+    font-size: 13px;
 }
-*/

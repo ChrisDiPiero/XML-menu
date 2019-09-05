@@ -183,6 +183,7 @@ functions that create the specific checklists and alter data - listed in order o
     const listOptions = function() {
         document.querySelector('#selectMealText').classList.toggle('collapsed');
         document.querySelector('#selectOptionsText').classList.toggle('collapsed');
+        document.querySelector('#optionList').classList.toggle('collapsed');
         let restDivAr = document.querySelectorAll('.tempRestClass'); // select restaurant containers
         
         for (let x = 0; x < restDivAr.length; x += 1) { // iterate over divs to get selected checkboxes
@@ -218,7 +219,7 @@ functions that create the specific checklists and alter data - listed in order o
             localOptionArray.push("Vegan"); // adds Vegan if true (since that is encaplsulated in vegetarian)
         }
         localOptionArray = [...new Set(localOptionArray)]; // filter to unique values
-        makeAndAppendData('dietDiv', 'div', localOptionArray, 'optionBoxes', '#selectOptionsText');
+        makeAndAppendData('dietDiv', 'div', localOptionArray, 'optionBoxes', '#optionList');
     }
 
     // create and append the meal lists to the DOM
