@@ -4,17 +4,13 @@ body {
 }
 
 #mainContent {
-    background-color: rgb(185, 192, 255);
+    background-color: rgb(185, 200, 255);
     width: 80%;
     text-align: center;
     display: inline-block;
 }
 
-div {
-    border: 1px solid black;
-}
-
-/* botton and checkbox collapse */
+/* button and checkbox collapse */
 .buttonBox, .checkHolder {
     overflow:hidden;
     transition:max-height 0.3s ease-out;
