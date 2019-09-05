@@ -147,8 +147,10 @@ functions that create the specific checklists and alter data - listed in order o
     
     
     //pull mealtimes from checked DOM elements, create list of meal options
-    // target restaurant name checkboxes, collect boolean, remove uncheck restaurant objects from array
+        // target restaurant name checkboxes, collect boolean, remove uncheck restaurant objects from array
     const listMealTimes = function() {
+        document.querySelector('#selectRestText').classList.toggle('collapsed');
+        document.querySelector('#selectMealText').classList.toggle('collapsed');
         let restCheckTarg = document.querySelectorAll('.restaurants'); // targets the restaurant checkboxes
         for (let x = restCheckTarg.length - 1; x >= 0; x -=1) // loops over each checkbox backwards so as not to screw up indexes
         {
@@ -157,28 +159,32 @@ functions that create the specific checklists and alter data - listed in order o
             };
         }
         createMealList(restaurants); //executes meal checkbox list creation on remaining restaurant object array
+        document.querySelector('#restSelect').classList.toggle('collapsed');
     }
     
-        //create meal list and append to DOM - after first button click
+    //create meal list and append to DOM - after first button click
     const createMealList = function(arr) { //pass in altered object array
+        document.querySelector('#menuLists').classList.toggle('collapsed');
         for (let x = 0; x < arr.length; x += 1) { //loop over altered meal array
             let divId = 'restaurant' + x; //create unique ID to be used in makeTheDivs
             makeTheDivs(divId, 'tempRestClass', arr[x].name, '#menuLists'); //create div to append meal data to
             let localMeal = arr[x].meals; //pull meals{} object nested in current (x reference) restaurant
             let localMealArr = []; // declared for scope
             for(let x = 0; x < localMeal.length; x += 1) { // loops over array of 'meal-times'
-                localMealArr.push(localMeal[x].mealTime); // pushes each meal-time to array
-            }
-            divId = '#' + divId; //added hash to make query selector work
-            makeAndAppendData('mealDiv', 'div', localMealArr, 'mealBoxes', divId); //creates checkboxes
+            localMealArr.push(localMeal[x].mealTime); // pushes each meal-time to array
         }
+        divId = '#' + divId; //added hash to make query selector work
+        makeAndAppendData('mealDiv', 'div', localMealArr, 'mealBoxes', divId); //creates checkboxes
     }
-    
+}
+
     // pull dietary options from checked meal times - append to DOM
         // select meal-time checkboxes and collect unchecked checked boolean - remove from array
     const listOptions = function() {
+        document.querySelector('#selectMealText').classList.toggle('collapsed');
+        document.querySelector('#selectOptionsText').classList.toggle('collapsed');
         let restDivAr = document.querySelectorAll('.tempRestClass'); // select restaurant containers
-
+        
         for (let x = 0; x < restDivAr.length; x += 1) { // iterate over divs to get selected checkboxes
             let localDiv =  restDivAr[x]; // assign local rest to var
             let mealCheckTarg = localDiv.querySelectorAll('.mealBoxes'); //array of meal check boxes
@@ -195,8 +201,9 @@ functions that create the specific checklists and alter data - listed in order o
             }
         }
         createOptionsList(restaurants);
+        document.querySelector('#menuLists').classList.toggle('collapsed');
     }
-
+    
         //pull dietary options then append to DOM
     const createOptionsList = function(arr) {
         localOptionArray = []; // temp arr to insert option values - here for scope
@@ -218,6 +225,7 @@ functions that create the specific checklists and alter data - listed in order o
         // select option checkboxes and return selected values
     let selectedOptions = []; // array of selcted options - declared here for scope
     const listItems = function() {
+        document.querySelector('#selectOptionsText').classList.toggle('collapsed');
         let optionArr = document.querySelectorAll('.optionBoxes'); //select option check boxes
         if (optionArr[optionArr.length - 1].checked) {
             selectedOptions = [];
@@ -230,6 +238,7 @@ functions that create the specific checklists and alter data - listed in order o
         }
         console.log(restaurants);
         makeTheMenus(restaurants);
+        document.querySelector('#optionList').classList.toggle('collapsed');
     }
 
         // create the menus and append the DOM

@@ -14,17 +14,18 @@ div {
     border: 1px solid black;
 }
 
-/* botton collapse */
-.buttonBox {
+/* botton and checkbox collapse */
+.buttonBox, .checkHolder {
     overflow:hidden;
     transition:max-height 0.3s ease-out;
     height:auto;
     max-height:600px;
   }
   
-  .buttonBox.collapsed {
+  .buttonBox.collapsed, .checkHolder.collapsed {
     max-height:0;
   }
+
 .mealBoxes {
 
 }
