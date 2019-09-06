@@ -1,3 +1,4 @@
+/* background styles */
 body {
     background-color: rgb(86, 98, 207);
     text-align: center;
@@ -16,16 +17,16 @@ body {
     transition:max-height 0.3s ease-out;
     height:auto;
     max-height:600px;
-  }
+}
   
-  .buttonBox.collapsed, .checkHolder.collapsed {
+.buttonBox.collapsed, .checkHolder.collapsed {
     max-height:0;
-  }
+}
 
+/* final content styles */
 .mealBoxes {
 
 }
-
 
 /* classes for final item list */
 .restDiv {
@@ -37,15 +38,21 @@ body {
 }
 
 .itemName {
-    font-size: 18px;
+    font-size: 24px;
     font-weight: bold;
-}
 
-.itemPrice {
-    font-size: 15px;
-    font-weight: bolder;
+    padding: 2.5px;
+
+    border-width: 0px 0px 1px 0px;
+    border-style: dashed;
+    border-color: black;
 }
 
 .itemDescription {
-    font-size: 13px;
+    font-size: 18px;
+}
+
+.itemPrice {
+    font-size: 21px;
+    font-weight: bolder;
 }
