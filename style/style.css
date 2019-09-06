@@ -14,7 +14,7 @@ body {
 /* button and checkbox collapse */
 .buttonBox, .checkHolder {
     overflow:hidden;
-    transition:max-height 0.3s ease-out;
+    transition:max-height 0.2s ease-out;
     height:auto;
     max-height:600px;
 }
@@ -37,6 +37,10 @@ body {
     font-size: 19px;
 }
 
+.mealDiv div {
+    margin: 5px;
+}
+
 .itemName {
     font-size: 24px;
     font-weight: bold;
@@ -49,6 +53,7 @@ body {
 }
 
 .itemDescription {
+    margin: 2px;
     font-size: 18px;
 }
 
