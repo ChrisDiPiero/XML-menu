@@ -6,53 +6,48 @@
         <link rel="stylesheet" href="style/style.css">
     </head>
     <body>
-    <div id="mainContent">
-        <h1>
-            Interactive XML Meal Comparison Table
-        </h1>
+        <div id="mainContent">
+            <h1>
+                Interactive XML Meal Comparison Table
+            </h1>
 
-        <h2>
-            Planning a trip to San Antonio?
-        </h2>
-        <p>
-            Here's a random list of restaurants,
-            <br />
-            in no particular order,
-            <br />
-            at which you can eat!
-        </p>
-        <form id="selections">
-            <div id="btnHolder">
-                
-                <fieldset>
-                    <div id="restSelect" class="checkHolder"></div>
-                    <div id="menuLists" class="checkHolder collapsed"></div>
-                    <div id="optionList" class="checkHolder collapsed"></div>
-                    <div id="theFinalList" class="mealBoxes"></div>
-                </fieldset>
-                
-                <div id="selectRestText" class="buttonBox">
-                    Select one or more restaurants and click <input type="button" name="selectRestBtn" id="selectRestBtn" value="here"/> to see what meal times are available.
+            <h2>
+                Planning a trip to San Antonio?
+            </h2>
+            <p>
+                Here's a random list of restaurants,
+                <br />
+                in no particular order,
+                <br />
+                at which you can eat!
+            </p>
+            <form id="selections">
+                <div id="btnHolder">
+                    
+                    <fieldset>
+                        <div id="restSelect" class="checkHolder"></div>
+                        <div id="menuLists" class="checkHolder collapsed"></div>
+                        <div id="optionList" class="checkHolder collapsed"></div>
+                        <div id="theFinalList" class="mealBoxes"></div>
+                    </fieldset>
+
+                    <div id="selectRestText" class="buttonBox">
+                        Select one or more restaurants and click <input type="button" name="selectRestBtn" id="selectRestBtn" value="here"/> to see what meal times are available.
+                    </div>
+                    <div id="selectMealText" class="buttonBox collapsed">
+                        Select one or more meal-times and click <input type="button" name="selectMealBtn" id="selectMealBtn" value="here"/> to see what dietary options are available.
+                    </div>
+                    <div id="selectOptionsText" class="buttonBox collapsed">
+                        Select one or more dietary options and click <input type="button" name="selectOptionBtn" id="selectOptionBtn" value="here"/> to see what dishes are available.
+                    </div>
+
                 </div>
-                <div id="selectMealText" class="buttonBox collapsed">
-                    Select one or more meal-times and click <input type="button" name="selectMealBtn" id="selectMealBtn" value="here"/> to see what dietary options are available.
-                </div>
-                <div id="selectOptionsText" class="buttonBox collapsed">
-                    Select one or more dietary options and click <input type="button" name="selectOptionBtn" id="selectOptionBtn" value="here"/> to see what dishes are available.
-                </div>
 
-            </div>
+            </form>
+            
+        </div>
 
-        </form>
-        
-    </div>
-
-
-
-        <script type="text/javascript" src="menu.js"></script>
-
-
-
+    <script type="text/javascript" src="menu.js"></script>
 
         <!--All XML Below-->
         <xml id="menuData" style="display:none">
