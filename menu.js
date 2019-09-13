@@ -92,7 +92,7 @@ xhr.onreadystatechange = function() {
         makeRestaurants(this);
     }
 };
-xhr.open("GET", "/mainmenu.xml", true);
+xhr.open("GET", "mainmenu.xml", true);
 xhr.send();
 
 // executes above function imediately after page load
