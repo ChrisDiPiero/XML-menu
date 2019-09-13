@@ -79,7 +79,10 @@ class TheRestaurants {
 //const allMenu = document.querySelector('#menuData'); //change to point to other data - ***review - commented out for AJAX test
 //let restArrayTarg = allMenu.querySelectorAll('menu'); //array of each menu - unformatted - ***review - commented out for AJAX test
 let restaurants = []; // array of objects - declared here for scope
-let makeRestaurants = function(menus) { //declare function that creates restaurant objects
+let makeRestaurants = function(xml) { //declare function that creates restaurant objects
+    let xmlData = xml.responseXML;
+    let allMenu = xmlData.querySelector('#menuData');
+    let menus = allMenu.querySelectorAll('menu'); //array of each menu - unformatted
     for(let x = 0; x < menus.length; x += 1) {
         restaurants.push(new TheRestaurants(menus[x])); //new object per restaurant name
     }
@@ -89,9 +92,8 @@ let makeRestaurants = function(menus) { //declare function that creates restaura
 
 const xhr = new XMLHttpRequest();
 xhr.onreadystatechange = function() {
-    if (xhr.readyState == 4 && xhr.status == 200) {
-        console.log(xhr);
-        makeRestaurants(xhr);
+    if (this.readyState == 4 && this.status == 200) {
+        makeRestaurants(this);
     }
 };
 xhr.open("GET", "mainmenu.xml", true);
