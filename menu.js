@@ -94,6 +94,7 @@ let makeRestaurants = function(xml) { //declare function that creates restaurant
 const xhr = new XMLHttpRequest();
 xhr.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
+        console.log("we good");
         makeRestaurants(this);
     }
 };
