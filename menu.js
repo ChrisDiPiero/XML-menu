@@ -92,7 +92,7 @@ xhttp.onreadystatechange = function() {
         makeRestaurants(this);
     }
 };
-xhttp.open("GET", "https://www.dropbox.com/s/mpa9h4c4t2a02fj/mainmenu.xml?dl=1", true);
+xhttp.open("GET", "/mainmenu.xml", true);
 xhttp.send();
 
 // executes above function imediately after page load
