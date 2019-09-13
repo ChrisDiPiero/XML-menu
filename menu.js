@@ -86,10 +86,11 @@ let makeRestaurants = function(menus) { //declare function that creates restaura
 }
 
 // AJAX
+
 const xhr = new XMLHttpRequest();
 xhr.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-        makeRestaurants(this);
+    if (xhr.readyState == 4 && xhr.status == 200) {
+        makeRestaurants(xhr);
     }
 };
 xhr.open("GET", "mainmenu.xml", true);
