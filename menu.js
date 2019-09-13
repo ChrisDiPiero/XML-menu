@@ -86,17 +86,17 @@ let makeRestaurants = function(menus) { //declare function that creates restaura
 }
 
 // AJAX
-const xhttp = new XMLHttpRequest();
-xhttp.onreadystatechange = function() {
+const xhr = new XMLHttpRequest();
+xhr.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
         makeRestaurants(this);
     }
 };
-xhttp.open("GET", "/mainmenu.xml", true);
-xhttp.send();
+xhr.open("GET", "/mainmenu.xml", true);
+xhr.send();
 
 // executes above function imediately after page load
-makeRestaurants(xml); //calls function that makes restaurant object array
+//makeRestaurants(restArrayTarg); //calls function that makes restaurant object array
 
 
 /*********************************************************************************
