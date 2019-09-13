@@ -1,6 +1,6 @@
 <?xml version = "1.0" encoding = "UTF-8" standalone = "yes"?>
 <menulist>
-    <menu restaurant="Max & Louie's New York Diner">
+    <menu restaurant="Max &amp; Louie's New York Diner">
         <meal time="breakfast - 7:30 am - 10:00 pm">
             <item>
                 <name>The Standard</name>
@@ -183,7 +183,7 @@
                 <name>Buckwheat Cakes</name>
                 <price>8.50</price>
                 <description>
-                    Hearty & Healthy Cakes Made with Organic Buckwheat Flour. Treat Yourself Right!
+                    Hearty &amp; Healthy Cakes Made with Organic Buckwheat Flour. Treat Yourself Right!
                 </description>
                 <dietary>Carbs</dietary>
             </item>
@@ -256,7 +256,7 @@
                 <name>Magnolia Patty Melt</name>
                 <price>10.25</price>
                 <description>
-                    Mixed Grilled Onions & Peppers, Swiss Cheese. Served on Grilled Rye
+                    Mixed Grilled Onions &amp; Peppers, Swiss Cheese. Served on Grilled Rye
                 </description>
                 <dietary>Carbs Meat</dietary>
             </item>
@@ -265,7 +265,7 @@
                 <name>Bacon Avocado Burger</name>
                 <price>11.25</price>
                 <description>
-                    Applewood Smoked Bacon Bits, Tillamook Cheddar, & Avocado. Served on A Grilled Potato Bun with Lettuce, Tomato and Onion
+                    Applewood Smoked Bacon Bits, Tillamook Cheddar, &amp; Avocado. Served on A Grilled Potato Bun with Lettuce, Tomato and Onion
                 </description>
                 <dietary>Carbs Meat</dietary>
             </item>
