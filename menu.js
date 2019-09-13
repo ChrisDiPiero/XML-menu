@@ -76,17 +76,28 @@ class TheRestaurants {
  **************************************************************/
     
 //selects the restaurant names and data and stores in array of objects
-const allMenu = document.querySelector('#menuData'); //change to point to other data
-let restArrayTarg = allMenu.querySelectorAll('menu'); //array of each menu - unformatted
-let restaurants = []; // array of objects - declared her for scope
+//const allMenu = document.querySelector('#menuData'); //change to point to other data - ***review - commented out for AJAX test
+//let restArrayTarg = allMenu.querySelectorAll('menu'); //array of each menu - unformatted - ***review - commented out for AJAX test
+let restaurants = []; // array of objects - declared here for scope
 let makeRestaurants = function(menus) { //declare function that creates restaurant objects
     for(let x = 0; x < menus.length; x += 1) {
         restaurants.push(new TheRestaurants(menus[x])); //new object per restaurant name
     }
 }
 
+// AJAX 
+const xhttp = new XMLHttpRequest();
+xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+        makeRestaurants(this);
+    }
+};
+xhttp.open("GET", "https://www.dropbox.com/s/mpa9h4c4t2a02fj/mainmenu.xml?dl=1", true);
+xhttp.send();
+
 // executes above function imediately after page load
-makeRestaurants(restArrayTarg); //calls function that makes restaurant object array
+makeRestaurants(xml); //calls function that makes restaurant object array
+
 
 /*********************************************************************************
 reusable functions that create the DOM elements (checkboxes and their containers) ***review - see StkOvr on fragments for refactor - https://stackoverflow.com/questions/36798005/append-multiple-items-in-javascript
@@ -107,7 +118,7 @@ const  makeSelector  = function(attrb, checkClass) { //creates array of checkbox
     return newNodeLabel; //passes constructed node back to loop within makeAndAppendData()
 }
 
-//function to create container and append to DOM, makeSelector function creates nodes to appends to this container
+//function to create container and append to DOM, makeSelector function creates nodes to append to this container
 const makeAndAppendData = function(containerClass, containerType, attrb, checkClass, appendToId) {
     let newDataNode = document.createElement(containerType);
     newDataNode.classList += containerClass;

@@ -1,7 +1,7 @@
 <?xml version = "1.0" encoding = "UTF-8" standalone = "yes" ?>
 <menulist>
     <menu restaurant="Max & Louie's New York Diner">
-        <breakfast hours="7:30 am - 10:00 pm">
+        <meal time="breakfast - 7:30 am - 10:00 pm">
             <item>
                 <name>The Standard</name>
                 <price>7.95</price>
@@ -26,7 +26,7 @@
                 <description>
                     Omelet filled with your choice of American, Swiss, Cheddar or Mozzarella cheese
                 </description>
-                <dietary></dietary>
+                <dietary>Dairy</dietary>
             </item>
 
             <item>
@@ -64,9 +64,9 @@
                 </description>
                 <dietary>Meat</dietary>
             </item>
-        </breakfast>
+        </meal>
 
-        <lunch hours="7:30 am - 10:00 pm">
+        <meal time="lunch/dinner - 7:30 am - 10:00 pm">
             <item>
                 <name>Reuben</name>
                 <price>14.95</price>
@@ -138,14 +138,11 @@
                 </description>
                 <dietary>Carbs Meat</dietary>
             </item>
-        </lunch>
-        <dinner hours="7:30 am - 10:00 pm">
-            <other>see lunch</other>
-        </dinner>
+        </meal>
     </menu>
 
     <menu restaurant="Magnolia Pancake Haus">
-        <breakfast hours="7:00 am - 2:00 pm">
+        <meal time="breakfast - 7:00 am - 2:00 pm">
             <item>
                 <name>Magnolia’s Old World Buttermilk Pancakes</name>
                 <price>6.99</price>
@@ -173,14 +170,14 @@
                 <dietary>Carbs</dietary>
             </item>
 
-           <item>
+            <item>
                 <name>Apple Cinnamon Pancakes</name>
                 <price>8.75</price>
                 <description>
                     Granny Smith Apples Scented with Zesty Cinnamon and Cooked Into Our Famous Cakes
                 </description>
                 <dietary>Carbs</dietary>
-           </item>
+            </item>
 
             <item>
                 <name>Buckwheat Cakes</name>
@@ -208,8 +205,8 @@
                 </description>
                 <dietary>Carbs</dietary>
             </item>
-        </breakfast>
-        <lunch hours="10:00 am - 2:00 pm">
+        </meal>
+        <meal time="lunch - 10:00 am - 2:00 pm">
             <item>
                 <name>Fried Chicken Chop Salad</name>
                 <price>10.25</price>
@@ -226,10 +223,6 @@
                     Organic Mixed Greens, Tomatoes, Gorgonzola Crumbles, Bacon, Hard Boiled Egg, Avocado, Tortilla Strips, Haus Cilantro Ranch Dressing
                 </description>
                 <dietary>Meat</dietary>
-                <add>
-                    <name>Add Grilled Chicken</name>
-                    <price>3.49</price>
-                </add>
             </item>
 
             <item>
@@ -247,12 +240,7 @@
                 <description>
                     Romaine and Arugula, Red Onions, Parmesan Cheese, Haus Baked Croutons, Classic Caesar Dressing
                 </description>
-                <dietary></dietary>
-                <add>
-                    <name>Add Grilled Chicken</name>
-                    <price>3.49</price>
-                    <dietary>Meat</dietary>
-                </add>
+                <dietary>Dairy</dietary>
             </item>
 
             <item>
@@ -290,16 +278,14 @@
                 </description>
                 <dietary>Carbs Meat</dietary>
             </item>
-        </lunch>
-        <dinner hours="0">
-        </dinner>
+        </meal>
     </menu>
 
     <menu restaurant="Supper">
                 <!-- if no name, use js to bump description above price -->
-        <breakfast hours="7:00 am - 11:00 am">
+        <meal time="breakfast - 7:00 am - 11:00 am">
             <item>
-                <name />
+                <name></name>
                 <price>6</price>
                 <description>
                     Steel Cut Oatmeal, Quinoa, Apple Cider, Apricot, Goji Berry, Raisins and Cherry
@@ -308,7 +294,7 @@
             </item>
 
             <item>
-                <name />
+                <name></name>
                 <price>10</price>
                 <description>
                     Buttermilk Pancakes with Blueberries, Ricotta Cheese, Lemon Curd and Pinenuts
@@ -317,7 +303,7 @@
             </item>
 
             <item>
-                <name />
+                <name></name>
                 <price>11</price>
                 <description>
                     Brioche French Toast with Summer Berries and Dapper Dairy Goat Cheese
@@ -326,59 +312,55 @@
             </item>
 
             <item>
-                <name />
+                <name></name>
                 <price>12</price>
                 <description>
-                   Scrambled Eggs with Sliced Avocado, Arugula and Sauce Romesco
+                    Scrambled Eggs with Sliced Avocado, Arugula and Sauce Romesco
                 </description>
-                <dietary></dietary>
+                <dietary>Vegetarian</dietary>
             </item>
 
             <item>
-                <name />
+                <name></name>
                 <price>12</price>
                 <description>
-                   Ham and Fried Egg Sandwich with Gruyere, Arugula and Pickled Onions
-                </description>
-                <dietary>Carbs Meat</dietary>
-            </item>
-
-            <item>
-                <name />
-                <price>12</price>
-                <description>
-                   Scotch Egg with Green Chili Chorizo, Cornbread, Salad and Crème Fraiche
+                    Ham and Fried Egg Sandwich with Gruyere, Arugula and Pickled Onions
                 </description>
                 <dietary>Carbs Meat</dietary>
             </item>
 
             <item>
-                <name />
+                <name></name>
+                <price>12</price>
+                <description>
+                    Scotch Egg with Green Chili Chorizo, Cornbread, Salad and Crème Fraiche
+                </description>
+                <dietary>Carbs Meat</dietary>
+            </item>
+
+            <item>
+                <name></name>
                 <price>9</price>
                 <description>
-                   Poached Egg on Avocado with Ciabatta Toast and Tomato Provencal
+                    Poached Egg on Avocado with Ciabatta Toast and Tomato Provencal
                 </description>
                 <dietary>Carbs</dietary>
             </item>
 
             <item>
-                <name />
+                <name></name>
                 <price>12</price>
                 <description>
-                   Simple French Omelet with Mature Cheddar Cheese and Fresh Herbs
+                    Simple French Omelet with Mature Cheddar Cheese and Fresh Herbs
                 </description>
-                <dietary></dietary>
+                <dietary>Dairy</dietary>
             </item>
-            <add>
-                <name>Avacado</name>
-                <price>3</price>
-            </add>
 
-        </breakfast>
+        </meal>
 
-        <lunch hours="11:00 am - 3:00 pm">
-            <item type="sandwich">
-                <name />
+        <meal time="lunch - 11:00 am - 3:00 pm">
+            <item >
+                <name></name>
                 <price>10</price>
                 <description>
                     Vegetable Sandwich on Seeded Grain Bread with Hummus, Avocado, Sprouts and Salsa Verd
@@ -386,8 +368,8 @@
                 <dietary>Carbs Vegan</dietary>
             </item>
 
-            <item type="sandwich">
-                <name />
+            <item >
+                <name></name>
                 <price>11</price>
                 <description>
                     Roasted Chicken Salad on Croissant with Sage, Grapes and Walnut
@@ -395,8 +377,8 @@
                 <dietary>Carbs Meat</dietary>
             </item>
 
-            <item type="sandwich">
-                <name />
+            <item >
+                <name></name>
                 <price>11</price>
                 <description>
                     Peeler Farms Beef Burger with Sunny Side Egg, Caramel Onions, Lettuce and Tomat
@@ -404,8 +386,8 @@
                 <dietary>Carbs Meat</dietary>
             </item>
 
-            <item type="sandwich">
-                <name />
+            <item >
+                <name></name>
                 <price>12</price>
                 <description>
                     Smoked Salmon Sandwich on Rye Toast with Havarti Dill Cheese, Pickle, Caper and Tomat
@@ -413,8 +395,8 @@
                 <dietary>Carbs Meat</dietary>
             </item>
 
-            <item type="sandwich">
-                <name />
+            <item >
+                <name></name>
                 <price>13</price>
                 <description>
                     Smoked Beef and Gruyere Grilled Cheese on Jalapeno Sourdough with Pickled Onions and Arugul
@@ -423,16 +405,16 @@
             </item>
 
             <item>
-                <name />
+                <name></name>
                 <price>12</price>
                 <description>
                     Simple French Omelet with Mature Cheddar and Herb
                 </description>
-                <dietary></dietary>
+                <dietary>Dairy</dietary>
             </item>
 
             <item>
-                <name />
+                <name></name>
                 <price>15</price>
                 <description>
                     Halibut with White Bean Puree, Pumpkin Seed, Sesame Seed add Morita Chili Relish
@@ -441,7 +423,7 @@
             </item>
 
             <item>
-                <name />
+                <name></name>
                 <price>15</price>
                 <description>
                     Buttermilk Crusted Chicken with Cornbread and Green Chili Chorizo Grav
@@ -449,16 +431,11 @@
                 <dietary>Carbs Meat</dietary>
             </item>
 
-            <add type="sandwich">
-                <name>Fried Egg</name>
-                <price>3</price>
-            </add>
+        </meal>
 
-        </lunch>
-
-        <dinner hours="5:00 am - 10:00 pm">
+        <meal time="dinner - 5:00 am - 10:00 pm">
             <item>
-                <name />
+                <name></name>
                 <price>26</price>
                 <description>
                     Halibut with White Bean Puree, Pumpkin Seed, Morita and Sesame Seed Relish
@@ -467,7 +444,7 @@
             </item>
 
             <item>
-                <name />
+                <name></name>
                 <price>26</price>
                 <description>
                     Steelhead Ocean Trout with Green Skordalia, Nasturtium and Lentils
@@ -476,7 +453,7 @@
             </item>
 
             <item>
-                <name />
+                <name></name>
                 <price>26</price>
                 <description>
                     Whole Bronzino (the fish, not the Italian Rea with Harissa, Freekeh, Green Beans and Herb Salad
@@ -485,7 +462,7 @@
             </item>
 
             <item>
-                <name />
+                <name></name>
                 <price>26</price>
                 <description>
                     Smoked Crispy Quail with Pickled Corn Relish, Gold Potatoes and Chili Garlic Honey
@@ -494,7 +471,7 @@
             </item>
 
             <item>
-                <name />
+                <name></name>
                 <price>17</price>
                 <description>
                     Fresh Pasta with Roasted Mushrooms, Cream, Kale and Sunflower Seed Pesto
@@ -503,7 +480,7 @@
             </item>
 
             <item>
-                <name />
+                <name></name>
                 <price>25</price>
                 <description>
                     Braised Beef Cheek with Cornbread, Pickled and Charred Okra
@@ -512,7 +489,7 @@
             </item>
 
             <item>
-                <name />
+                <name></name>
                 <price>9</price>
                 <description>
                     Salad of Watercress and Sprouts with Roasted Beets, Blueberry, Almonds and Rhubarb Vinaigrette
@@ -521,7 +498,7 @@
             </item>
 
             <item>
-                <name />
+                <name></name>
                 <price>9</price>
                 <description>
                     Cauliflower Roasted in Brown Butter with Hazelnuts and Salsa Vierge
@@ -530,7 +507,7 @@
             </item>
 
             <item>
-                <name />
+                <name></name>
                 <price>7</price>
                 <description>
                     Simple Garden Salad of Lettuces and Raw Vegetables with Meyer Lemon Dressing
@@ -538,6 +515,6 @@
                 <dietary>Vegan</dietary>
             </item>
 
-        </dinner>
+        </meal>
     </menu>
 </menulist>
