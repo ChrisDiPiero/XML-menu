@@ -81,8 +81,9 @@ class TheRestaurants {
 let restaurants = []; // array of objects - declared here for scope
 let makeRestaurants = function(xml) { //declare function that creates restaurant objects
     let xmlData = xml.response;
-    console.log(xmlData);
-    let allMenu = xmlData.getElementsByTagName('menulists');
+    let parser = new DOMParser();
+    let xmlParsed = parse.ParseFromString(text, "text/html");
+    let allMenu = xmlParsed.getElementsByTagName('menulists');
     let menus = allMenu.querySelectorAll('menu'); //array of each menu - unformatted
     for(let x = 0; x < menus.length; x += 1) {
         restaurants.push(new TheRestaurants(menus[x])); //new object per restaurant name
