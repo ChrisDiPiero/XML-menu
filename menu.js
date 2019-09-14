@@ -82,7 +82,7 @@ let restaurants = []; // array of objects - declared here for scope
 let makeRestaurants = function(xml) { //declare function that creates restaurant objects
     let xmlData = xml.response;
     let parser = new DOMParser();
-    let xmlParsed = parser.ParseFromString(text, "text/html");
+    let xmlParsed = parser.ParseFromString(text, "text/xml");
     let allMenu = xmlParsed.getElementsByTagName('menulists');
     let menus = allMenu.querySelectorAll('menu'); //array of each menu - unformatted
     for(let x = 0; x < menus.length; x += 1) {
