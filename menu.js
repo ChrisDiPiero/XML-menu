@@ -12,7 +12,8 @@ class TheItems {
         this.description = eachItem.querySelector('description').innerText; // insert in place of name 
         this.nameTest(eachItem); // runs method to check for empty name
         this.price = eachItem.querySelector('price').innerText;
-        this.options = eachItem.querySelector('dietary').innerText.split(' '); //array of meal dietary options
+        //this.otptions = "foo" // ***review
+        this.options = eachItem.querySelector('dietary').innerText.split(' '); //array of meal dietary options ***review
     }
     /***do I need this? ***review  */
     // empty name method I told you about - test name for innerText
@@ -82,12 +83,14 @@ let restaurants = []; // array of objects - declared here for scope
 let makeRestaurants = function(xml) { //declare function that creates restaurant objects
     let xmlData = xml.response;
     let parser = new DOMParser();
-    let xmlParsed = parser.ParseFromString(xmlData, "text/xml");
-    let allMenu = xmlParsed.getElementsByTagName('menulists');
-    let menus = allMenu.querySelectorAll('menu'); //array of each menu - unformatted
+    let xmlParsed = parser.parseFromString(xmlData, "text/xml");
+    // let allMenu = xmlParsed.getElementsByTagName('menulist');
+    // console.log(allMenu);
+    let menus = xmlParsed.getElementsByTagName('menu'); //array of each menu - unformatted
     for(let x = 0; x < menus.length; x += 1) {
         restaurants.push(new TheRestaurants(menus[x])); //new object per restaurant name
     }
+    console.log(restaurants);
 }
 
 // AJAX
@@ -95,7 +98,6 @@ let makeRestaurants = function(xml) { //declare function that creates restaurant
 const xhr = new XMLHttpRequest();
 xhr.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
-        console.log("we good");
         makeRestaurants(this);
     }
 };
@@ -159,6 +161,7 @@ let restCheckArr = [];
     //creates list of restaurant names for checkboxes - gets passed to makeAndAppendData- executes on page load (see execution block below)
 const makeRestCheck = function(array) {//pass in object array
     for(let x = 0; x < array.length; x += 1) {//loops over object array 
+        console.log("foo");
         restCheckArr.push(array[x].name);//push 'name' of each object (restaurant)
     }
 }
