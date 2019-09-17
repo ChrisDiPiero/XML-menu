@@ -9,10 +9,10 @@ Classes that convert the XML data to objects
 class TheItems {
     constructor(eachItem) {
         this.name = ""; // if menu item has no name, leave blank - test when appending, use description if empty
-        this.description = eachItem.querySelector('description').innerText; // insert in place of name 
+        this.description = eachItem.querySelector('description').innerHTML; // insert in place of name 
         this.nameTest(eachItem); // runs method to check for empty name
-        this.price = eachItem.querySelector('price').innerText;
-        this.options = eachItem.querySelector('dietary').innerText.split(' '); //array of meal dietary options
+        this.price = eachItem.querySelector('price').innerHTML;
+        this.options = eachItem.querySelector('dietary').innerHTML.split(' '); //array of meal dietary options
     }
     /***do I need this? ***review  */
     // empty name method I told you about - test name for innerText
@@ -82,12 +82,16 @@ let restaurants = []; // array of objects - declared here for scope
 let makeRestaurants = function(xml) { //declare function that creates restaurant objects
     let xmlData = xml.response;
     let parser = new DOMParser();
-    let xmlParsed = parser.ParseFromString(xmlData, "text/xml");
-    let allMenu = xmlParsed.getElementsByTagName('menulists');
-    let menus = allMenu.querySelectorAll('menu'); //array of each menu - unformatted
+    let xmlParsed = parser.parseFromString(xmlData, "text/xml");
+    // let allMenu = xmlParsed.getElementsByTagName('menulist');
+    // console.log(allMenu);
+    let menus = xmlParsed.getElementsByTagName('menu'); //array of each menu - unformatted
     for(let x = 0; x < menus.length; x += 1) {
         restaurants.push(new TheRestaurants(menus[x])); //new object per restaurant name
     }
+    // these were in execution block but were running too fast. moved here so they won't run until data is loaded
+    makeRestCheck(restaurants);//make the array of restaurant names pulled from object array
+    makeAndAppendData('restaurantTitle', 'span', restCheckArr, 'restaurants', '#restSelect'); // restaurant checkbox node creation and append to DOM
 }
 
 // AJAX
@@ -95,7 +99,6 @@ let makeRestaurants = function(xml) { //declare function that creates restaurant
 const xhr = new XMLHttpRequest();
 xhr.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
-        console.log("we good");
         makeRestaurants(this);
     }
 };
@@ -170,9 +173,16 @@ const listMealTimes = function() {
     document.querySelector('#selectRestText').classList.toggle('collapsed'); // collapses button used to select restaurants
     document.querySelector('#selectMealText').classList.toggle('collapsed'); // uncollapses button usde to select meal times
     let restCheckTarg = document.querySelectorAll('.restaurants'); // targets the restaurant checkboxes
-    if (!restCheckTarg.length) { //condition to test for empty array - only modifies 'restaurant' array if false
-        for (let x = restCheckTarg.length - 1; x >= 0; x -=1) // loops over each checkbox backwards so as not to screw up indexes
-        {
+    // checks to see if NO boxes checked - leaves array unmodified
+    let isChecked = 0; //checked counter
+    for (let x = 0; x < restCheckTarg.length; x++) {  //loops over all checkboxes 
+        if (restCheckTarg[x].checked) { // tests if box is checked
+            isChecked += 1; // adds one if checked
+        }
+    }
+    console.log(isChecked);
+    if (isChecked && isChecked < restCheckTarg.length) { // tests to see if any boxes checked and if all boxes checked. if no or all, doesn't modify array
+        for (let x = restCheckTarg.length - 1; x >= 0; x -= 1) {// loops over each checkbox backwards so as not to screw up indexes
             if (!restCheckTarg[x].checked) { //tests for unchecked (false) checkboxes 
                 restaurants.splice(x, 1); // gets index of unchecked boxes, removes corresponding object value in array
             };
@@ -183,18 +193,18 @@ const listMealTimes = function() {
 }
     
     //create meal list and append to DOM - after first button click
-    const createMealList = function(arr) { //pass in altered object array
-        document.querySelector('#menuLists').classList.toggle('collapsed'); // uncollapses menu selection Div
-        for (let x = 0; x < arr.length; x += 1) { //loop over altered meal array
-            let divId = 'restaurant' + x; //create unique ID to be used in makeTheDivs
-            makeTheDivs(divId, 'tempRestClass', arr[x].name, '#menuLists'); //create div to append meal data to
-            let localMeal = arr[x].meals; //pull meals{} object nested in current (x reference) restaurant
-            let localMealArr = []; // declared for scope
-            for(let x = 0; x < localMeal.length; x += 1) { // loops over array of 'meal-times'
+const createMealList = function(arr) { //pass in altered object array
+    document.querySelector('#menuLists').classList.toggle('collapsed'); // uncollapses menu selection Div
+    for (let x = 0; x < arr.length; x += 1) { //loop over altered restaurant array
+        let divId = 'restaurant' + x; //create unique ID to be used in makeTheDivs, will apppend restaurant name and meal times to this
+        makeTheDivs(divId, 'tempRestClass', arr[x].name, '#menuLists'); //create div to append meal data to
+        let localMeal = arr[x].meals; //pull meals{} object nested in current (x reference) restaurant
+        let localMealArr = []; // declared for scope
+        for(let x = 0; x < localMeal.length; x += 1) { // loops over array of 'meal-times'
             localMealArr.push(localMeal[x].mealTime); // pushes each meal-time to array
         }
-        divId = '#' + divId; //added hash to make query selector work
-        makeAndAppendData('mealDiv', 'div', localMealArr, 'mealBoxes', divId); //creates checkboxes
+    divId = '#' + divId; //added hash to make query selector work
+    makeAndAppendData('mealDiv', 'div', localMealArr, 'mealBoxes', divId); //creates checkboxes
     }
 }
 
@@ -210,30 +220,32 @@ const listOptions = function() {
     for (let x = 0; x < restDivAr.length; x += 1) { // iterate over divs to get selected checkboxes
         let localDiv =  restDivAr[x]; // assign local rest to var
         let mealCheckTarg = localDiv.querySelectorAll('.mealBoxes'); //array of meal check boxes
-        tempArr[x] = [];
+        tempArr[x] = []; // assigns empty array at "x" index of temp array
         for (let y = 0; y < mealCheckTarg.length; y += 1) { // loops over each checkbox
             tempArr[x][y] = mealCheckTarg[y].checked; //gets index of unchecked boxes, assigns bool
+            //console.log(x, y);
+            //console.log(tempArr[x][y]);
         }
         if (!tempArr[x].every(function(e){return e})) { // tests for ALL meal checkboxes per rest false
             tempArr[x] = false; // if all meals false, set parent array to false
         }
     }
-    console.log(tempArr);
     
-    if(tempArr.some(function(e){return e})) {
+    if(tempArr.some(function(e){return e})) { //tests to 
         for (let x = tempArr.length - 1 ; x >= 0 ; x -= 1) { // delete false 
             if (!tempArr[x]) {
                 restaurants.splice(x, 1);
+                console.log(restaurants);
             } else {
                 for (let y = tempArr[x].length - 1; y >= 0; y -= 1) { // delete false
                     if (!tempArr[x][y]) {
-                        tempArr[x].meals.splice(y, 1); //gets index of unchecked boxes, removes from object value from array
+                        restaurants[x].meals.splice(y, 1); //gets index of unchecked boxes, removes from object value from array
                     }
                 }
             }
         }
     }
-    console.log(restaurants);
+    console.log(restaurants); //***review */
     createOptionsList(restaurants);
     document.querySelector('#menuLists').classList.toggle('collapsed');
 }
@@ -255,7 +267,7 @@ const createOptionsList = function(arr) {
     makeAndAppendData('dietDiv', 'div', localOptionArray, 'optionBoxes', '#optionList');
 }
 
-// create and append the meal lists to the DOM
+// create and append the meal lists to the DOM  ***review
     // select option checkboxes and return selected values
 let selectedOptions = []; // array of selcted options - declared here for scope
 const listItems = function() {
@@ -270,26 +282,26 @@ const listItems = function() {
             }
         }    
     }
-    console.log(restaurants);
+    /*clearTheMeals(selectedOptions) ***review - create function that removes the meals for which there is no dish selected - 
+    fixes the empy meal problem, may neeed to delete rests as well? maybe move the append block to AFTER the function execution or run remove() after buiild?*/
     makeTheMenus(restaurants);
     document.querySelector('#optionList').classList.toggle('collapsed');
 }
 
     // create the menus and append the DOM
-const makeTheMenus = function(array) {
+const makeTheMenus = function(array) {  // this part is broken, need to remove meal times and restaurants not selected
     console.log(selectedOptions);// ***review
     for (let x = 0; x < array.length; x += 1) {
         let localRest = array[x];
         let restId = 'rest' + x;
         makeTheDivs(restId, 'restDiv', localRest.name, '#theFinalList');
-        for (let y = 0; y < localRest.meals.length; y += 1) {
+        for (let y = 0; y < localRest.meals.length; y += 1) { // declaring y iterator as parent x will be used to reference the div for appending
             let localMeal = localRest.meals[y];
             let restDiv = '#rest' + x;
             let mealId = 'meal' + x + y;
             makeTheDivs(mealId, 'mealDiv', localMeal.mealTime, restDiv);
-            for (let z = 0; z < localMeal.item.length; z += 1) { // declaring y iterator as parent x will be used to reference the div for appending
+            for (let z = 0; z < localMeal.item.length; z += 1) { // declaring z iterator as parent y will be used to reference the div for appending
                 let localItem = localMeal.item[z];
-                console.log(localItem);
                 let mealDiv = '#meal' + x + y;
                 let localBool = true;
                 (function(){
@@ -302,6 +314,13 @@ const makeTheMenus = function(array) {
                 if (localBool || selectedOptions.includes('All Menu Items'))
                 insertItems(localItem, mealDiv);
             }
+            console.log(document.getElementById(mealId));
+            if(!document.getElementById(mealId).hasChildNodes()) {// not working
+                document.getElementById(mealId).classList.toggle('collapsed');// not working
+            }
+        }
+        if(!document.getElementById(restId).hasChildNodes()) {//not working
+            document.getElementById(restId).classList.toggle('collapsed');//not working
         }
     }
 }
@@ -335,9 +354,9 @@ const insertItems = function(itemObject, theParent) {
     document.querySelector(theParent).appendChild(newNode);
 }
 
-/*****************************
- ***** execution block ******
-    ****************************/
+/*****************************************
+ ***** buttons and event listeners ******
+*****************************************/
 //buttons
     //Variables for button targets/selectors
 let restBtnClick = document.querySelector('#selectRestBtn');
@@ -349,8 +368,7 @@ mealBtnClick.addEventListener('click', listOptions, false);
 optionBtnClick.addEventListener('click', listItems, false);
 
 //lists restaurants
-makeRestCheck(restaurants);//make the array of restaurant names pulled from object array
-makeAndAppendData('restaurantTitle', 'span', restCheckArr, 'restaurants', '#restSelect'); // restaurant checkbox node creation and append to DOM
+
 
 
 }
