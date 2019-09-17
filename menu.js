@@ -180,8 +180,8 @@ const listMealTimes = function() {
             isChecked += 1; // adds one if checked
         }
     }
-    // 
-    if (isChecked && !isChecked == restCheckTarg.length) { // tests to see if any boxes checked and if all boxes checked. if no or all, doesn't modify array
+    console.log(isChecked);
+    if (isChecked && isChecked < restCheckTarg.length) { // tests to see if any boxes checked and if all boxes checked. if no or all, doesn't modify array
         for (let x = restCheckTarg.length - 1; x >= 0; x -= 1) {// loops over each checkbox backwards so as not to screw up indexes
             if (!restCheckTarg[x].checked) { //tests for unchecked (false) checkboxes 
                 restaurants.splice(x, 1); // gets index of unchecked boxes, removes corresponding object value in array
@@ -195,8 +195,8 @@ const listMealTimes = function() {
     //create meal list and append to DOM - after first button click
 const createMealList = function(arr) { //pass in altered object array
     document.querySelector('#menuLists').classList.toggle('collapsed'); // uncollapses menu selection Div
-    for (let x = 0; x < arr.length; x += 1) { //loop over altered meal array
-        let divId = 'restaurant' + x; //create unique ID to be used in makeTheDivs
+    for (let x = 0; x < arr.length; x += 1) { //loop over altered restaurant array
+        let divId = 'restaurant' + x; //create unique ID to be used in makeTheDivs, will apppend restaurant name and meal times to this
         makeTheDivs(divId, 'tempRestClass', arr[x].name, '#menuLists'); //create div to append meal data to
         let localMeal = arr[x].meals; //pull meals{} object nested in current (x reference) restaurant
         let localMealArr = []; // declared for scope
@@ -245,6 +245,7 @@ const listOptions = function() {
             }
         }
     }
+    console.log(restaurants); //***review */
     createOptionsList(restaurants);
     document.querySelector('#menuLists').classList.toggle('collapsed');
 }
@@ -281,6 +282,8 @@ const listItems = function() {
             }
         }    
     }
+    /*clearTheMeals(selectedOptions) ***review - create function that removes the meals for which there is no dish selected - 
+    fixes the empy meal problem, may neeed to delete rests as well? maybe move the append block to AFTER the function execution or run remove() after buiild?*/
     makeTheMenus(restaurants);
     document.querySelector('#optionList').classList.toggle('collapsed');
 }
@@ -311,6 +314,7 @@ const makeTheMenus = function(array) {  // this part is broken, need to remove m
                 if (localBool || selectedOptions.includes('All Menu Items'))
                 insertItems(localItem, mealDiv);
             }
+            console.log(document.getElementById(mealId));
             if(!document.getElementById(mealId).hasChildNodes()) {// not working
                 document.getElementById(mealId).classList.toggle('collapsed');// not working
             }
