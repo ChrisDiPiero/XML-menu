@@ -84,7 +84,7 @@ let makeRestaurants = function(xml) { //declare function that creates restaurant
     let parser = new DOMParser();
     console.log(xmlData);
     let xmlParsed = parser.ParseFromString(xmlData, "text/xml");
-    let allMenu = xmlParsed.getElementsByTagName('menulists');
+    let allMenu = xmlParsed.getElementsByTagName('menulist');
     let menus = allMenu.querySelectorAll('menu'); //array of each menu - unformatted
     for(let x = 0; x < menus.length; x += 1) {
         restaurants.push(new TheRestaurants(menus[x])); //new object per restaurant name
