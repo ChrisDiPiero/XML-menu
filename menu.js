@@ -170,9 +170,22 @@ const listMealTimes = function() {
     document.querySelector('#selectRestText').classList.toggle('collapsed'); // collapses button used to select restaurants
     document.querySelector('#selectMealText').classList.toggle('collapsed'); // uncollapses button usde to select meal times
     let restCheckTarg = document.querySelectorAll('.restaurants'); // targets the restaurant checkboxes
+<<<<<<< HEAD
     if (!restCheckTarg.length) { //condition to test for empty array - only modifies 'restaurant' array if false
         for (let x = restCheckTarg.length - 1; x >= 0; x -=1) // loops over each checkbox backwards so as not to screw up indexes
         {
+=======
+    // checks to see if NO boxes checked - leaves array unmodified
+    let isChecked = 0; //checked counter
+    for (let x = 0; x < restCheckTarg.length; x++) {  //loops over all checkboxes 
+        if (restCheckTarg[x].checked) { // tests if box is checked
+            isChecked += 1; // adds one if checked
+        }
+    }
+    // 
+    if (isChecked && !isChecked == restCheckTarg.length) { // tests to see if any boxes checked and if all boxes checked. if no or all, doesn't modify array
+        for (let x = restCheckTarg.length - 1; x >= 0; x -= 1) {// loops over each checkbox backwards so as not to screw up indexes
+>>>>>>> parent of d7e90fe... 
             if (!restCheckTarg[x].checked) { //tests for unchecked (false) checkboxes 
                 restaurants.splice(x, 1); // gets index of unchecked boxes, removes corresponding object value in array
             };
@@ -183,6 +196,7 @@ const listMealTimes = function() {
 }
     
     //create meal list and append to DOM - after first button click
+<<<<<<< HEAD
     const createMealList = function(arr) { //pass in altered object array
         document.querySelector('#menuLists').classList.toggle('collapsed'); // uncollapses menu selection Div
         for (let x = 0; x < arr.length; x += 1) { //loop over altered meal array
@@ -191,6 +205,16 @@ const listMealTimes = function() {
             let localMeal = arr[x].meals; //pull meals{} object nested in current (x reference) restaurant
             let localMealArr = []; // declared for scope
             for(let x = 0; x < localMeal.length; x += 1) { // loops over array of 'meal-times'
+=======
+const createMealList = function(arr) { //pass in altered object array
+    document.querySelector('#menuLists').classList.toggle('collapsed'); // uncollapses menu selection Div
+    for (let x = 0; x < arr.length; x += 1) { //loop over altered meal array
+        let divId = 'restaurant' + x; //create unique ID to be used in makeTheDivs
+        makeTheDivs(divId, 'tempRestClass', arr[x].name, '#menuLists'); //create div to append meal data to
+        let localMeal = arr[x].meals; //pull meals{} object nested in current (x reference) restaurant
+        let localMealArr = []; // declared for scope
+        for(let x = 0; x < localMeal.length; x += 1) { // loops over array of 'meal-times'
+>>>>>>> parent of d7e90fe... 
             localMealArr.push(localMeal[x].mealTime); // pushes each meal-time to array
         }
         divId = '#' + divId; //added hash to make query selector work
@@ -233,7 +257,10 @@ const listOptions = function() {
             }
         }
     }
+<<<<<<< HEAD
     console.log(restaurants);
+=======
+>>>>>>> parent of d7e90fe... 
     createOptionsList(restaurants);
     document.querySelector('#menuLists').classList.toggle('collapsed');
 }
@@ -270,7 +297,10 @@ const listItems = function() {
             }
         }    
     }
+<<<<<<< HEAD
     console.log(restaurants);
+=======
+>>>>>>> parent of d7e90fe... 
     makeTheMenus(restaurants);
     document.querySelector('#optionList').classList.toggle('collapsed');
 }
@@ -302,6 +332,15 @@ const makeTheMenus = function(array) {
                 if (localBool || selectedOptions.includes('All Menu Items'))
                 insertItems(localItem, mealDiv);
             }
+<<<<<<< HEAD
+=======
+            if(!document.getElementById(mealId).hasChildNodes()) {// not working
+                document.getElementById(mealId).classList.toggle('collapsed');// not working
+            }
+        }
+        if(!document.getElementById(restId).hasChildNodes()) {//not working
+            document.getElementById(restId).classList.toggle('collapsed');//not working
+>>>>>>> parent of d7e90fe... 
         }
     }
 }
