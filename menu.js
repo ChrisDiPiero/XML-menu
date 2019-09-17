@@ -80,8 +80,9 @@ class TheRestaurants {
 //let restArrayTarg = allMenu.querySelectorAll('menu'); //array of each menu - unformatted - ***review - commented out for AJAX test
 let restaurants = []; // array of objects - declared here for scope
 let makeRestaurants = function(xml) { //declare function that creates restaurant objects
-    let xmlData = xml.response;
+    let xmlData = xml.responseXML;
     let parser = new DOMParser();
+    console.log(xmlData);
     let xmlParsed = parser.ParseFromString(xmlData, "text/xml");
     let allMenu = xmlParsed.getElementsByTagName('menulists');
     let menus = allMenu.querySelectorAll('menu'); //array of each menu - unformatted
