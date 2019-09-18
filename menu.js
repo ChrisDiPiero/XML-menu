@@ -180,7 +180,6 @@ const listMealTimes = function() {
             isChecked += 1; // adds one if checked
         }
     }
-    console.log(isChecked);
     if (isChecked && isChecked < restCheckTarg.length) { // tests to see if any boxes checked and if all boxes checked. if no or all, doesn't modify array
         for (let x = restCheckTarg.length - 1; x >= 0; x -= 1) {// loops over each checkbox backwards so as not to screw up indexes
             if (!restCheckTarg[x].checked) { //tests for unchecked (false) checkboxes 
@@ -223,8 +222,6 @@ const listOptions = function() {
         tempArr[x] = []; // assigns empty array at "x" index of temp array
         for (let y = 0; y < mealCheckTarg.length; y += 1) { // loops over each checkbox
             tempArr[x][y] = mealCheckTarg[y].checked; //gets index of unchecked boxes, assigns bool
-            //console.log(x, y);
-            //console.log(tempArr[x][y]);
         }
         if (!tempArr[x].every(function(e){return e})) { // tests for ALL meal checkboxes per rest false
             tempArr[x] = false; // if all meals false, set parent array to false
@@ -245,7 +242,6 @@ const listOptions = function() {
             }
         }
     }
-    console.log(restaurants); //***review */
     createOptionsList(restaurants);
     document.querySelector('#menuLists').classList.toggle('collapsed');
 }
@@ -289,20 +285,19 @@ const listItems = function() {
 }
 
     // create the menus and append the DOM
-const makeTheMenus = function(array) {  // this part is broken, need to remove meal times and restaurants not selected
-    console.log(selectedOptions);// ***review
-    for (let x = 0; x < array.length; x += 1) {
-        let localRest = array[x];
-        let restId = 'rest' + x;
-        makeTheDivs(restId, 'restDiv', localRest.name, '#theFinalList');
+const makeTheMenus = function(array) {  // this part is broken, need to remove meal times and restaurants not selected ***review
+    for (let x = 0; x < array.length; x += 1) { //iterates over restaurants array
+        let localRest = array[x]; // assigns [x] restaurant object to localRest
+        let restId = 'rest' + x; // dynamically creates unique ID for appending data
+        makeTheDivs(restId, 'restDiv', localRest.name, '#theFinalList'); // creates div to append child data to, and appends to DOM
         for (let y = 0; y < localRest.meals.length; y += 1) { // declaring y iterator as parent x will be used to reference the div for appending
-            let localMeal = localRest.meals[y];
-            let restDiv = '#rest' + x;
-            let mealId = 'meal' + x + y;
-            makeTheDivs(mealId, 'mealDiv', localMeal.mealTime, restDiv);
+            let localMeal = localRest.meals[y]; // assigns [y] meal-time to localMeal
+            let restDiv = '#rest' + x; // create var to access dynamically created parent div with querySelector used in "makeTheDivs" function
+            let mealId = 'meal' + x + y; // dynamically creates unique ID for appending data
+            makeTheDivs(mealId, 'mealDiv', localMeal.mealTime, restDiv);// creates div to append child data to, and appends to DOM
             for (let z = 0; z < localMeal.item.length; z += 1) { // declaring z iterator as parent y will be used to reference the div for appending
-                let localItem = localMeal.item[z];
-                let mealDiv = '#meal' + x + y;
+                let localItem = localMeal.item[z]; // assigns [z] item to localItem
+                let mealDiv = '#meal' + x + y;// create var to access dynamically created parent div with querySelector used in "makeTheDivs" function
                 let localBool = true;
                 (function(){
                     if (selectedOptions.length) {
@@ -314,13 +309,14 @@ const makeTheMenus = function(array) {  // this part is broken, need to remove m
                 if (localBool || selectedOptions.includes('All Menu Items'))
                 insertItems(localItem, mealDiv);
             }
-            console.log(document.getElementById(mealId));
-            if(!document.getElementById(mealId).hasChildNodes()) {// not working
-                document.getElementById(mealId).classList.toggle('collapsed');// not working
+            let emptyTest = Array.from(document.getElementById(mealId).childNodes); // get array of child nodes 
+            if(emptyTest.length < 2) { // tests to see if node has less than 2 children (will at least have text node)
+                document.getElementById(mealId).style.display = 'none'; // hide from node if no children other than text
             }
         }
-        if(!document.getElementById(restId).hasChildNodes()) {//not working
-            document.getElementById(restId).classList.toggle('collapsed');//not working
+        let emptyTest = Array.from(document.getElementById(restId).childNodes); // get array of child nodes 
+        if(emptyTest.length < 2) { // tests to see if node has less than 2 children (will at least have text node)
+            document.getElementById(restId).style.display = 'none'; // hide from node if no children other than text
         }
     }
 }
