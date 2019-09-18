@@ -1,10 +1,9 @@
 <!DOCTYPE html>
-
+<!--break this out as XSLT? maybe xml will be several files (one per restaurant?)-->
 <html> 
     <head>
         <title>Meal Comparison Chart</title>
         <link rel="stylesheet" href="style/style.css">
-        <meta charset="utf-8"/>
     </head>
     <body>
         <div id="mainContent">
@@ -49,5 +48,528 @@
         </div>
 
         <script type="text/javascript" src="menu.js"></script>
+
+        <!--All XML Below-->
+        <!-- <xml id="menuData" style="display:none">
+            <menulist>
+                <menu restaurant="Max & Louie's New York Diner">
+                    <meal time="breakfast - 7:30 am - 10:00 pm">
+                        <item>
+                            <name>The Standard</name>
+                            <price>7.95</price>
+                            <description>
+                                Two (2) eggs any-style, home fries, bacon or sausage
+                            </description>
+                            <dietary>Carbs Meat</dietary>
+                        </item>
+            
+                        <item>
+                            <name>Hash n’ Eggs</name>
+                            <price>9.95</price>
+                            <description>
+                                Our famous hash made with corned beef, pastrami, potatoes, peppers and onions. Topped with two (2) eggs your way
+                            </description>
+                            <dietary>Carbs Meat</dietary>
+                        </item>
+            
+                        <item>
+                            <name>Cheesy Omelet</name>
+                            <price>8.95</price>
+                            <description>
+                                Omelet filled with your choice of American, Swiss, Cheddar or Mozzarella cheese
+                            </description>
+                            <dietary>Dairy</dietary>
+                        </item>
+            
+                        <item>
+                            <name>L.E.O. Scramble</name>
+                            <price>13.95</price>
+                            <description>
+                                Scramble of Nova Lox (smoked salmon), Eggs and Onions
+                            </description>
+                            <dietary>Meat</dietary>
+                        </item>
+            
+                        <item>
+                            <name>Salami and Eggs</name>
+                            <price>11.95</price>
+                            <description>
+                                Grilled Hebrew National salami scrambled with three (3) eggs
+                            </description>
+                            <dietary>Meat</dietary>
+                        </item>
+            
+                        <item>
+                            <name>Chili Cheese Omelet</name>
+                            <price>11.95</price>
+                            <description>
+                                Omelet filled with meat and bean chili, green onions and cheddar cheese
+                            </description>
+                            <dietary>Meat</dietary>
+                        </item>
+            
+                        <item>
+                            <name>Build Your Omelet</name>
+                            <price>11.95</price>
+                            <description>
+                                Choose any three (3) items: spinach, tomato, onions, green peppers, mushrooms, avocado, bacon, ham, sausage, feta, cheddar, American or Swiss
+                            </description>
+                            <dietary>Meat</dietary>
+                        </item>
+                    </meal>
+            
+                    <meal time="lunch/dinner - 7:30 am - 10:00 pm">
+                        <item>
+                            <name>Reuben</name>
+                            <price>14.95</price>
+                            <description>
+                                Hot pastrami, corned beef, or turkey w/sauerkraut, swiss cheese and thousand island on rye
+                            </description>
+                            <dietary>Carbs Meat</dietary>
+                        </item>
+            
+                        <item>
+                            <name>Rachel</name>
+                            <price>14.95</price>
+                            <description>
+                                Hot pastrami, corned beef, or turkey w/cole slaw, swiss cheese and thousand island on rye
+                            </description>
+                            <dietary>Carbs Meat</dietary>
+                        </item>
+            
+                        <item>
+                            <name>All Natural Turkey</name>
+                            <price>10.95</price>
+                            <description>
+                                Turkey Breast with lettuce and tomato on delicious rye bread
+                            </description>
+                            <dietary>Carbs Meat</dietary>
+                        </item>
+            
+                        <item>
+                            <name>Roast Beef</name>
+                            <price>10.95</price>
+                            <description>
+                                    Freshly sliced roast beef with lettuce and tomato on delicious rye bread
+                            </description>
+                            <dietary>Carbs Meat</dietary>
+                        </item>
+            
+                        <item>
+                            <name>Turkey Club Sandwich</name>
+                            <price>12.95</price>
+                            <description>
+                                Turkey breast, swiss cheese, bacon, lettuce, hellman’s and tomato on triple decker rye toast
+                            </description>
+                            <dietary>Carbs Meat</dietary>
+                        </item>
+            
+                        <item>
+                            <name>Triple Decker Roast Beef</name>
+                            <price>12.95</price>
+                            <description>
+                                Roast Beef, swiss cheese, bacon, lettuce, hellmann’s and tomato on triple decker rye toast
+                            </description>
+                            <dietary>Carbs Meat</dietary>
+                        </item>
+            
+                        <item>
+                            <name>Chopped Liver Sandwich</name>
+                            <price>11.95</price>
+                            <description>
+                                Housemade chopped liver served on rye with lettuce, tomato and red onion
+                            </description>
+                            <dietary>Carbs Meat</dietary>
+                        </item>
+            
+                        <item>
+                            <name>Kosher Salami</name>
+                            <price>11.95</price>
+                            <description>
+                                Hebrew National kosher salami on rye bread
+                            </description>
+                            <dietary>Carbs Meat</dietary>
+                        </item>
+                    </meal>
+                </menu>
+            
+                <menu restaurant="Magnolia Pancake Haus">
+                    <meal time="breakfast - 7:00 am - 2:00 pm">
+                        <item>
+                            <name>Magnolia’s Old World Buttermilk Pancakes</name>
+                            <price>6.99</price>
+                            <description>
+                                Made with Fresh Buttermilk in Small Batches
+                            </description>
+                            <dietary>Carbs</dietary>
+                        </item>
+            
+                        <item>
+                            <name>Blueberry Pancakes</name>
+                            <price>7.95</price>    
+                            <description>
+                                Our World’s Best Buttermilk Pancakes with Wild Blueberries
+                            </description>
+                            <dietary>Carbs</dietary>
+                        </item>
+            
+                        <item>
+                            <name>Chocolate Chip Pancakes</name>
+                            <price>7.95</price>
+                            <description>
+                                Semi-Sweet Chocolate Chips Stud Our World’s Best Pancakes
+                            </description>
+                            <dietary>Carbs</dietary>
+                        </item>
+            
+                       <item>
+                            <name>Apple Cinnamon Pancakes</name>
+                            <price>8.75</price>
+                            <description>
+                                Granny Smith Apples Scented with Zesty Cinnamon and Cooked Into Our Famous Cakes
+                            </description>
+                            <dietary>Carbs</dietary>
+                       </item>
+            
+                        <item>
+                            <name>Buckwheat Cakes</name>
+                            <price>8.50</price>
+                            <description>
+                                Hearty & Healthy Cakes Made with Organic Buckwheat Flour. Treat Yourself Right!
+                            </description>
+                            <dietary>Carbs</dietary>
+                        </item>
+            
+                        <item>
+                            <name>Silver Dollar Cakes</name>
+                            <price>6.95</price>
+                            <description>
+                                $10 Worth of The Cutest Cakes You’ve Ever Tasted
+                            </description>
+                            <dietary>Carbs</dietary>
+                        </item>
+            
+                        <item>
+                            <name>Pecan Pancakes</name>
+                            <price>7.95</price>
+                            <description>
+                                Texas Pecans Fill Our World’s Best Pancakes
+                            </description>
+                            <dietary>Carbs</dietary>
+                        </item>
+                    </meal>
+                    <meal time="lunch - 10:00 am - 2:00 pm">
+                        <item>
+                            <name>Fried Chicken Chop Salad</name>
+                            <price>10.25</price>
+                            <description>
+                                Wedge of Baby Iceberg, Bacon Lardons, Grape Tomatoes, Cucumbers, Fried Egg Ribbons, Crispy Fried Buttermilk Chicken Breast, Haus Smoked Jalapeno Ranch
+                            </description>
+                            <dietary>Carbs Meat</dietary>
+                        </item>   
+            
+                        <item>
+                            <name>Magnolia Cobb</name>
+                            <price>8.49</price>
+                            <description>
+                                Organic Mixed Greens, Tomatoes, Gorgonzola Crumbles, Bacon, Hard Boiled Egg, Avocado, Tortilla Strips, Haus Cilantro Ranch Dressing
+                            </description>
+                            <dietary>Meat</dietary>
+                        </item>
+            
+                        <item>
+                            <name>Strawberry Chicken</name>
+                            <price>10.25</price>
+                            <description>
+                                Organic Mixed Greens, Gorgonzola Crumbles, Fresh Strawberries, Walnuts, Roasted Chicken Breast, Raspberry Poppy Seed Dressing
+                            </description>
+                            <dietary>Meat</dietary>
+                        </item>
+            
+                        <item>
+                            <name>Haus Style Caesar</name>
+                            <price>6.99</price>
+                            <description>
+                                Romaine and Arugula, Red Onions, Parmesan Cheese, Haus Baked Croutons, Classic Caesar Dressing
+                            </description>
+                            <dietary>Dairy</dietary>
+                        </item>
+            
+                        <item>
+                            <name>Classic Cheese Burger</name>
+                            <price>9.99</price>
+                            <description>
+                                Your Choice of Cheese. Served on A Grilled Potato Bun with Lettuce, Tomato and Onion
+                            </description>
+                            <dietary>Carbs Meat</dietary>
+                        </item>
+            
+                        <item>
+                            <name>Magnolia Patty Melt</name>
+                            <price>10.25</price>
+                            <description>
+                                Mixed Grilled Onions & Peppers, Swiss Cheese. Served on Grilled Rye
+                            </description>
+                            <dietary>Carbs Meat</dietary>
+                        </item>
+            
+                        <item>
+                            <name>Bacon Avocado Burger</name>
+                            <price>11.25</price>
+                            <description>
+                                Applewood Smoked Bacon Bits, Tillamook Cheddar, & Avocado. Served on A Grilled Potato Bun with Lettuce, Tomato and Onion
+                            </description>
+                            <dietary>Carbs Meat</dietary>
+                        </item>
+            
+                        <item>
+                            <name>Breakfast Meets Lunch</name>
+                            <price>11.99</price>
+                            <description>
+                                Tillamook Cheddar, Applewood Smoked Bacon, Arugula, Haus Sausage Gravy, Sunny Side up Egg. Served on A Grilled Potato Bun
+                            </description>
+                            <dietary>Carbs Meat</dietary>
+                        </item>
+                    </meal>
+                </menu>
+            
+                <menu restaurant="Supper">
+                            if no name, use js to bump description above price
+                    <meal time="breakfast - 7:00 am - 11:00 am">
+                        <item>
+                            <name></name>
+                            <price>6</price>
+                            <description>
+                                Steel Cut Oatmeal, Quinoa, Apple Cider, Apricot, Goji Berry, Raisins and Cherry
+                            </description>
+                            <dietary>Carbs Vegan</dietary>
+                        </item>
+            
+                        <item>
+                            <name></name>
+                            <price>10</price>
+                            <description>
+                                Buttermilk Pancakes with Blueberries, Ricotta Cheese, Lemon Curd and Pinenuts
+                            </description>
+                            <dietary>Carbs Vegetarian</dietary>
+                        </item>
+            
+                        <item>
+                            <name></name>
+                            <price>11</price>
+                            <description>
+                                Brioche French Toast with Summer Berries and Dapper Dairy Goat Cheese
+                            </description>
+                            <dietary>Carbs Vegetarian</dietary>
+                        </item>
+            
+                        <item>
+                            <name></name>
+                            <price>12</price>
+                            <description>
+                               Scrambled Eggs with Sliced Avocado, Arugula and Sauce Romesco
+                            </description>
+                            <dietary>Vegetarian</dietary>
+                        </item>
+            
+                        <item>
+                            <name></name>
+                            <price>12</price>
+                            <description>
+                               Ham and Fried Egg Sandwich with Gruyere, Arugula and Pickled Onions
+                            </description>
+                            <dietary>Carbs Meat</dietary>
+                        </item>
+            
+                        <item>
+                            <name></name>
+                            <price>12</price>
+                            <description>
+                               Scotch Egg with Green Chili Chorizo, Cornbread, Salad and Crème Fraiche
+                            </description>
+                            <dietary>Carbs Meat</dietary>
+                        </item>
+            
+                        <item>
+                            <name></name>
+                            <price>9</price>
+                            <description>
+                               Poached Egg on Avocado with Ciabatta Toast and Tomato Provencal
+                            </description>
+                            <dietary>Carbs</dietary>
+                        </item>
+            
+                        <item>
+                            <name></name>
+                            <price>12</price>
+                            <description>
+                               Simple French Omelet with Mature Cheddar Cheese and Fresh Herbs
+                            </description>
+                            <dietary>Dairy</dietary>
+                        </item>
+            
+                    </meal>
+            
+                    <meal time="lunch - 11:00 am - 3:00 pm">
+                        <item >
+                            <name></name>
+                            <price>10</price>
+                            <description>
+                                Vegetable Sandwich on Seeded Grain Bread with Hummus, Avocado, Sprouts and Salsa Verd
+                            </description>
+                            <dietary>Carbs Vegan</dietary>
+                        </item>
+            
+                        <item >
+                            <name></name>
+                            <price>11</price>
+                            <description>
+                                Roasted Chicken Salad on Croissant with Sage, Grapes and Walnut
+                            </description>
+                            <dietary>Carbs Meat</dietary>
+                        </item>
+            
+                        <item >
+                            <name></name>
+                            <price>11</price>
+                            <description>
+                                Peeler Farms Beef Burger with Sunny Side Egg, Caramel Onions, Lettuce and Tomat
+                            </description>
+                            <dietary>Carbs Meat</dietary>
+                        </item>
+            
+                        <item >
+                            <name></name>
+                            <price>12</price>
+                            <description>
+                                Smoked Salmon Sandwich on Rye Toast with Havarti Dill Cheese, Pickle, Caper and Tomat
+                            </description>
+                            <dietary>Carbs Meat</dietary>
+                        </item>
+            
+                        <item >
+                            <name></name>
+                            <price>13</price>
+                            <description>
+                                Smoked Beef and Gruyere Grilled Cheese on Jalapeno Sourdough with Pickled Onions and Arugul
+                            </description>
+                            <dietary>Carbs Meat</dietary>
+                        </item>
+            
+                        <item>
+                            <name></name>
+                            <price>12</price>
+                            <description>
+                                Simple French Omelet with Mature Cheddar and Herb
+                            </description>
+                            <dietary>Dairy</dietary>
+                        </item>
+            
+                        <item>
+                            <name></name>
+                            <price>15</price>
+                            <description>
+                                Halibut with White Bean Puree, Pumpkin Seed, Sesame Seed add Morita Chili Relish
+                            </description>
+                            <dietary>Meat</dietary>
+                        </item>
+            
+                        <item>
+                            <name></name>
+                            <price>15</price>
+                            <description>
+                                Buttermilk Crusted Chicken with Cornbread and Green Chili Chorizo Grav
+                            </description>
+                            <dietary>Carbs Meat</dietary>
+                        </item>
+            
+                    </meal>
+            
+                    <meal time="dinner - 5:00 am - 10:00 pm">
+                        <item>
+                            <name></name>
+                            <price>26</price>
+                            <description>
+                                Halibut with White Bean Puree, Pumpkin Seed, Morita and Sesame Seed Relish
+                            </description>
+                            <dietary>Meat</dietary>
+                        </item>
+            
+                        <item>
+                            <name></name>
+                            <price>26</price>
+                            <description>
+                                Steelhead Ocean Trout with Green Skordalia, Nasturtium and Lentils
+                            </description>
+                            <dietary>Meat</dietary>
+                        </item>
+            
+                        <item>
+                            <name></name>
+                            <price>26</price>
+                            <description>
+                                Whole Bronzino (the fish, not the Italian Rea with Harissa, Freekeh, Green Beans and Herb Salad
+                            </description>
+                            <dietary>Meat</dietary>
+                        </item>
+            
+                        <item>
+                            <name></name>
+                            <price>26</price>
+                            <description>
+                                Smoked Crispy Quail with Pickled Corn Relish, Gold Potatoes and Chili Garlic Honey
+                            </description>
+                            <dietary>Meat</dietary>
+                        </item>
+            
+                        <item>
+                            <name></name>
+                            <price>17</price>
+                            <description>
+                                Fresh Pasta with Roasted Mushrooms, Cream, Kale and Sunflower Seed Pesto
+                            </description>
+                            <dietary>Carbs</dietary>
+                        </item>
+            
+                        <item>
+                            <name></name>
+                            <price>25</price>
+                            <description>
+                                Braised Beef Cheek with Cornbread, Pickled and Charred Okra
+                            </description>
+                            <dietary>Meat</dietary>
+                        </item>
+            
+                        <item>
+                            <name></name>
+                            <price>9</price>
+                            <description>
+                                Salad of Watercress and Sprouts with Roasted Beets, Blueberry, Almonds and Rhubarb Vinaigrette
+                            </description>
+                            <dietary>Vegan</dietary>
+                        </item>
+            
+                        <item>
+                            <name></name>
+                            <price>9</price>
+                            <description>
+                                Cauliflower Roasted in Brown Butter with Hazelnuts and Salsa Vierge
+                            </description>
+                            <dietary>Vegetarian</dietary>
+                        </item>
+            
+                        <item>
+                            <name></name>
+                            <price>7</price>
+                            <description>
+                                Simple Garden Salad of Lettuces and Raw Vegetables with Meyer Lemon Dressing
+                            </description>
+                            <dietary>Vegan</dietary>
+                        </item>
+            
+                    </meal>
+                </menu>
+            </menulist>
+        </xml> -->
     </body>
 </html>
